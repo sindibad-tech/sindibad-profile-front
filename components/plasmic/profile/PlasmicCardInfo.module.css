@@ -1,0 +1,113 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 227px;
+  max-width: 100%;
+  position: relative;
+  padding: var(--token-mNc0RnoYTIiN);
+}
+.card > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: calc(0px - 12px);
+  height: calc(100% + 12px);
+}
+.card > :global(.__wab_flex-container) > *,
+.card > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.card > :global(.__wab_flex-container) > picture > img,
+.card > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-top: 12px;
+}
+.freeBox__rkl09 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-right: 0px;
+  min-width: 0;
+}
+.freeBox__dqeat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-mTnGDXQRxVSE);
+  transform: none;
+  border-radius: 20px;
+  padding: 6px;
+}
+.flightIcon3 {
+  object-fit: cover;
+  width: 110px;
+  height: 110px;
+  color: var(--token-FDJo2-0F5JCp);
+  transform: none;
+  flex-shrink: 0;
+  border-radius: 20px;
+}
+.freeBox__gS4Cx {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+.freeBox__u2Cge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  min-width: 0;
+}
+.freeBox__v6JQe {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+.flights4 {
+  color: #8e8e93;
+  text-align: center;
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  user-select: text;
+  text-decoration-line: none;
+  text-overflow: clip;
+}

@@ -1,0 +1,27 @@
+.root {
+  background: var(--token-bvlI1E1je5LA);
+  color: var(--token-wM6gXuDsCB9r);
+  justify-self: center;
+  position: relative;
+  border-radius: var(--token-oAFs2bB0aJsh);
+  padding: var(--token-oAFs2bB0aJsh);
+}
+.rootcoloring_green {
+  background: var(--token-RfjgRm_vwpFE);
+}
+.rootcoloring_red {
+  background: var(--token-1IShhd6hDkAR);
+}
+.rootcoloring_gray {
+  background: var(--token-Ao7MqK40UU3D);
+  color: var(--token-5mZ_zXFml4u8);
+}
+.rootcoloring_yellow {
+  background: var(--token-wNrBF46FiYvD);
+}
+.rootcoloring_blue {
+  background: var(--token-ivI5LngZjhOG);
+}
+.rootcoloring_orange {
+  background: var(--token-1oj9qpofR0r6);
+}

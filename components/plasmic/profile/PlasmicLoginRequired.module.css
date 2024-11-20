@@ -1,0 +1,116 @@
+.root {
+  display: grid;
+  align-content: flex-start;
+  justify-items: center;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  height: 100vh;
+  position: relative;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.root > * {
+  grid-column: 4;
+}
+.freeBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100vh;
+  max-width: 100%;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+  padding: 24px;
+}
+.img {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img > picture > img {
+  object-fit: cover;
+}
+.text__uY5Jb {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  color: #8e8e8e;
+  font-family: "Vazirmatn", sans-serif;
+  min-width: 0;
+}
+.link {
+  display: grid;
+  position: relative;
+  align-content: center;
+  justify-items: center;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: 0px;
+  max-width: 184px;
+  height: 45px;
+  background: #ff334e;
+  min-width: 0;
+  flex-shrink: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+  border-radius: 8px;
+  border: 1px solid #b5b5b5;
+}
+.link > * {
+  grid-column: 4;
+}
+@media (max-width: 1280px) {
+  .link {
+    max-width: 98px;
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 32px;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 1280px) {
+  .link > * {
+    grid-column: 4;
+  }
+}
+.text__s5Iuu {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Vazirmatn", sans-serif;
+  min-width: 0;
+}
+@media (max-width: 1280px) {
+  .text__s5Iuu {
+    font-size: 12px;
+    width: 100%;
+    height: auto;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
+  }
+}
