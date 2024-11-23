@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -45,7 +45,8 @@
           }
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -103,7 +104,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -503,7 +505,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "YUiM7yqBWAqsh8KSnrdj7",
@@ -849,7 +852,8 @@
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "i2nNPeRNQPEP9BPre46c64",
@@ -865,7 +869,7 @@
           "projectId": "i2nNPeRNQPEP9BPre46c64",
           "renderModuleFilePath": "plasmic/profile/PlasmicHomepage.tsx",
           "importSpec": {
-            "modulePath": "../pages/index.tsx"
+            "modulePath": "../pages/trip-stats.tsx"
           },
           "cssFilePath": "plasmic/profile/PlasmicHomepage.module.css",
           "scheme": "blackbox",
@@ -974,6 +978,32 @@
             "modulePath": "CardInfo.tsx"
           },
           "cssFilePath": "plasmic/profile/PlasmicCardInfo.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "6aGTi8PwQvO7",
+          "name": "Login",
+          "type": "managed",
+          "projectId": "i2nNPeRNQPEP9BPre46c64",
+          "renderModuleFilePath": "plasmic/profile/PlasmicLogin.tsx",
+          "importSpec": {
+            "modulePath": "Login.tsx"
+          },
+          "cssFilePath": "plasmic/profile/PlasmicLogin.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "meZq6_ZZzlPV",
+          "name": "Error",
+          "type": "managed",
+          "projectId": "i2nNPeRNQPEP9BPre46c64",
+          "renderModuleFilePath": "plasmic/profile/PlasmicError.tsx",
+          "importSpec": {
+            "modulePath": "Error.tsx"
+          },
+          "cssFilePath": "plasmic/profile/PlasmicError.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
