@@ -197,6 +197,7 @@
     width: 100%;
     padding-right: 0px;
     margin-bottom: 14px;
+    padding-left: var(--token-mNc0RnoYTIiN);
     min-width: 0;
     min-height: 0;
   }
@@ -359,6 +360,7 @@
     margin-bottom: 0px;
     min-width: 0;
     min-height: 0;
+    padding: var(--token-mNc0RnoYTIiN) 0px 0px;
   }
 }
 @media (min-width: 0px) and (max-width: 512px) {
@@ -490,8 +492,19 @@
 }
 @media (min-width: 0px) and (max-width: 512px) {
   .city2 {
-    height: 155px;
+    height: 100%;
     margin-bottom: 0px;
+    width: 100%;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    min-width: 0;
+    min-height: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 512px) {
+  .city2 > :global(.__wab_flex-container) {
+    min-width: 0;
+    min-height: 0;
   }
 }
 .section__rsUa6 {
@@ -631,8 +644,17 @@
 }
 @media (min-width: 0px) and (max-width: 512px) {
   .airport3 {
-    height: 155px;
+    height: 100%;
     margin-bottom: 0px;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 512px) {
+  .airport3 > :global(.__wab_flex-container) {
+    min-width: 0;
+    min-height: 0;
   }
 }
 .section__sUjj6 {
@@ -674,6 +696,7 @@
     height: var(--token-8MkIlsFrrWgx);
     width: auto;
     justify-self: center;
+    margin: 7px;
   }
 }
 .text__fQhVm {
@@ -808,6 +831,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
   left: 0;
   top: auto;
   z-index: 1000;
@@ -819,7 +845,6 @@
   border-top-right-radius: 8px;
   margin-bottom: 8px;
   min-width: 0;
-  padding: 8px;
 }
 .login > :global(.__wab_flex-container) {
   flex-direction: column;
