@@ -168,7 +168,23 @@ function PlasmicError__RenderFunc(props: {
         data-plasmic-override={overrides.text}
         className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
       >
-        {"Sorry, we have encountered an error. Please try again."}
+        <React.Fragment>
+          {(() => {
+            try {
+              return $state.language === "ar"
+                ? "عذرًا، لقد حدث خطأ. يرجى المحاولة مرة أخرى."
+                : "Sorry, we have encountered an error. Please try again.";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "Sorry, we have encountered an error. Please try again.";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
       </div>
     </Stack__>
   ) as React.ReactElement | null;

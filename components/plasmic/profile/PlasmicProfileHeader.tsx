@@ -128,6 +128,72 @@ function PlasmicProfileHeader__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "language",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return ("; " + `${window.document.cookie}`)
+                .split("; user_lang=")
+                .pop()
+                .split(";")
+                .shift()
+                ? ("; " + `${window.document.cookie}`)
+                    .split("; user_lang=")
+                    .pop()
+                    .split(";")
+                    .shift()
+                : "en";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return ``;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "authToken",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return window.decodeURIComponent(
+                ("; " + `${window.document.cookie}`)
+                  .split("; auth_token=")
+                  .pop()
+                  .split(";")
+                  .shift()
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "";
+              }
+              throw e;
+            }
+          })()
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <div
       data-plasmic-name={"root"}

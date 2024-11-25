@@ -534,7 +534,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "p1fHvJbiLdgzRrAS359KQb",
@@ -1093,6 +1094,16 @@
           "id": "__jn_kdFDPwW",
           "name": "WatchThinSvgrepoComSvgIcon",
           "moduleFilePath": "plasmic/profile/icons/PlasmicIcon__WatchThinSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "Ji1j1lUZSC50",
+          "name": "Icon4Icon",
+          "moduleFilePath": "plasmic/profile/icons/PlasmicIcon__Icon4.tsx"
+        },
+        {
+          "id": "J6988OkPWAku",
+          "name": "Icon6Icon",
+          "moduleFilePath": "plasmic/profile/icons/PlasmicIcon__Icon6.tsx"
         }
       ],
       "images": [
@@ -1105,6 +1116,11 @@
           "id": "RuLgCQj9tOHW",
           "name": "Style=filled, Size=32_32 (1).png",
           "filePath": "../public/plasmic/profile/images/styleFilledSize32321Png.png"
+        },
+        {
+          "id": "b0Sj5VeVM6N7",
+          "name": "image 13",
+          "filePath": "../public/plasmic/profile/images/image13.svg"
         }
       ],
       "indirect": false,

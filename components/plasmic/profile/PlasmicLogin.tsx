@@ -75,16 +75,10 @@ import AirportSvgrepoCom2SvgIcon from "./icons/PlasmicIcon__AirportSvgrepoCom2Sv
 
 createPlasmicElementProxy;
 
-export type PlasmicLogin__VariantMembers = {
-  stateShow: "login" | "logout";
-};
-export type PlasmicLogin__VariantsArgs = {
-  stateShow?: MultiChoiceArg<"login" | "logout">;
-};
+export type PlasmicLogin__VariantMembers = {};
+export type PlasmicLogin__VariantsArgs = {};
 type VariantPropType = keyof PlasmicLogin__VariantsArgs;
-export const PlasmicLogin__VariantProps = new Array<VariantPropType>(
-  "stateShow"
-);
+export const PlasmicLogin__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicLogin__ArgsType = {
   language?: string;
@@ -114,7 +108,6 @@ export type PlasmicLogin__OverridesType = {
 
 export interface DefaultLoginProps {
   language?: string;
-  stateShow?: MultiChoiceArg<"login" | "logout">;
   className?: string;
 }
 
@@ -180,16 +173,49 @@ function PlasmicLogin__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
-    () => [
-      {
-        path: "stateShow",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsj8Mi7ZgQDQt()
+  });
+
+  return (
+    (() => {
+      try {
+        return true;
+      } catch (e) {
+        if (
+          e instanceof TypeError ||
+          e?.plasmicType === "PlasmicUndefinedDataError"
+        ) {
+          return true;
+        }
+        throw e;
+      }
+    })() ? (
+      <div
+        data-plasmic-name={"root"}
+        data-plasmic-override={overrides.root}
+        data-plasmic-root={true}
+        data-plasmic-for-node={forNode}
+        className={classNames(
+          projectcss.all,
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          projectcss.plasmic_tokens,
+          plasmic_library_css.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens,
+          sty.root
+        )}
+      >
+        <Stack__
+          as={"div"}
+          data-plasmic-name={"notLogin"}
+          data-plasmic-override={overrides.notLogin}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.notLogin)}
+          dir={(() => {
             try {
-              return $state.userstate;
+              return $props.language === "ar" ? "rtl" : "ltr";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -199,604 +225,476 @@ function PlasmicLogin__RenderFunc(props: {
               }
               throw e;
             }
-          })() ?? $props.stateShow
-      }
-    ],
-    [$props, $ctx, $refs]
-  );
-  const $state = useDollarState(stateSpecs, {
-    $props,
-    $ctx,
-    $queries: {},
-    $refs
-  });
-
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsj8Mi7ZgQDQt()
-  });
-
-  return (
-    <div
-      data-plasmic-name={"root"}
-      data-plasmic-override={overrides.root}
-      data-plasmic-root={true}
-      data-plasmic-for-node={forNode}
-      className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_library_css.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        sty.root,
-        {
-          [sty.rootstateShow_logout]: hasVariant($state, "stateShow", "logout")
-        }
-      )}
-    >
-      <Stack__
-        as={"div"}
-        data-plasmic-name={"notLogin"}
-        data-plasmic-override={overrides.notLogin}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.notLogin, {
-          [sty.notLoginstateShow_login]: hasVariant(
-            $state,
-            "stateShow",
-            "login"
-          )
-        })}
-        dir={(() => {
-          try {
-            return $props.language === "ar" ? "rtl" : "ltr";
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-      >
-        <div
-          data-plasmic-name={"freeBox"}
-          data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox, {
-            [sty.freeBoxstateShow_login]: hasVariant(
-              $state,
-              "stateShow",
-              "login"
-            ),
-            [sty.freeBoxstateShow_logout]: hasVariant(
-              $state,
-              "stateShow",
-              "logout"
-            )
-          })}
+          })()}
         >
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"flight2"}
-            data-plasmic-override={overrides.flight2}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.flight2, {
-              [sty.flight2stateShow_login]: hasVariant(
-                $state,
-                "stateShow",
-                "login"
-              ),
-              [sty.flight2stateShow_logout]: hasVariant(
-                $state,
-                "stateShow",
-                "logout"
-              )
-            })}
+          <div
+            data-plasmic-name={"freeBox"}
+            data-plasmic-override={overrides.freeBox}
+            className={classNames(projectcss.all, sty.freeBox)}
           >
-            <section className={classNames(projectcss.all, sty.section__f8Ssl)}>
-              <AirplanePlaneFlightSvgrepoComSvgIcon
-                data-plasmic-name={"flightIcon1"}
-                data-plasmic-override={overrides.flightIcon1}
-                className={classNames(projectcss.all, sty.flightIcon1)}
-                role={"img"}
-              />
-            </section>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__z4PBk
-              )}
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"flight2"}
+              data-plasmic-override={overrides.flight2}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.flight2)}
             >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return "0";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
+              <section
+                className={classNames(projectcss.all, sty.section__f8Ssl)}
+              >
+                <AirplanePlaneFlightSvgrepoComSvgIcon
+                  data-plasmic-name={"flightIcon1"}
+                  data-plasmic-override={overrides.flightIcon1}
+                  className={classNames(projectcss.all, sty.flightIcon1)}
+                  role={"img"}
+                />
+              </section>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__z4PBk
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return "0";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            <div
-              data-plasmic-name={"flights2"}
-              data-plasmic-override={overrides.flights2}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.flights2
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $props.language === "ar" ? "عدد الرحلات" : "Flights";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "Flights";
+                  })()}
+                </React.Fragment>
+              </div>
+              <div
+                data-plasmic-name={"flights2"}
+                data-plasmic-override={overrides.flights2}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.flights2
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.language === "ar"
+                        ? "عدد الرحلات"
+                        : "Flights";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Flights";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"hours2"}
-            data-plasmic-override={overrides.hours2}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.hours2, {
-              [sty.hours2stateShow_login]: hasVariant(
-                $state,
-                "stateShow",
-                "login"
-              ),
-              [sty.hours2stateShow_logout]: hasVariant(
-                $state,
-                "stateShow",
-                "logout"
-              )
-            })}
-          >
-            <section className={classNames(projectcss.all, sty.section__nASjK)}>
-              <WatchThinSvgrepoComSvgIcon
-                data-plasmic-name={"hour2"}
-                data-plasmic-override={overrides.hour2}
-                className={classNames(projectcss.all, sty.hour2)}
-                role={"img"}
-              />
-            </section>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__zrj2R
-              )}
+                  })()}
+                </React.Fragment>
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"hours2"}
+              data-plasmic-override={overrides.hours2}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.hours2)}
             >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return "0";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
+              <section
+                className={classNames(projectcss.all, sty.section__nASjK)}
+              >
+                <WatchThinSvgrepoComSvgIcon
+                  data-plasmic-name={"hour2"}
+                  data-plasmic-override={overrides.hour2}
+                  className={classNames(projectcss.all, sty.hour2)}
+                  role={"img"}
+                />
+              </section>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__zrj2R
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return "0";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__nJDcY
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $props.language === "ar"
-                      ? "الساعات التي قضيتها في الطيران"
-                      : "Hours in the air";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "Hours in the Air";
+                  })()}
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__nJDcY
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.language === "ar"
+                        ? "الساعات التي قضيتها في الطيران"
+                        : "Hours in the air";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Hours in the Air";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"city2"}
-            data-plasmic-override={overrides.city2}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.city2, {
-              [sty.city2stateShow_login]: hasVariant(
-                $state,
-                "stateShow",
-                "login"
-              ),
-              [sty.city2stateShow_logout]: hasVariant(
-                $state,
-                "stateShow",
-                "logout"
-              )
-            })}
-          >
-            <section className={classNames(projectcss.all, sty.section__rsUa6)}>
-              <BadshahiMosqueSvgrepoComSvgIcon
-                data-plasmic-name={"cityIcon2"}
-                data-plasmic-override={overrides.cityIcon2}
-                className={classNames(projectcss.all, sty.cityIcon2)}
-                role={"img"}
-              />
-            </section>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__eTtc8
-              )}
+                  })()}
+                </React.Fragment>
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"city2"}
+              data-plasmic-override={overrides.city2}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.city2)}
             >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return "0";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
+              <section
+                className={classNames(projectcss.all, sty.section__rsUa6)}
+              >
+                <BadshahiMosqueSvgrepoComSvgIcon
+                  data-plasmic-name={"cityIcon2"}
+                  data-plasmic-override={overrides.cityIcon2}
+                  className={classNames(projectcss.all, sty.cityIcon2)}
+                  role={"img"}
+                />
+              </section>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__eTtc8
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return "0";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ziqGr
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $props.language === "ar"
-                      ? "المدن التي زرتها"
-                      : "Cities visited";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "Cities";
+                  })()}
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ziqGr
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.language === "ar"
+                        ? "المدن التي زرتها"
+                        : "Cities visited";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Cities";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"airport3"}
-            data-plasmic-override={overrides.airport3}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.airport3, {
-              [sty.airport3stateShow_login]: hasVariant(
-                $state,
-                "stateShow",
-                "login"
-              ),
-              [sty.airport3stateShow_logout]: hasVariant(
-                $state,
-                "stateShow",
-                "logout"
-              )
-            })}
-          >
-            <section className={classNames(projectcss.all, sty.section__sUjj6)}>
-              <AirportSvgrepoCom2SvgIcon
-                data-plasmic-name={"airportIcon3"}
-                data-plasmic-override={overrides.airportIcon3}
-                className={classNames(projectcss.all, sty.airportIcon3)}
-                role={"img"}
-              />
-            </section>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fQhVm
-              )}
+                  })()}
+                </React.Fragment>
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"airport3"}
+              data-plasmic-override={overrides.airport3}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.airport3)}
             >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return "0";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
+              <section
+                className={classNames(projectcss.all, sty.section__sUjj6)}
+              >
+                <AirportSvgrepoCom2SvgIcon
+                  data-plasmic-name={"airportIcon3"}
+                  data-plasmic-override={overrides.airportIcon3}
+                  className={classNames(projectcss.all, sty.airportIcon3)}
+                  role={"img"}
+                />
+              </section>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__fQhVm
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return "0";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___44KI0
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $props.language === "ar"
-                      ? "المطارات التي زرتها "
-                      : "Airports Visited";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "Airport Visited";
+                  })()}
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___44KI0
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.language === "ar"
+                        ? "المطارات التي زرتها "
+                        : "Airports Visited";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Airport Visited";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"km2"}
-            data-plasmic-override={overrides.km2}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.km2, {
-              [sty.km2stateShow_login]: hasVariant(
-                $state,
-                "stateShow",
-                "login"
-              ),
-              [sty.km2stateShow_logout]: hasVariant(
-                $state,
-                "stateShow",
-                "logout"
-              )
-            })}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__iu4Hz
-              )}
+                  })()}
+                </React.Fragment>
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"km2"}
+              data-plasmic-override={overrides.km2}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.km2)}
             >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return "0";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__iu4Hz
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return "0";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            <div
-              data-plasmic-name={"milesFlown2"}
-              data-plasmic-override={overrides.milesFlown2}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.milesFlown2
-              )}
+                  })()}
+                </React.Fragment>
+              </div>
+              <div
+                data-plasmic-name={"milesFlown2"}
+                data-plasmic-override={overrides.milesFlown2}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.milesFlown2
+                )}
+              >
+                {"Miles Flown"}
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"country2"}
+              data-plasmic-override={overrides.country2}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.country2)}
             >
-              {"Miles Flown"}
-            </div>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"country2"}
-            data-plasmic-override={overrides.country2}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.country2, {
-              [sty.country2stateShow_login]: hasVariant(
-                $state,
-                "stateShow",
-                "login"
-              ),
-              [sty.country2stateShow_logout]: hasVariant(
-                $state,
-                "stateShow",
-                "logout"
-              )
-            })}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__epv9D
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return "0";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__epv9D
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return "0";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__mOgHn
-              )}
-            >
-              {"Countries\n"}
-            </div>
-          </Stack__>
-        </div>
-      </Stack__>
-      <Stack__
-        as={"div"}
-        data-plasmic-name={"login"}
-        data-plasmic-override={overrides.login}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.login, {
-          [sty.loginstateShow_login]: hasVariant($state, "stateShow", "login")
-        })}
-      >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__js5CD
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.language === "ar"
-                  ? "للمتابعة في إحصائيات الرحلة\u060C يرجى تسجيل الدخول أولاً."
-                  : "To continue on Trip Stats, please login first.";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
-        <PlasmicLink__
-          data-plasmic-name={"link"}
-          data-plasmic-override={overrides.link}
-          className={classNames(projectcss.all, projectcss.a, sty.link)}
-          component={Link}
-          href={"https://sindibad.iq/auth?step=regin"}
-          onClick={async event => {
-            const $steps = {};
-
-            $steps["login"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        function deleteCookie(name, path = "/", domain) {
-                          const expires = "Thu, 01 Jan 1970 00:00:00 GMT";
-                          const domainAttribute = domain
-                            ? `; domain=${domain}`
-                            : "";
-                          const pathAttribute = `; path=${path}`;
-                          document.cookie = `${name}=; expires=${expires}${pathAttribute}${domainAttribute}`;
-                        }
-                        try {
-                          deleteCookie("aut_token", "/", ".sindibad.iq");
-                          console.log("deleting auth cookie");
-                        } catch {
-                          console.log("No auth cookie");
-                        }
-                        let name = "external_redirect";
-                        let value = "https://profile.sindibad.iq";
-                        let path = "/";
-                        const domainAttribute = `; domain=.sindibad.iq`;
-                        window.document.cookie = `${name}=${window.encodeURIComponent(
-                          value
-                        )}; path=${path}${domainAttribute}`;
-                        return console.log("External redirect set");
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["login"] != null &&
-              typeof $steps["login"] === "object" &&
-              typeof $steps["login"].then === "function"
-            ) {
-              $steps["login"] = await $steps["login"];
-            }
-          }}
-          platform={"nextjs"}
+                  })()}
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__mOgHn
+                )}
+              >
+                {"Countries\n"}
+              </div>
+            </Stack__>
+          </div>
+        </Stack__>
+        <Stack__
+          as={"div"}
+          data-plasmic-name={"login"}
+          data-plasmic-override={overrides.login}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.login)}
         >
           <div
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__vQazz
+              sty.text__js5CD
             )}
           >
             <React.Fragment>
               {(() => {
                 try {
-                  return $props.language === "ar" ? "تسجيل الدخول" : "Login";
+                  return $props.language === "ar"
+                    ? "للمتابعة في إحصائيات الرحلة\u060C يرجى تسجيل الدخول أولاً."
+                    : "To continue on Trip Stats, please login first.";
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return "New Request";
+                    return "";
                   }
                   throw e;
                 }
               })()}
             </React.Fragment>
           </div>
-        </PlasmicLink__>
-      </Stack__>
-    </div>
+          <PlasmicLink__
+            data-plasmic-name={"link"}
+            data-plasmic-override={overrides.link}
+            className={classNames(projectcss.all, projectcss.a, sty.link)}
+            component={Link}
+            href={"https://sindibad.iq/auth?step=regin"}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["login"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          function deleteCookie(name, path = "/", domain) {
+                            const expires = "Thu, 01 Jan 1970 00:00:00 GMT";
+                            const domainAttribute = domain
+                              ? `; domain=${domain}`
+                              : "";
+                            const pathAttribute = `; path=${path}`;
+                            document.cookie = `${name}=; expires=${expires}${pathAttribute}${domainAttribute}`;
+                          }
+                          try {
+                            deleteCookie("aut_token", "/", ".sindibad.iq");
+                            console.log("deleting auth cookie");
+                          } catch {
+                            console.log("No auth cookie");
+                          }
+                          let name = "external_redirect";
+                          let value = "https://profile.sindibad.iq";
+                          let path = "/";
+                          const domainAttribute = `; domain=.sindibad.iq`;
+                          window.document.cookie = `${name}=${window.encodeURIComponent(
+                            value
+                          )}; path=${path}${domainAttribute}`;
+                          return console.log("External redirect set");
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["login"] != null &&
+                typeof $steps["login"] === "object" &&
+                typeof $steps["login"].then === "function"
+              ) {
+                $steps["login"] = await $steps["login"];
+              }
+            }}
+            platform={"nextjs"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__vQazz
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.language === "ar" ? "تسجيل الدخول" : "Login";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "New Request";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          </PlasmicLink__>
+        </Stack__>
+      </div>
+    ) : null
   ) as React.ReactElement | null;
 }
 
