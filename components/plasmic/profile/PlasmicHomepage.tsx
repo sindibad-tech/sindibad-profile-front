@@ -643,27 +643,59 @@ function PlasmicHomepage__RenderFunc(props: {
                                   sty.text__f9Qed
                                 )}
                               >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (() => {
-                                        const minutes =
-                                          $ctx.fetchedData.result.duration;
-                                        const hours = (minutes / 60).toFixed(1);
-                                        return `${hours}`;
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "";
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileSmall"
+                                ) ? (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          const minutes =
+                                            $ctx.fetchedData.result.duration;
+                                          const hours = Math.round(
+                                            minutes / 60
+                                          );
+                                          return `${hours}`;
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
+                                    })()}
+                                  </React.Fragment>
+                                ) : (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          const minutes =
+                                            $ctx.fetchedData.result.duration;
+                                          const hours = (minutes / 60).toFixed(
+                                            1
+                                          );
+                                          return `${hours}`;
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                )}
                               </div>
                               <div
                                 className={classNames(

@@ -262,23 +262,36 @@
 }
 .flightIcon1 {
   object-fit: cover;
-  width: var(--token-8MkIlsFrrWgx);
+  width: 100%;
   height: var(--token-8MkIlsFrrWgx);
   color: var(--token-FDJo2-0F5JCp);
   transform: none;
+  margin-bottom: 0px;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
   border-radius: 20px;
 }
 @media (max-width: 1280px) {
   .flightIcon1 {
-    width: var(--token-8MkIlsFrrWgx);
+    width: 100%;
     height: var(--token-8MkIlsFrrWgx);
+    grid-column-start: 3 !important;
+    grid-column-end: -3 !important;
+  }
+}
+@media (max-width: 1024px) {
+  .flightIcon1 {
+    width: 100%;
+    min-width: 0;
   }
 }
 @media (min-width: 0px) and (max-width: 512px) {
   .flightIcon1 {
-    width: auto;
+    width: 100%;
     justify-self: center;
     height: var(--token-8MkIlsFrrWgx);
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
   }
 }
 .text__z4PBk {
@@ -426,24 +439,36 @@
 }
 .hour2 {
   object-fit: cover;
-  width: var(--token-8MkIlsFrrWgx);
+  width: 100%;
   height: var(--token-8MkIlsFrrWgx);
   color: var(--token-FDJo2-0F5JCp);
   transform: none;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
   border-radius: 20px;
 }
 @media (max-width: 1280px) {
   .hour2 {
-    width: var(--token-8MkIlsFrrWgx);
+    width: 100%;
     height: var(--token-8MkIlsFrrWgx);
+    grid-column-start: 3 !important;
+    grid-column-end: -3 !important;
+  }
+}
+@media (max-width: 1024px) {
+  .hour2 {
+    width: 100%;
+    min-width: 0;
   }
 }
 @media (min-width: 0px) and (max-width: 512px) {
   .hour2 {
-    width: auto;
+    width: 100%;
     justify-self: center;
     height: var(--token-8MkIlsFrrWgx);
     margin-top: 0px;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
   }
 }
 .text__zrj2R {
@@ -591,23 +616,35 @@
 }
 .cityIcon2 {
   object-fit: cover;
-  width: var(--token-8MkIlsFrrWgx);
+  width: 100%;
   height: var(--token-8MkIlsFrrWgx);
   color: var(--token-FDJo2-0F5JCp);
   transform: none;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
   border-radius: 20px;
 }
 @media (max-width: 1280px) {
   .cityIcon2 {
-    width: var(--token-8MkIlsFrrWgx);
+    width: 100%;
     height: var(--token-8MkIlsFrrWgx);
+    grid-column-start: 3 !important;
+    grid-column-end: -3 !important;
+  }
+}
+@media (max-width: 1024px) {
+  .cityIcon2 {
+    width: 100%;
+    min-width: 0;
   }
 }
 @media (min-width: 0px) and (max-width: 512px) {
   .cityIcon2 {
-    width: auto;
-    justify-self: center;
+    width: 100%;
+    justify-self: flex-start;
     height: var(--token-8MkIlsFrrWgx);
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
   }
 }
 .text__eTtc8 {
@@ -753,10 +790,12 @@
 }
 .airportIcon3 {
   object-fit: cover;
-  width: var(--token-8MkIlsFrrWgx);
+  width: 100%;
   height: var(--token-8MkIlsFrrWgx);
   color: var(--token-FDJo2-0F5JCp);
   transform: none;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
   border-radius: 20px;
 }
 @media (max-width: 1280px) {
@@ -769,8 +808,10 @@
 @media (min-width: 0px) and (max-width: 512px) {
   .airportIcon3 {
     height: var(--token-8MkIlsFrrWgx);
-    width: auto;
+    width: 100%;
     justify-self: center;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
     margin: 0px;
   }
 }

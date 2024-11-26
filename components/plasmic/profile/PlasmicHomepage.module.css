@@ -109,6 +109,8 @@
   position: relative;
   transform: none;
   filter: grayscale(100%);
+  width: auto;
+  justify-self: center;
   border-radius: 50%;
 }
 .img > picture > img {
@@ -534,11 +536,11 @@
 .svg {
   object-fit: cover;
   color: #2c2828d9;
-  width: 100%;
   margin-top: 0px;
   height: 110px;
-  grid-column-start: 3 !important;
-  grid-column-end: -3 !important;
+  width: 100%;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
 }
 @media (max-width: 1280px) {
   .svg {
@@ -738,11 +740,12 @@
 }
 .cityIcon {
   object-fit: cover;
-  width: 100%;
   height: 110px;
   color: var(--token-17mXdOGqDzJR);
   transform: none;
-  min-width: 0;
+  width: 100%;
+  grid-column-start: 3 !important;
+  grid-column-end: -3 !important;
   border-radius: 20px;
 }
 @media (max-width: 1280px) {
@@ -769,6 +772,8 @@
     height: 100%;
     justify-self: center;
     margin-top: 0px;
+    margin-right: 4px;
+    margin-left: 4px;
     min-height: 0;
   }
 }
@@ -951,7 +956,8 @@
   height: 110px;
   color: #2f4b78;
   transform: none;
-  min-width: 0;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
   border-radius: 20px;
 }
 @media (max-width: 1280px) {
@@ -979,6 +985,8 @@
     height: 100%;
     margin-top: 0px;
     justify-self: center;
+    margin-right: 4px;
+    margin-left: 4px;
     min-height: 0;
   }
 }
