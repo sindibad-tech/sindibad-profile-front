@@ -600,7 +600,7 @@ function PlasmicLogin__RenderFunc(props: {
               {(() => {
                 try {
                   return $props.language === "ar"
-                    ? "للمتابعة في إحصائيات الرحلة\u060C يرجى تسجيل الدخول أولاً."
+                    ? ".للمتابعة في إحصائيات الرحلة\u060C يرجى تسجيل الدخول أولاً"
                     : "To continue on Trip Stats, please login first.";
                 } catch (e) {
                   if (

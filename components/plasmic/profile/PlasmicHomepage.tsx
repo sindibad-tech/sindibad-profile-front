@@ -285,7 +285,25 @@ function PlasmicHomepage__RenderFunc(props: {
                     throw e;
                   }
                 })()
-              : true
+              : (() => {
+                  try {
+                    return window.decodeURIComponent(
+                      ("; " + `${window.document.cookie}`)
+                        .split("; auth_token=")
+                        .pop()
+                        .split(";")
+                        .shift()
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
           ) ? (
             <div
               data-plasmic-name={"body"}
@@ -628,7 +646,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return $ctx.fetchedData.result.duration;
+                                      return (() => {
+                                        const minutes =
+                                          $ctx.fetchedData.result.duration;
+                                        const hours = (minutes / 60).toFixed(1);
+                                        return `${hours}`;
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -649,24 +672,49 @@ function PlasmicHomepage__RenderFunc(props: {
                                   sty.text__oI9H8
                                 )}
                               >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return $state.language === "ar"
-                                        ? "الساعات التي قضيتها في الطيران"
-                                        : "Hours in the air";
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "Hours in the Air";
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileSmall"
+                                ) ? (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return $state.language === "ar"
+                                          ? "ساعات التحليق"
+                                          : "Hours in the air";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "Hours in the Air";
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
+                                    })()}
+                                  </React.Fragment>
+                                ) : (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return $state.language === "ar"
+                                          ? "ساعات التحليق"
+                                          : "Hours in the air";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "Hours in the Air";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                )}
                               </div>
                             </Stack__>
                             <Stack__
