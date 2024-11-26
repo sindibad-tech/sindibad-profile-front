@@ -515,7 +515,7 @@
     width: 100%;
     font-size: 15px;
     padding-bottom: 3px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     min-width: 0;
   }
 }
@@ -616,6 +616,8 @@
     width: 100%;
     margin-bottom: 0px;
     height: var(--token-8MkIlsFrrWgx);
+    margin-top: calc(5px + 12px) !important;
+    padding-top: 6px;
     min-width: 0;
     flex-shrink: 0;
   }
@@ -793,8 +795,8 @@
 }
 @media (min-width: 0px) and (max-width: 512px) {
   .section__sUjj6 {
-    padding-top: 2px;
-    margin-top: calc(9px + 12px) !important;
+    padding-top: 3px;
+    margin-top: calc(5px + 12px) !important;
   }
 }
 @media (min-width: 0px) and (max-width: 512px) {

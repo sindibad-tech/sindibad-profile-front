@@ -309,13 +309,7 @@ function PlasmicHomepage__RenderFunc(props: {
             >
               {(() => {
                 try {
-                  return window.decodeURIComponent(
-                    ("; " + `${window.document.cookie}`)
-                      .split("; auth_token=")
-                      .pop()
-                      .split(";")
-                      .shift()
-                  );
+                  return $state.authToken;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

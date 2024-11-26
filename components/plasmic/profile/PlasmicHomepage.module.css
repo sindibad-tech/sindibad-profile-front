@@ -762,7 +762,7 @@
 @media (min-width: 0px) and (max-width: 512px) {
   .section__mPYa {
     padding-top: 0px;
-    margin-top: calc(2px + 12px) !important;
+    margin-top: calc(5px + 12px) !important;
   }
 }
 @media (min-width: 0px) and (max-width: 512px) {
@@ -811,11 +811,9 @@
     width: 100%;
     height: var(--token-8MkIlsFrrWgx);
     justify-self: center;
-    margin-top: 0px;
-    margin-right: 4px;
-    margin-left: 4px;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
+    margin: 0px;
   }
 }
 .text__dhf2M {
