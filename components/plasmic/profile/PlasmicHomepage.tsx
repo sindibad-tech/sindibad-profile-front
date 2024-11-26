@@ -635,7 +635,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                           const hours = Math.floor(
                                             minutes / 60
                                           );
-                                          const remainingMinutes = minutes % 60;
+                                          const remainingMinutes = String(
+                                            minutes % 60
+                                          ).padStart(2, "0");
                                           return `${hours}:${remainingMinutes}`;
                                         })();
                                       } catch (e) {
@@ -660,7 +662,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                           const hours = Math.floor(
                                             minutes / 60
                                           );
-                                          const remainingMinutes = minutes % 60;
+                                          const remainingMinutes = String(
+                                            minutes % 60
+                                          ).padStart(2, "0");
                                           return `${hours}:${remainingMinutes}`;
                                         })();
                                       } catch (e) {
