@@ -298,10 +298,9 @@
   position: relative;
   align-content: flex-start;
   justify-items: center;
-  width: 100%;
+  width: var(--token-8MkIlsFrrWgx);
   padding-left: 0;
   padding-right: 0;
-  min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -492,10 +491,9 @@
   position: relative;
   align-content: flex-start;
   justify-items: center;
-  width: 100%;
+  width: var(--token-8MkIlsFrrWgx);
   padding-left: 0;
   padding-right: 0;
-  min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -692,10 +690,9 @@
   position: relative;
   align-content: flex-start;
   justify-items: center;
-  width: 100%;
+  width: var(--token-8MkIlsFrrWgx);
   padding-left: 0;
   padding-right: 0;
-  min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -909,10 +906,9 @@
   position: relative;
   align-content: flex-start;
   justify-items: center;
-  width: 100%;
+  width: var(--token-8MkIlsFrrWgx);
   padding-left: 0;
   padding-right: 0;
-  min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(

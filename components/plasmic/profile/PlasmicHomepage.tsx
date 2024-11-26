@@ -733,7 +733,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       try {
                                         return $state.language === "ar"
                                           ? "ساعات التحليق"
-                                          : "Hours in the air";
+                                          : "Hours in the Air";
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -817,7 +817,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     try {
                                       return $state.language === "ar"
                                         ? "المدن التي زرتها"
-                                        : "Cities visited";
+                                        : "Cities Visited";
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||

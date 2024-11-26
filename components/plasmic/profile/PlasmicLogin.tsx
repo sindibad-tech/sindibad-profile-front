@@ -132,29 +132,7 @@ function PlasmicLogin__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          language: (() => {
-            try {
-              return ("; " + `${window.document.cookie}`)
-                .split("; user_lang=")
-                .pop()
-                .split(";")
-                .shift()
-                ? ("; " + `${window.document.cookie}`)
-                    .split("; user_lang=")
-                    .pop()
-                    .split(";")
-                    .shift()
-                : "en";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return '""';
-              }
-              throw e;
-            }
-          })()
+          language: "ar"
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -351,8 +329,8 @@ function PlasmicLogin__RenderFunc(props: {
                   {(() => {
                     try {
                       return $props.language === "ar"
-                        ? "الساعات التي قضيتها في الطيران"
-                        : "Hours in the air";
+                        ? "ساعات التحليق"
+                        : "Hours in the Air";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -418,7 +396,7 @@ function PlasmicLogin__RenderFunc(props: {
                     try {
                       return $props.language === "ar"
                         ? "المدن التي زرتها"
-                        : "Cities visited";
+                        : "Cities Visited";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
