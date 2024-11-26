@@ -270,41 +270,25 @@ function PlasmicHomepage__RenderFunc(props: {
             className={classNames("__wab_instance", sty.profileHeader)}
           />
 
-          {(
-            hasVariant(globalVariants, "screen", "desktopDefault")
-              ? (() => {
-                  try {
-                    return $state.authToken;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-              : (() => {
-                  try {
-                    return window.decodeURIComponent(
-                      ("; " + `${window.document.cookie}`)
-                        .split("; auth_token=")
-                        .pop()
-                        .split(";")
-                        .shift()
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          ) ? (
+          {(() => {
+            try {
+              return window.decodeURIComponent(
+                ("; " + `${window.document.cookie}`)
+                  .split("; auth_token=")
+                  .pop()
+                  .split(";")
+                  .shift()
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
             <div
               data-plasmic-name={"body"}
               data-plasmic-override={overrides.body}
@@ -323,61 +307,25 @@ function PlasmicHomepage__RenderFunc(props: {
                 }
               })()}
             >
-              {(
-                hasVariant(globalVariants, "screen", "mobileSmall")
-                  ? (() => {
-                      try {
-                        return window.decodeURIComponent(
-                          ("; " + `${window.document.cookie}`)
-                            .split("; auth_token=")
-                            .pop()
-                            .split(";")
-                            .shift()
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })()
-                  : hasVariant(globalVariants, "screen", "desktopDefault")
-                  ? (() => {
-                      try {
-                        return window.decodeURIComponent(
-                          ("; " + `${window.document.cookie}`)
-                            .split("; auth_token=")
-                            .pop()
-                            .split(";")
-                            .shift()
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })()
-                  : (() => {
-                      try {
-                        return true;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })()
-              ) ? (
+              {(() => {
+                try {
+                  return window.decodeURIComponent(
+                    ("; " + `${window.document.cookie}`)
+                      .split("; auth_token=")
+                      .pop()
+                      .split(";")
+                      .shift()
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
                 <DataFetcher
                   data-plasmic-name={"httpRestApiFetcher"}
                   data-plasmic-override={overrides.httpRestApiFetcher}
@@ -690,10 +638,11 @@ function PlasmicHomepage__RenderFunc(props: {
                                         return (() => {
                                           const minutes =
                                             $ctx.fetchedData.result.duration;
-                                          const hours = Math.round(
+                                          const hours = Math.floor(
                                             minutes / 60
                                           );
-                                          return `${hours}`;
+                                          const remainingMinutes = minutes % 60;
+                                          return `${hours}:${remainingMinutes}`;
                                         })();
                                       } catch (e) {
                                         if (

@@ -202,7 +202,7 @@
     height: 100%;
     width: 100%;
     padding-right: 0px;
-    margin-bottom: 14px;
+    margin-bottom: 0px;
     padding-left: var(--token-mNc0RnoYTIiN);
     padding-top: 0px;
     min-width: 0;
@@ -292,6 +292,7 @@
     width: 100%;
     justify-self: center;
     height: var(--token-8MkIlsFrrWgx);
+    margin-top: 0px;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
   }
@@ -332,6 +333,7 @@
     color: var(--token-FDJo2-0F5JCp);
     width: 100%;
     font-size: 15px;
+    margin-bottom: 10px;
     min-width: 0;
   }
 }
@@ -511,9 +513,9 @@
   .text__nJDcY {
     color: var(--token-FDJo2-0F5JCp);
     width: 100%;
-    font-size: 13.5px;
+    font-size: 15px;
     padding-bottom: 3px;
-    margin-bottom: 3px;
+    margin-bottom: 15px;
     min-width: 0;
   }
 }
@@ -650,7 +652,7 @@
 @media (min-width: 0px) and (max-width: 512px) {
   .cityIcon2 {
     width: 100%;
-    justify-self: flex-start;
+    justify-self: center;
     height: var(--token-8MkIlsFrrWgx);
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
@@ -694,6 +696,7 @@
     color: var(--token-FDJo2-0F5JCp);
     width: 100%;
     font-size: 15px;
+    margin-bottom: 14px;
     min-width: 0;
   }
 }
@@ -791,7 +794,7 @@
 @media (min-width: 0px) and (max-width: 512px) {
   .section__sUjj6 {
     padding-top: 2px;
-    margin-top: calc(10px + 12px) !important;
+    margin-top: calc(9px + 12px) !important;
   }
 }
 @media (min-width: 0px) and (max-width: 512px) {
