@@ -325,12 +325,48 @@ function PlasmicHomepage__RenderFunc(props: {
             >
               {(
                 hasVariant(globalVariants, "screen", "mobileSmall")
-                  ? true
+                  ? (() => {
+                      try {
+                        return window.decodeURIComponent(
+                          ("; " + `${window.document.cookie}`)
+                            .split("; auth_token=")
+                            .pop()
+                            .split(";")
+                            .shift()
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
                   : hasVariant(globalVariants, "screen", "desktopDefault")
-                  ? true
+                  ? (() => {
+                      try {
+                        return window.decodeURIComponent(
+                          ("; " + `${window.document.cookie}`)
+                            .split("; auth_token=")
+                            .pop()
+                            .split(";")
+                            .shift()
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
                   : (() => {
                       try {
-                        return $state.authToken;
+                        return true;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -678,10 +714,11 @@ function PlasmicHomepage__RenderFunc(props: {
                                         return (() => {
                                           const minutes =
                                             $ctx.fetchedData.result.duration;
-                                          const hours = (minutes / 60).toFixed(
-                                            1
+                                          const hours = Math.floor(
+                                            minutes / 60
                                           );
-                                          return `${hours}`;
+                                          const remainingMinutes = minutes % 60;
+                                          return `${hours}:${remainingMinutes}`;
                                         })();
                                       } catch (e) {
                                         if (
