@@ -621,7 +621,7 @@ function PlasmicLogin__RenderFunc(props: {
                             console.log("No auth cookie");
                           }
                           let name = "external_redirect";
-                          let value = "https://profile.sindibad.iq";
+                          let value = "https://profile.sindibad.iq/trip-stats";
                           let path = "/";
                           const domainAttribute = `; domain=.sindibad.iq`;
                           window.document.cookie = `${name}=${window.encodeURIComponent(
