@@ -272,7 +272,7 @@ function PlasmicHomepage__RenderFunc(props: {
 
           {(() => {
             try {
-              return $state.authToken;
+              return $state.authToken === "";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -303,7 +303,7 @@ function PlasmicHomepage__RenderFunc(props: {
             >
               {(() => {
                 try {
-                  return $state.authToken;
+                  return $state.authToken === "";
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1013,7 +1013,7 @@ function PlasmicHomepage__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return !$state.authToken;
+              return !$state.authToken === "";
             } catch (e) {
               if (
                 e instanceof TypeError ||
