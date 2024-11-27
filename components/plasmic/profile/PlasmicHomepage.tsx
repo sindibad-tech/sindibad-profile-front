@@ -427,7 +427,9 @@ function PlasmicHomepage__RenderFunc(props: {
                     : false
                 }
                 previewSpinner={false}
-                url={"https://flight.sindibad.tech/api/v1/Order/mytrips-stat"}
+                url={
+                  "https://api.sindibad.iq/api/v1.0/international-flight/Order/mytrips-stat"
+                }
               >
                 <DataCtxReader__>
                   {$ctx => (
