@@ -637,14 +637,13 @@
 }
 .text__a2ThP {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   color: #000000;
   font-family: "Vazirmatn", sans-serif;
   font-weight: 400;
   font-size: 20px;
-  min-width: 0;
 }
 .text__ubsKv {
   position: relative;
@@ -721,14 +720,13 @@
 }
 .text__iCWiq {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   font-family: "Vazirmatn", sans-serif;
   font-size: 20px;
   font-weight: 400;
   color: #000000;
-  min-width: 0;
 }
 .text__wMr8R {
   position: relative;
@@ -803,14 +801,13 @@
 }
 .text__kxRP {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   font-family: "Vazirmatn", sans-serif;
   font-size: 20px;
   font-weight: 400;
   color: #000000;
-  min-width: 0;
 }
 .text__ie2Du {
   position: relative;
