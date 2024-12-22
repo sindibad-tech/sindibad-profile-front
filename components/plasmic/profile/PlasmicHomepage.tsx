@@ -1256,29 +1256,37 @@ function PlasmicHomepage__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </Stack__>
-                        <div
+                        <section
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__ubsKv
+                            sty.section__caAw1
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $ctx.fetchedData.result.flights;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ubsKv
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $ctx.fetchedData.result.flights;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </section>
                       </div>
                       <div
                         data-plasmic-name={"cities"}
@@ -1330,29 +1338,37 @@ function PlasmicHomepage__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </Stack__>
-                        <div
+                        <section
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__wMr8R
+                            sty.section___8TxFm
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $ctx.fetchedData.result.cities;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__wMr8R
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $ctx.fetchedData.result.cities;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </section>
                       </div>
                       <div
                         data-plasmic-name={"airports"}
@@ -1404,29 +1420,37 @@ function PlasmicHomepage__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </Stack__>
-                        <div
+                        <section
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__ie2Du
+                            sty.section__dWyMq
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $ctx.fetchedData.result.airports;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ie2Du
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $ctx.fetchedData.result.airports;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </section>
                       </div>
                     </section>
                   )}
