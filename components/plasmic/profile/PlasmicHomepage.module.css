@@ -188,7 +188,7 @@
   justify-self: center;
   min-width: 0;
 }
-.freeBox {
+.freeBox__wI2J {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -599,6 +599,32 @@
   padding: 40px 8px;
   border: 1px dashed var(--token-Pxe4wDL2kJpb);
 }
+.freeBox__uHwl {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-left: 15px;
+  min-width: 0;
+}
+.freeBox__uHwl > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-left: calc(0px - var(--token-Pky-E4CaFvs4));
+  width: calc(100% + var(--token-Pky-E4CaFvs4));
+}
+.freeBox__uHwl > :global(.__wab_flex-container) > *,
+.freeBox__uHwl > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__uHwl > :global(.__wab_flex-container) > picture > img,
+.freeBox__uHwl
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: var(--token-Pky-E4CaFvs4);
+}
 .flightIcon2 {
   backdrop-filter: blur(0px);
   transform: none;
@@ -606,7 +632,6 @@
   height: var(--token-6mQmIEer3GeD);
   width: auto;
   object-fit: cover;
-  margin-left: 20px;
   -webkit-backdrop-filter: blur(0px);
   border-radius: 20px;
 }
@@ -619,7 +644,6 @@
   font-family: "Vazirmatn", sans-serif;
   font-weight: 400;
   font-size: 20px;
-  padding-left: 20px;
   min-width: 0;
 }
 .text__ubsKv {
@@ -630,7 +654,7 @@
   text-align: right;
   left: auto;
   top: auto;
-  padding-right: 30px;
+  padding-right: 15px;
   font-weight: 700;
   font-family: "Vazirmatn", sans-serif;
   font-size: 20px;
@@ -661,13 +685,38 @@
   padding: 40px 8px;
   border: 1px dashed var(--token-Pxe4wDL2kJpb);
 }
+.freeBox___8J5MZ {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  padding-left: 10px;
+  min-width: 0;
+}
+.freeBox___8J5MZ > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - var(--token-Pky-E4CaFvs4));
+  width: calc(100% + var(--token-Pky-E4CaFvs4));
+}
+.freeBox___8J5MZ > :global(.__wab_flex-container) > *,
+.freeBox___8J5MZ > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox___8J5MZ > :global(.__wab_flex-container) > picture > img,
+.freeBox___8J5MZ
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: var(--token-Pky-E4CaFvs4);
+}
 .cityIcon2 {
   object-fit: cover;
   width: auto;
   height: var(--token-6mQmIEer3GeD);
   color: var(--token-0pVtkP-kaM_p);
   transform: none;
-  margin-left: 20px;
   border-radius: 20px;
 }
 .text__iCWiq {
@@ -675,7 +724,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  padding-left: 20px;
   font-family: "Vazirmatn", sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -719,13 +767,38 @@
   padding: 40px 8px;
   border: 1px dashed var(--token-Pxe4wDL2kJpb);
 }
+.freeBox__w9Vct {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  padding: 0px 0px 0px 10px;
+}
+.freeBox__w9Vct > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - var(--token-Pky-E4CaFvs4));
+  width: calc(100% + var(--token-Pky-E4CaFvs4));
+}
+.freeBox__w9Vct > :global(.__wab_flex-container) > *,
+.freeBox__w9Vct > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__w9Vct > :global(.__wab_flex-container) > picture > img,
+.freeBox__w9Vct
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: var(--token-Pky-E4CaFvs4);
+}
 .airportIcon3 {
   object-fit: cover;
   width: auto;
   height: var(--token-6mQmIEer3GeD);
   color: var(--token-0pVtkP-kaM_p);
   transform: none;
-  margin-left: 20px;
   border-radius: 20px;
 }
 .text__kxRP {
@@ -733,7 +806,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  padding-left: 20px;
   font-family: "Vazirmatn", sans-serif;
   font-size: 20px;
   font-weight: 400;
