@@ -45,8 +45,7 @@
           }
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -104,8 +103,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -505,8 +503,7 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "YUiM7yqBWAqsh8KSnrdj7",
@@ -534,8 +531,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "p1fHvJbiLdgzRrAS359KQb",
@@ -1007,6 +1003,19 @@
           "cssFilePath": "plasmic/profile/PlasmicError.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "zkLRq_PV6ggA",
+          "name": "NewLogin",
+          "type": "managed",
+          "projectId": "i2nNPeRNQPEP9BPre46c64",
+          "renderModuleFilePath": "plasmic/profile/PlasmicNewLogin.tsx",
+          "importSpec": {
+            "modulePath": "NewLogin.tsx"
+          },
+          "cssFilePath": "plasmic/profile/PlasmicNewLogin.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -1121,6 +1130,51 @@
           "id": "b0Sj5VeVM6N7",
           "name": "image 13",
           "filePath": "../public/plasmic/profile/images/image13.svg"
+        },
+        {
+          "id": "2fSJnsg2MKyq",
+          "name": "imresizer-1734782686280.jpg 2",
+          "filePath": "../public/plasmic/profile/images/imresizer1734782686280Jpg2.jpg"
+        },
+        {
+          "id": "MvY0Xz5AHptY",
+          "name": "imresizer-1734782643234.jpg 2",
+          "filePath": "../public/plasmic/profile/images/imresizer1734782643234Jpg2.jpg"
+        },
+        {
+          "id": "iz88X15bViSa",
+          "name": "imresizer-1734782550827.jpg 2",
+          "filePath": "../public/plasmic/profile/images/imresizer1734782550827Jpg2.jpg"
+        },
+        {
+          "id": "2kgw6ER6v_2k",
+          "name": "imresizer-1734782602572.jpg 2",
+          "filePath": "../public/plasmic/profile/images/imresizer1734782602572Jpg2.jpg"
+        },
+        {
+          "id": "_TdST08w_at4",
+          "name": "IMG_1073.jpg",
+          "filePath": "../public/plasmic/profile/images/img1073Jpg.jpg"
+        },
+        {
+          "id": "FeBVx3-H_77j",
+          "name": "Skype_Picture_2024_12_22T08_08_51_147Z.png",
+          "filePath": "../public/plasmic/profile/images/skypePicture20241222T080851147ZPng.png"
+        },
+        {
+          "id": "fZi4Sf4q54mr",
+          "name": "imresizer-1734869222609.jpg",
+          "filePath": "../public/plasmic/profile/images/imresizer1734869222609Jpg.jpg"
+        },
+        {
+          "id": "f-0ORUwK2U5_",
+          "name": "imresizer-1734869222609.jpg 2",
+          "filePath": "../public/plasmic/profile/images/imresizer1734869222609Jpg2.jpg"
+        },
+        {
+          "id": "sO0RW-6khwta",
+          "name": "Skype_Picture_2024_12_22T08_08_51_147Z.png 2",
+          "filePath": "../public/plasmic/profile/images/skypePicture20241222T080851147ZPng2.png"
         }
       ],
       "indirect": false,

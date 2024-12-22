@@ -74,12 +74,8 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: i2nNPeRNQPEP9B
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: SEZ-EKiSKUiS/css
 
 import AirplanePlaneFlightSvgrepoComSvgIcon from "./icons/PlasmicIcon__AirplanePlaneFlightSvgrepoComSvg"; // plasmic-import: Pd4zaT4q7XG6/icon
-import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: r0tRVp3Pkl1R/icon
-import WatchThinSvgrepoComSvgIcon from "./icons/PlasmicIcon__WatchThinSvgrepoComSvg"; // plasmic-import: __jn_kdFDPwW/icon
 import BadshahiMosqueSvgrepoComSvgIcon from "./icons/PlasmicIcon__BadshahiMosqueSvgrepoComSvg"; // plasmic-import: T89ROJGhrPRj/icon
 import AirportSvgrepoCom2SvgIcon from "./icons/PlasmicIcon__AirportSvgrepoCom2Svg"; // plasmic-import: -ZavcDLOxXRR/icon
-import EarthGlobeInternetSvgrepoComSvgIcon from "./icons/PlasmicIcon__EarthGlobeInternetSvgrepoComSvg"; // plasmic-import: tnwTMdzph0Bo/icon
-import EarthGlobeGlobalSvgrepoComSvgIcon from "./icons/PlasmicIcon__EarthGlobeGlobalSvgrepoComSvg"; // plasmic-import: AEoFua48XFYN/icon
 
 createPlasmicElementProxy;
 
@@ -97,21 +93,23 @@ export type PlasmicHomepage__OverridesType = {
   profileHeader?: Flex__<typeof ProfileHeader>;
   body?: Flex__<"div">;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
-  img?: Flex__<typeof PlasmicImg__>;
   error?: Flex__<typeof Error>;
-  flight?: Flex__<"div">;
-  flightIcon?: Flex__<"svg">;
-  hours?: Flex__<"div">;
-  svg?: Flex__<"svg">;
-  city?: Flex__<"div">;
-  cityIcon?: Flex__<"svg">;
-  airport2?: Flex__<"div">;
-  airportIcon2?: Flex__<"svg">;
-  km?: Flex__<"div">;
-  kmIcon?: Flex__<"svg">;
-  milesFlown?: Flex__<"div">;
-  country?: Flex__<"div">;
-  countryIcon?: Flex__<"svg">;
+  duration?: Flex__<"section">;
+  freeBox?: Flex__<"div">;
+  days?: Flex__<"div">;
+  hours2?: Flex__<"div">;
+  minutes?: Flex__<"div">;
+  dreamerr?: Flex__<"section">;
+  explorerr?: Flex__<"section">;
+  adventurer2?: Flex__<"section">;
+  globetrotterr?: Flex__<"section">;
+  voyager?: Flex__<"section">;
+  flights?: Flex__<"div">;
+  flightIcon2?: Flex__<"svg">;
+  cities?: Flex__<"div">;
+  cityIcon2?: Flex__<"svg">;
+  airports?: Flex__<"div">;
+  airportIcon3?: Flex__<"svg">;
 };
 
 export interface DefaultHomepageProps {}
@@ -389,10 +387,8 @@ function PlasmicHomepage__RenderFunc(props: {
                         )}
                       >
                         <PlasmicImg__
-                          data-plasmic-name={"img"}
-                          data-plasmic-override={overrides.img}
                           alt={""}
-                          className={classNames(sty.img)}
+                          className={classNames(sty.img__uk1Qu)}
                           displayHeight={"auto"}
                           displayMaxHeight={"none"}
                           displayMaxWidth={"none"}
@@ -433,168 +429,74 @@ function PlasmicHomepage__RenderFunc(props: {
               >
                 <DataCtxReader__>
                   {$ctx => (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox___1ZL)}
+                    <section
+                      className={classNames(projectcss.all, sty.section__wvP09)}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__caBqh
-                        )}
+                      <section
+                        data-plasmic-name={"duration"}
+                        data-plasmic-override={overrides.duration}
+                        className={classNames(projectcss.all, sty.duration)}
                       >
-                        <Stack__
-                          as={"div"}
-                          data-plasmic-name={"flight"}
-                          data-plasmic-override={overrides.flight}
-                          hasGap={true}
-                          className={classNames(projectcss.all, sty.flight)}
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__yHWT
+                          )}
                         >
-                          <section
-                            className={classNames(
-                              projectcss.all,
-                              sty.section__shzgu
-                            )}
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $props.language === "ar"
+                                  ? "مدة الوقت في الطيران"
+                                  : "Time Spent Flying";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Time Spent Flying";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          data-plasmic-name={"freeBox"}
+                          data-plasmic-override={overrides.freeBox}
+                          className={classNames(projectcss.all, sty.freeBox)}
+                        >
+                          <div
+                            data-plasmic-name={"days"}
+                            data-plasmic-override={overrides.days}
+                            className={classNames(projectcss.all, sty.days)}
                           >
-                            <AirplanePlaneFlightSvgrepoComSvgIcon
-                              data-plasmic-name={"flightIcon"}
-                              data-plasmic-override={overrides.flightIcon}
+                            <div
                               className={classNames(
                                 projectcss.all,
-                                sty.flightIcon
+                                projectcss.__wab_text,
+                                sty.text___9TM
                               )}
-                              role={"img"}
-                            />
-                          </section>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___17Ntc
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $ctx.fetchedData.result.flights;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__qmsYg
-                            )}
-                          >
-                            {hasVariant(
-                              globalVariants,
-                              "screen",
-                              "desktopDefault"
-                            ) ? (
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.language === "ar"
-                                      ? "عدد الرحلات"
-                                      : "Flights";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Hours in the Air";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            ) : (
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.language === "ar"
-                                      ? "عدد الرحلات"
-                                      : "Flights";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Hours in the Air";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            )}
-                          </div>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          data-plasmic-name={"hours"}
-                          data-plasmic-override={overrides.hours}
-                          hasGap={true}
-                          className={classNames(projectcss.all, sty.hours)}
-                        >
-                          <section
-                            className={classNames(
-                              projectcss.all,
-                              sty.section__lea6F
-                            )}
-                          >
-                            <PlasmicIcon__
-                              data-plasmic-name={"svg"}
-                              data-plasmic-override={overrides.svg}
-                              PlasmicIconType={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "desktopDefault"
-                                )
-                                  ? WatchThinSvgrepoComSvgIcon
-                                  : Icon2Icon
-                              }
-                              className={classNames(projectcss.all, sty.svg)}
-                              role={"img"}
-                            />
-                          </section>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__f9Qed
-                            )}
-                          >
-                            {hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileSmall"
-                            ) ? (
+                            >
                               <React.Fragment>
                                 {(() => {
                                   try {
                                     return (() => {
                                       const minutes =
                                         $ctx.fetchedData.result.duration;
-                                      const hours = Math.floor(minutes / 60);
+                                      const days = Math.floor(
+                                        minutes / (60 * 24)
+                                      );
+                                      const remainingMinutesAfterDays =
+                                        minutes % (60 * 24);
+                                      const hours = Math.floor(
+                                        remainingMinutesAfterDays / 60
+                                      );
                                       const remainingMinutes = String(
-                                        minutes % 60
+                                        remainingMinutesAfterDays % 60
                                       ).padStart(2, "0");
-                                      return `${hours}:${remainingMinutes}`;
+                                      return `${days}`;
                                     })();
                                   } catch (e) {
                                     if (
@@ -608,18 +510,64 @@ function PlasmicHomepage__RenderFunc(props: {
                                   }
                                 })()}
                               </React.Fragment>
-                            ) : (
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__eabcc
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $props.language === "ar"
+                                      ? "أيام"
+                                      : "Days";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </div>
+                          <div
+                            data-plasmic-name={"hours2"}
+                            data-plasmic-override={overrides.hours2}
+                            className={classNames(projectcss.all, sty.hours2)}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___8Ko8A
+                              )}
+                            >
                               <React.Fragment>
                                 {(() => {
                                   try {
                                     return (() => {
                                       const minutes =
                                         $ctx.fetchedData.result.duration;
-                                      const hours = Math.floor(minutes / 60);
+                                      const days = Math.floor(
+                                        minutes / (60 * 24)
+                                      );
+                                      const remainingMinutesAfterDays =
+                                        minutes % (60 * 24);
+                                      const hours = Math.floor(
+                                        remainingMinutesAfterDays / 60
+                                      );
                                       const remainingMinutes = String(
-                                        minutes % 60
+                                        remainingMinutesAfterDays % 60
                                       ).padStart(2, "0");
-                                      return `${hours}:${remainingMinutes}`;
+                                      return `${hours}`;
                                     })();
                                   } catch (e) {
                                     if (
@@ -633,266 +581,65 @@ function PlasmicHomepage__RenderFunc(props: {
                                   }
                                 })()}
                               </React.Fragment>
-                            )}
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__oI9H8
-                            )}
-                          >
-                            {hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileSmall"
-                            ) ? (
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.language === "ar"
-                                      ? "ساعات التحليق"
-                                      : "Hours in the air";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Hours in the Air";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            ) : (
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.language === "ar"
-                                      ? "ساعات التحليق"
-                                      : "Hours in the Air";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Hours in the Air";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            )}
-                          </div>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          data-plasmic-name={"city"}
-                          data-plasmic-override={overrides.city}
-                          hasGap={true}
-                          className={classNames(projectcss.all, sty.city)}
-                        >
-                          <section
-                            className={classNames(
-                              projectcss.all,
-                              sty.section__mPYa
-                            )}
-                          >
-                            <PlasmicIcon__
-                              data-plasmic-name={"cityIcon"}
-                              data-plasmic-override={overrides.cityIcon}
-                              PlasmicIconType={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "desktopDefault"
-                                )
-                                  ? BadshahiMosqueSvgrepoComSvgIcon
-                                  : BadshahiMosqueSvgrepoComSvgIcon
-                              }
-                              className={classNames(
-                                projectcss.all,
-                                sty.cityIcon
-                              )}
-                              role={"img"}
-                            />
-                          </section>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__dhf2M
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $ctx.fetchedData.result.cities;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__aJz8N
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $state.language === "ar"
-                                    ? "المدن التي زرتها"
-                                    : "Cities Visited";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "Cities";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          data-plasmic-name={"airport2"}
-                          data-plasmic-override={overrides.airport2}
-                          hasGap={true}
-                          className={classNames(projectcss.all, sty.airport2)}
-                        >
-                          <section
-                            className={classNames(
-                              projectcss.all,
-                              sty.section__jEdHu
-                            )}
-                          >
-                            <PlasmicIcon__
-                              data-plasmic-name={"airportIcon2"}
-                              data-plasmic-override={overrides.airportIcon2}
-                              PlasmicIconType={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "desktopDefault"
-                                )
-                                  ? AirportSvgrepoCom2SvgIcon
-                                  : AirportSvgrepoCom2SvgIcon
-                              }
-                              className={classNames(
-                                projectcss.all,
-                                sty.airportIcon2
-                              )}
-                              role={"img"}
-                            />
-                          </section>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__jBlXk
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $ctx.fetchedData.result.airports;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__neK0L
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $state.language === "ar"
-                                    ? "المطارات التي زرتها "
-                                    : "Airports Visited";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "Airport Visited";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          data-plasmic-name={"km"}
-                          data-plasmic-override={overrides.km}
-                          hasGap={true}
-                          className={classNames(projectcss.all, sty.km)}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__rb0AG
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__d8Ieh
-                              )}
-                            >
-                              <EarthGlobeInternetSvgrepoComSvgIcon
-                                data-plasmic-name={"kmIcon"}
-                                data-plasmic-override={overrides.kmIcon}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.kmIcon
-                                )}
-                                role={"img"}
-                              />
                             </div>
                             <div
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__m3Hif
+                                sty.text__b6Szg
                               )}
                             >
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return $ctx.fetchedData.result.duration;
+                                    return $props.language === "ar"
+                                      ? "ساعات"
+                                      : "Hours";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </div>
+                          <div
+                            data-plasmic-name={"minutes"}
+                            data-plasmic-override={overrides.minutes}
+                            className={classNames(projectcss.all, sty.minutes)}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___6DbPp
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      const minutes =
+                                        $ctx.fetchedData.result.duration;
+                                      const days = Math.floor(
+                                        minutes / (60 * 24)
+                                      );
+                                      const remainingMinutesAfterDays =
+                                        minutes % (60 * 24);
+                                      const hours = Math.floor(
+                                        remainingMinutesAfterDays / 60
+                                      );
+                                      const remainingMinutes = String(
+                                        remainingMinutesAfterDays % 60
+                                      ).padStart(2, "0");
+                                      return `${remainingMinutes}`;
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -907,59 +654,541 @@ function PlasmicHomepage__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                             <div
-                              data-plasmic-name={"milesFlown"}
-                              data-plasmic-override={overrides.milesFlown}
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.milesFlown
+                                sty.text___8ZdG
                               )}
                             >
-                              {"Miles Flown"}
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $props.language === "ar"
+                                      ? "دقائق"
+                                      : "Minutes";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
                             </div>
                           </div>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          data-plasmic-name={"country"}
-                          data-plasmic-override={overrides.country}
-                          hasGap={true}
-                          className={classNames(projectcss.all, sty.country)}
+                        </div>
+                      </section>
+                      {(() => {
+                        try {
+                          return $ctx.fetchedData.result.flights === 0;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <section
+                          data-plasmic-name={"dreamerr"}
+                          data-plasmic-override={overrides.dreamerr}
+                          className={classNames(projectcss.all, sty.dreamerr)}
                         >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__tZYxa
-                            )}
-                          >
+                          {(() => {
+                            try {
+                              return $ctx.fetchedData.result.flights === 0;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__cKff9)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"100%"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/profile/images/imresizer1734782686280Jpg2.jpg",
+                                fullWidth: 1922,
+                                fullHeight: 961,
+                                aspectRatio: undefined
+                              }}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return $ctx.fetchedData.result.flights === 0;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__qGMte
+                                projectcss.__wab_text,
+                                sty.text__jNxrW
                               )}
                             >
-                              <EarthGlobeGlobalSvgrepoComSvgIcon
-                                data-plasmic-name={"countryIcon"}
-                                data-plasmic-override={overrides.countryIcon}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.countryIcon
-                                )}
-                                role={"img"}
-                              />
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $state.language === "ar"
+                                      ? "لم تسافر بعد. سيقوم سندباد بتحديث إحصائيات رحلاتك مع كل رحلة تكملها."
+                                      : "You haven’t traveled yet. Sindibad will refresh your trip stats with every trip you complete.";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
                             </div>
-                          </div>
+                          ) : null}
+                        </section>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (() => {
+                            const flights = $ctx.fetchedData.result.flights;
+                            const cities = $ctx.fetchedData.result.cities;
+                            const product = flights * cities;
+                            const isProductInRange =
+                              product > 0 && product < 15;
+                            return isProductInRange;
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <section
+                          data-plasmic-name={"explorerr"}
+                          data-plasmic-override={overrides.explorerr}
+                          className={classNames(projectcss.all, sty.explorerr)}
+                        >
+                          {(() => {
+                            try {
+                              return (() => {
+                                const flights = $ctx.fetchedData.result.flights;
+                                const cities = $ctx.fetchedData.result.cities;
+                                const product = flights * cities;
+                                const isProductInRange =
+                                  product > 0 && product < 15;
+                                return isProductInRange;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__bspQr)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"100%"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/profile/images/imresizer1734782643234Jpg2.jpg",
+                                fullWidth: 1922,
+                                fullHeight: 961,
+                                aspectRatio: undefined
+                              }}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return (() => {
+                                const flights = $ctx.fetchedData.result.flights;
+                                const cities = $ctx.fetchedData.result.cities;
+                                const product = flights * cities;
+                                const isProductInRange =
+                                  product > 0 && product < 15;
+                                return isProductInRange;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__xWDbr
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $state.language === "ar"
+                                      ? "أنت تجعل كل خطوة مغامرة جديدة مثيرة—لننطلق!"
+                                      : "You make every step an exciting new adventure—let’s go!";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
+                        </section>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (() => {
+                            const flights = $ctx.fetchedData.result.flights;
+                            const cities = $ctx.fetchedData.result.cities;
+                            const product = flights * cities;
+                            const isProductInRange =
+                              product >= 15 && product < 35;
+                            return isProductInRange;
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <section
+                          data-plasmic-name={"adventurer2"}
+                          data-plasmic-override={overrides.adventurer2}
+                          className={classNames(
+                            projectcss.all,
+                            sty.adventurer2
+                          )}
+                        >
+                          {(() => {
+                            try {
+                              return (() => {
+                                const flights = $ctx.fetchedData.result.flights;
+                                const cities = $ctx.fetchedData.result.cities;
+                                const product = flights * cities;
+                                const isProductInRange =
+                                  product >= 15 && product < 35;
+                                return isProductInRange;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__p5Ms)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"100%"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/profile/images/imresizer1734782550827Jpg2.jpg",
+                                fullWidth: 1922,
+                                fullHeight: 961,
+                                aspectRatio: undefined
+                              }}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return (() => {
+                                const flights = $ctx.fetchedData.result.flights;
+                                const cities = $ctx.fetchedData.result.cities;
+                                const product = flights * cities;
+                                const isProductInRange =
+                                  product >= 15 && product < 35;
+                                return isProductInRange;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ruhdt
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $state.language === "ar"
+                                      ? "أنت تكتب فصلًا جديدًا مع كل رحلة تقوم بها!"
+                                      : "You write a new chapter with every trip you take!";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
+                        </section>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (() => {
+                            const flights = $ctx.fetchedData.result.flights;
+                            const cities = $ctx.fetchedData.result.cities;
+                            const product = flights * cities;
+                            const isProductInRange =
+                              product >= 35 && product < 150;
+                            return isProductInRange;
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <section
+                          data-plasmic-name={"globetrotterr"}
+                          data-plasmic-override={overrides.globetrotterr}
+                          className={classNames(
+                            projectcss.all,
+                            sty.globetrotterr
+                          )}
+                        >
+                          {(() => {
+                            try {
+                              return (() => {
+                                const flights = $ctx.fetchedData.result.flights;
+                                const cities = $ctx.fetchedData.result.cities;
+                                const product = flights * cities;
+                                const isProductInRange =
+                                  product >= 35 && product < 150;
+                                return isProductInRange;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__aw7D9)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"100%"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/profile/images/imresizer1734782602572Jpg2.jpg",
+                                fullWidth: 1922,
+                                fullHeight: 961,
+                                aspectRatio: undefined
+                              }}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return (() => {
+                                const flights = $ctx.fetchedData.result.flights;
+                                const cities = $ctx.fetchedData.result.cities;
+                                const product = flights * cities;
+                                const isProductInRange =
+                                  product >= 35 && product < 150;
+                                return isProductInRange;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__p0Qhz
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $state.language === "ar"
+                                      ? "أنت مسافر متمرس، تكتب القصص أثناء استكشافك للعالم!"
+                                      : "You’re a seasoned traveler, crafting stories as you explore the world!";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
+                        </section>
+                      ) : null}
+                      <section
+                        data-plasmic-name={"voyager"}
+                        data-plasmic-override={overrides.voyager}
+                        className={classNames(projectcss.all, sty.voyager)}
+                      >
+                        {(() => {
+                          try {
+                            return (() => {
+                              const flights = $ctx.fetchedData.result.flights;
+                              const cities = $ctx.fetchedData.result.cities;
+                              const product = flights * cities;
+                              const isProductInRange = product >= 150;
+                              return isProductInRange;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__qwgTd)}
+                            displayHeight={"auto"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"100%"}
+                            loading={"lazy"}
+                            src={{
+                              src: "/plasmic/profile/images/img1073Jpg.jpg",
+                              fullWidth: 1911,
+                              fullHeight: 955,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        ) : null}
+                        {(() => {
+                          try {
+                            return (() => {
+                              const flights = $ctx.fetchedData.result.flights;
+                              const cities = $ctx.fetchedData.result.cities;
+                              const product = flights * cities;
+                              const isProductInRange = product >= 150;
+                              return isProductInRange;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text___8XAg
+                              sty.text__cdNit
                             )}
                           >
                             <React.Fragment>
                               {(() => {
                                 try {
-                                  return undefined;
+                                  return $state.language === "ar"
+                                    ? "لقد رأيت كل شيء، لكن المغامرة لا تنتهي أبدًا!"
+                                    : "You’ve seen it all, but the adventure never ends!";
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -973,18 +1202,198 @@ function PlasmicHomepage__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___691HQ
-                            )}
-                          >
-                            {"Countries\n"}
-                          </div>
-                        </Stack__>
+                        ) : null}
+                      </section>
+                      <div
+                        data-plasmic-name={"flights"}
+                        data-plasmic-override={overrides.flights}
+                        className={classNames(projectcss.all, sty.flights)}
+                      >
+                        <AirplanePlaneFlightSvgrepoComSvgIcon
+                          data-plasmic-name={"flightIcon2"}
+                          data-plasmic-override={overrides.flightIcon2}
+                          className={classNames(
+                            projectcss.all,
+                            sty.flightIcon2
+                          )}
+                          role={"img"}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__a2ThP
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.language === "ar"
+                                  ? "عدد الرحلات"
+                                  : "Flights";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ubsKv
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $ctx.fetchedData.result.flights;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
                       </div>
-                    </Stack__>
+                      <div
+                        data-plasmic-name={"cities"}
+                        data-plasmic-override={overrides.cities}
+                        className={classNames(projectcss.all, sty.cities)}
+                      >
+                        <BadshahiMosqueSvgrepoComSvgIcon
+                          data-plasmic-name={"cityIcon2"}
+                          data-plasmic-override={overrides.cityIcon2}
+                          className={classNames(projectcss.all, sty.cityIcon2)}
+                          role={"img"}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__iCWiq
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.language === "ar"
+                                  ? "المدن التي زرتها"
+                                  : "Cities Visited";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__wMr8R
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $ctx.fetchedData.result.cities;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </div>
+                      <div
+                        data-plasmic-name={"airports"}
+                        data-plasmic-override={overrides.airports}
+                        className={classNames(projectcss.all, sty.airports)}
+                      >
+                        <AirportSvgrepoCom2SvgIcon
+                          data-plasmic-name={"airportIcon3"}
+                          data-plasmic-override={overrides.airportIcon3}
+                          className={classNames(
+                            projectcss.all,
+                            sty.airportIcon3
+                          )}
+                          role={"img"}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__kxRP
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.language === "ar"
+                                  ? "المطارات التي زرتها "
+                                  : "Airports Visited";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ie2Du
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $ctx.fetchedData.result.airports;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </div>
+                    </section>
                   )}
                 </DataCtxReader__>
               </DataFetcher>
@@ -1020,75 +1429,83 @@ const PlasmicDescendants = {
     "profileHeader",
     "body",
     "httpRestApiFetcher",
-    "img",
     "error",
-    "flight",
-    "flightIcon",
-    "hours",
-    "svg",
-    "city",
-    "cityIcon",
-    "airport2",
-    "airportIcon2",
-    "km",
-    "kmIcon",
-    "milesFlown",
-    "country",
-    "countryIcon"
+    "duration",
+    "freeBox",
+    "days",
+    "hours2",
+    "minutes",
+    "dreamerr",
+    "explorerr",
+    "adventurer2",
+    "globetrotterr",
+    "voyager",
+    "flights",
+    "flightIcon2",
+    "cities",
+    "cityIcon2",
+    "airports",
+    "airportIcon3"
   ],
   profileHeader: ["profileHeader"],
   body: [
     "body",
     "httpRestApiFetcher",
-    "img",
     "error",
-    "flight",
-    "flightIcon",
-    "hours",
-    "svg",
-    "city",
-    "cityIcon",
-    "airport2",
-    "airportIcon2",
-    "km",
-    "kmIcon",
-    "milesFlown",
-    "country",
-    "countryIcon"
+    "duration",
+    "freeBox",
+    "days",
+    "hours2",
+    "minutes",
+    "dreamerr",
+    "explorerr",
+    "adventurer2",
+    "globetrotterr",
+    "voyager",
+    "flights",
+    "flightIcon2",
+    "cities",
+    "cityIcon2",
+    "airports",
+    "airportIcon3"
   ],
   httpRestApiFetcher: [
     "httpRestApiFetcher",
-    "img",
     "error",
-    "flight",
-    "flightIcon",
-    "hours",
-    "svg",
-    "city",
-    "cityIcon",
-    "airport2",
-    "airportIcon2",
-    "km",
-    "kmIcon",
-    "milesFlown",
-    "country",
-    "countryIcon"
+    "duration",
+    "freeBox",
+    "days",
+    "hours2",
+    "minutes",
+    "dreamerr",
+    "explorerr",
+    "adventurer2",
+    "globetrotterr",
+    "voyager",
+    "flights",
+    "flightIcon2",
+    "cities",
+    "cityIcon2",
+    "airports",
+    "airportIcon3"
   ],
-  img: ["img"],
   error: ["error"],
-  flight: ["flight", "flightIcon"],
-  flightIcon: ["flightIcon"],
-  hours: ["hours", "svg"],
-  svg: ["svg"],
-  city: ["city", "cityIcon"],
-  cityIcon: ["cityIcon"],
-  airport2: ["airport2", "airportIcon2"],
-  airportIcon2: ["airportIcon2"],
-  km: ["km", "kmIcon", "milesFlown"],
-  kmIcon: ["kmIcon"],
-  milesFlown: ["milesFlown"],
-  country: ["country", "countryIcon"],
-  countryIcon: ["countryIcon"]
+  duration: ["duration", "freeBox", "days", "hours2", "minutes"],
+  freeBox: ["freeBox", "days", "hours2", "minutes"],
+  days: ["days"],
+  hours2: ["hours2"],
+  minutes: ["minutes"],
+  dreamerr: ["dreamerr"],
+  explorerr: ["explorerr"],
+  adventurer2: ["adventurer2"],
+  globetrotterr: ["globetrotterr"],
+  voyager: ["voyager"],
+  flights: ["flights", "flightIcon2"],
+  flightIcon2: ["flightIcon2"],
+  cities: ["cities", "cityIcon2"],
+  cityIcon2: ["cityIcon2"],
+  airports: ["airports", "airportIcon3"],
+  airportIcon3: ["airportIcon3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1098,21 +1515,23 @@ type NodeDefaultElementType = {
   profileHeader: typeof ProfileHeader;
   body: "div";
   httpRestApiFetcher: typeof DataFetcher;
-  img: typeof PlasmicImg__;
   error: typeof Error;
-  flight: "div";
-  flightIcon: "svg";
-  hours: "div";
-  svg: "svg";
-  city: "div";
-  cityIcon: "svg";
-  airport2: "div";
-  airportIcon2: "svg";
-  km: "div";
-  kmIcon: "svg";
-  milesFlown: "div";
-  country: "div";
-  countryIcon: "svg";
+  duration: "section";
+  freeBox: "div";
+  days: "div";
+  hours2: "div";
+  minutes: "div";
+  dreamerr: "section";
+  explorerr: "section";
+  adventurer2: "section";
+  globetrotterr: "section";
+  voyager: "section";
+  flights: "div";
+  flightIcon2: "svg";
+  cities: "div";
+  cityIcon2: "svg";
+  airports: "div";
+  airportIcon3: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1178,21 +1597,23 @@ export const PlasmicHomepage = Object.assign(
     profileHeader: makeNodeComponent("profileHeader"),
     body: makeNodeComponent("body"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
-    img: makeNodeComponent("img"),
     error: makeNodeComponent("error"),
-    flight: makeNodeComponent("flight"),
-    flightIcon: makeNodeComponent("flightIcon"),
-    hours: makeNodeComponent("hours"),
-    svg: makeNodeComponent("svg"),
-    city: makeNodeComponent("city"),
-    cityIcon: makeNodeComponent("cityIcon"),
-    airport2: makeNodeComponent("airport2"),
-    airportIcon2: makeNodeComponent("airportIcon2"),
-    km: makeNodeComponent("km"),
-    kmIcon: makeNodeComponent("kmIcon"),
-    milesFlown: makeNodeComponent("milesFlown"),
-    country: makeNodeComponent("country"),
-    countryIcon: makeNodeComponent("countryIcon"),
+    duration: makeNodeComponent("duration"),
+    freeBox: makeNodeComponent("freeBox"),
+    days: makeNodeComponent("days"),
+    hours2: makeNodeComponent("hours2"),
+    minutes: makeNodeComponent("minutes"),
+    dreamerr: makeNodeComponent("dreamerr"),
+    explorerr: makeNodeComponent("explorerr"),
+    adventurer2: makeNodeComponent("adventurer2"),
+    globetrotterr: makeNodeComponent("globetrotterr"),
+    voyager: makeNodeComponent("voyager"),
+    flights: makeNodeComponent("flights"),
+    flightIcon2: makeNodeComponent("flightIcon2"),
+    cities: makeNodeComponent("cities"),
+    cityIcon2: makeNodeComponent("cityIcon2"),
+    airports: makeNodeComponent("airports"),
+    airportIcon3: makeNodeComponent("airportIcon3"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
