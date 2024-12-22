@@ -104,20 +104,13 @@
 }
 .img {
   object-fit: cover;
-  max-width: 100%;
-  width: auto;
-  align-self: center;
   margin-top: calc(10px + var(--token-8MkIlsFrrWgx)) !important;
   margin-bottom: 0px;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  height: auto;
+  position: relative;
   margin-right: 10px;
   margin-left: 10px;
+  align-self: center;
+  width: auto;
 }
 .img > picture > img {
   object-fit: cover;

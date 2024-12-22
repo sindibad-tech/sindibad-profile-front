@@ -45,7 +45,8 @@
           }
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -103,7 +104,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -503,7 +505,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "YUiM7yqBWAqsh8KSnrdj7",
@@ -531,7 +534,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "p1fHvJbiLdgzRrAS359KQb",
@@ -1175,6 +1179,21 @@
           "id": "sO0RW-6khwta",
           "name": "Skype_Picture_2024_12_22T08_08_51_147Z.png 2",
           "filePath": "../public/plasmic/profile/images/skypePicture20241222T080851147ZPng2.png"
+        },
+        {
+          "id": "0wF3Oip7Qpog",
+          "name": "Skype_Picture_2024_12_22T08_08_51_147Z.png 3",
+          "filePath": "../public/plasmic/profile/images/skypePicture20241222T080851147ZPng3.png"
+        },
+        {
+          "id": "789twyLzM_4f",
+          "name": "skype.png",
+          "filePath": "../public/plasmic/profile/images/skypePng.png"
+        },
+        {
+          "id": "JaazcBcum1iz",
+          "name": "skype.png 2",
+          "filePath": "../public/plasmic/profile/images/skypePng2.png"
         }
       ],
       "indirect": false,
