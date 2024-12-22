@@ -192,13 +192,29 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
   padding: 8px 0px;
+}
+.freeBox__wI2J > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - var(--token-Pky-E4CaFvs4));
+  width: calc(100% + var(--token-Pky-E4CaFvs4));
+}
+.freeBox__wI2J > :global(.__wab_flex-container) > *,
+.freeBox__wI2J > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__wI2J > :global(.__wab_flex-container) > picture > img,
+.freeBox__wI2J
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: var(--token-Pky-E4CaFvs4);
 }
 .days {
   display: flex;
@@ -215,7 +231,7 @@
 }
 .text___9TM {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   align-self: center;
@@ -232,15 +248,13 @@
   user-select: text;
   text-decoration-line: none;
   text-overflow: clip;
-  min-width: 0;
 }
 .text__eabcc {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   align-self: center;
   text-align: center;
-  min-width: 0;
 }
 .hours2 {
   display: flex;
@@ -256,7 +270,7 @@
 }
 .text___8Ko8A {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   text-align: center;
@@ -273,15 +287,13 @@
   text-decoration-line: none;
   text-overflow: clip;
   align-self: center;
-  min-width: 0;
 }
 .text__b6Szg {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   align-self: center;
   text-align: center;
-  min-width: 0;
 }
 .minutes {
   display: flex;
@@ -292,13 +304,13 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 20px;
+  margin-left: calc(20px + var(--token-Pky-E4CaFvs4)) !important;
   min-width: 0;
   padding: 8px 8px 0px 25px;
 }
 .text___6DbPp {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   text-align: center;
@@ -315,15 +327,13 @@
   text-decoration-line: none;
   text-overflow: clip;
   align-self: center;
-  min-width: 0;
 }
 .text___8ZdG {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   align-self: center;
   text-align: center;
-  min-width: 0;
 }
 .dreamerr {
   display: grid;
@@ -653,7 +663,6 @@
   text-align: right;
   left: auto;
   top: auto;
-  padding-right: 15px;
   font-weight: 700;
   font-family: "Vazirmatn", sans-serif;
   font-size: 20px;
@@ -666,6 +675,7 @@
   user-select: text;
   text-decoration-line: none;
   text-overflow: clip;
+  margin-right: 10px;
 }
 .cities {
   display: flex;
@@ -734,7 +744,6 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  padding-right: 30px;
   font-weight: 700;
   font-family: "Vazirmatn", sans-serif;
   font-size: 20px;
@@ -747,6 +756,7 @@
   user-select: text;
   text-decoration-line: none;
   text-overflow: clip;
+  margin-right: 10px;
 }
 .airports {
   display: flex;
@@ -815,7 +825,6 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  padding-right: 30px;
   font-weight: 700;
   font-family: "Vazirmatn", sans-serif;
   font-size: 20px;
@@ -828,6 +837,7 @@
   user-select: text;
   text-decoration-line: none;
   text-overflow: clip;
+  margin-right: 10px;
 }
 .login__eMcp:global(.__wab_instance) {
   position: relative;

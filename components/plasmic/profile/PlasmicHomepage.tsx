@@ -461,7 +461,9 @@ function PlasmicHomepage__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                        <div
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__wI2J
@@ -680,7 +682,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                           </div>
-                        </div>
+                        </Stack__>
                       </section>
                       {(() => {
                         try {
