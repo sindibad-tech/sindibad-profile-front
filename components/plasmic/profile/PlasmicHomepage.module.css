@@ -174,26 +174,18 @@
 .duration > * {
   grid-column: 4;
 }
-.text__yHWT {
+.text__pFS {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
-  justify-self: center;
+  color: #535353;
+  font-family: "Vazirmatn", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
   text-align: center;
   margin-top: 10px;
-  font-style: normal;
-  font-family: "Vazirmatn", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: #535353;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre-wrap;
-  user-select: text;
-  text-decoration-line: none;
-  text-overflow: clip;
+  justify-self: center;
   min-width: 0;
 }
 .freeBox {
@@ -217,7 +209,7 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 20px;
   min-width: 0;
   padding: 8px 25px 0px 8px;
 }
@@ -300,7 +292,7 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 10px;
+  margin-left: 20px;
   min-width: 0;
   padding: 8px 8px 0px 25px;
 }

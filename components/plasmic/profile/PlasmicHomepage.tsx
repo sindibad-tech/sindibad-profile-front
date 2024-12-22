@@ -441,7 +441,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__yHWT
+                            sty.text__pFS
                           )}
                         >
                           <React.Fragment>
@@ -455,7 +455,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "Time Spent Flying";
+                                  return "";
                                 }
                                 throw e;
                               }
