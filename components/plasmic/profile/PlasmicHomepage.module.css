@@ -246,8 +246,8 @@
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 100%;
   align-self: center;
+  text-align: center;
   min-width: 0;
 }
 .hours2 {
@@ -287,8 +287,8 @@
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 100%;
   align-self: center;
+  text-align: center;
   min-width: 0;
 }
 .minutes {
@@ -329,8 +329,8 @@
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 100%;
   align-self: center;
+  text-align: center;
   min-width: 0;
 }
 .dreamerr {
