@@ -63,6 +63,7 @@ import ProfileHeader from "../../ProfileHeader"; // plasmic-import: T35z79qnz4CS
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import Login from "../../Login"; // plasmic-import: 6aGTi8PwQvO7/component
 import Error from "../../Error"; // plasmic-import: meZq6_ZZzlPV/component
+import NewLogin from "../../NewLogin"; // plasmic-import: kAqzy6eR7N60/component
 
 import { useScreenVariants as useScreenVariantsj8Mi7ZgQDQt } from "../library/PlasmicGlobalVariant__Screen"; // plasmic-import: J8mi7ZG-qDQt/globalVariant
 
@@ -74,8 +75,8 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: i2nNPeRNQPEP9B
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: SEZ-EKiSKUiS/css
 
 import AirplanePlaneFlightSvgrepoComSvgIcon from "./icons/PlasmicIcon__AirplanePlaneFlightSvgrepoComSvg"; // plasmic-import: Pd4zaT4q7XG6/icon
-import BadshahiMosqueSvgrepoComSvgIcon from "./icons/PlasmicIcon__BadshahiMosqueSvgrepoComSvg"; // plasmic-import: T89ROJGhrPRj/icon
-import AirportSvgrepoCom2SvgIcon from "./icons/PlasmicIcon__AirportSvgrepoCom2Svg"; // plasmic-import: -ZavcDLOxXRR/icon
+import CityHallSvgrepoComSvgIcon from "./icons/PlasmicIcon__CityHallSvgrepoComSvg"; // plasmic-import: NkOv02nCk4wU/icon
+import DepartureAirportSvgrepoComSvgIcon from "./icons/PlasmicIcon__DepartureAirportSvgrepoComSvg"; // plasmic-import: BkpnIEzRskj9/icon
 
 createPlasmicElementProxy;
 
@@ -93,6 +94,7 @@ export type PlasmicHomepage__OverridesType = {
   profileHeader?: Flex__<typeof ProfileHeader>;
   body?: Flex__<"div">;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
+  login?: Flex__<typeof Login>;
   error?: Flex__<typeof Error>;
   duration?: Flex__<"section">;
   days2?: Flex__<"div">;
@@ -109,6 +111,7 @@ export type PlasmicHomepage__OverridesType = {
   cityIcon2?: Flex__<"svg">;
   airports?: Flex__<"div">;
   airportIcon3?: Flex__<"svg">;
+  newLogin?: Flex__<typeof NewLogin>;
 };
 
 export interface DefaultHomepageProps {}
@@ -321,10 +324,9 @@ function PlasmicHomepage__RenderFunc(props: {
                           }
                         })() ? (
                           <Login
-                            className={classNames(
-                              "__wab_instance",
-                              sty.login__gIQof
-                            )}
+                            data-plasmic-name={"login"}
+                            data-plasmic-override={overrides.login}
+                            className={classNames("__wab_instance", sty.login)}
                             language={$state.language}
                           />
                         ) : null}
@@ -1291,7 +1293,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             sty.freeBox___8J5MZ
                           )}
                         >
-                          <BadshahiMosqueSvgrepoComSvgIcon
+                          <CityHallSvgrepoComSvgIcon
                             data-plasmic-name={"cityIcon2"}
                             data-plasmic-override={overrides.cityIcon2}
                             className={classNames(
@@ -1365,7 +1367,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             sty.freeBox__w9Vct
                           )}
                         >
-                          <AirportSvgrepoCom2SvgIcon
+                          <DepartureAirportSvgrepoComSvgIcon
                             data-plasmic-name={"airportIcon3"}
                             data-plasmic-override={overrides.airportIcon3}
                             className={classNames(
@@ -1445,8 +1447,10 @@ function PlasmicHomepage__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Login
-              className={classNames("__wab_instance", sty.login__eMcp)}
+            <NewLogin
+              data-plasmic-name={"newLogin"}
+              data-plasmic-override={overrides.newLogin}
+              className={classNames("__wab_instance", sty.newLogin)}
               language={$state.language}
             />
           ) : null}
@@ -1462,6 +1466,7 @@ const PlasmicDescendants = {
     "profileHeader",
     "body",
     "httpRestApiFetcher",
+    "login",
     "error",
     "duration",
     "days2",
@@ -1477,12 +1482,14 @@ const PlasmicDescendants = {
     "cities",
     "cityIcon2",
     "airports",
-    "airportIcon3"
+    "airportIcon3",
+    "newLogin"
   ],
   profileHeader: ["profileHeader"],
   body: [
     "body",
     "httpRestApiFetcher",
+    "login",
     "error",
     "duration",
     "days2",
@@ -1502,6 +1509,7 @@ const PlasmicDescendants = {
   ],
   httpRestApiFetcher: [
     "httpRestApiFetcher",
+    "login",
     "error",
     "duration",
     "days2",
@@ -1519,6 +1527,7 @@ const PlasmicDescendants = {
     "airports",
     "airportIcon3"
   ],
+  login: ["login"],
   error: ["error"],
   duration: ["duration", "days2", "hours3", "minutes2"],
   days2: ["days2"],
@@ -1534,7 +1543,8 @@ const PlasmicDescendants = {
   cities: ["cities", "cityIcon2"],
   cityIcon2: ["cityIcon2"],
   airports: ["airports", "airportIcon3"],
-  airportIcon3: ["airportIcon3"]
+  airportIcon3: ["airportIcon3"],
+  newLogin: ["newLogin"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1544,6 +1554,7 @@ type NodeDefaultElementType = {
   profileHeader: typeof ProfileHeader;
   body: "div";
   httpRestApiFetcher: typeof DataFetcher;
+  login: typeof Login;
   error: typeof Error;
   duration: "section";
   days2: "div";
@@ -1560,6 +1571,7 @@ type NodeDefaultElementType = {
   cityIcon2: "svg";
   airports: "div";
   airportIcon3: "svg";
+  newLogin: typeof NewLogin;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1625,6 +1637,7 @@ export const PlasmicHomepage = Object.assign(
     profileHeader: makeNodeComponent("profileHeader"),
     body: makeNodeComponent("body"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
+    login: makeNodeComponent("login"),
     error: makeNodeComponent("error"),
     duration: makeNodeComponent("duration"),
     days2: makeNodeComponent("days2"),
@@ -1641,6 +1654,7 @@ export const PlasmicHomepage = Object.assign(
     cityIcon2: makeNodeComponent("cityIcon2"),
     airports: makeNodeComponent("airports"),
     airportIcon3: makeNodeComponent("airportIcon3"),
+    newLogin: makeNodeComponent("newLogin"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

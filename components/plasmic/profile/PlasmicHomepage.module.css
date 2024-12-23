@@ -121,7 +121,7 @@
     min-width: 0;
   }
 }
-.login__gIQof:global(.__wab_instance) {
+.login:global(.__wab_instance) {
   position: relative;
   top: auto;
   left: auto;
@@ -183,6 +183,7 @@
   font-size: 16px;
   text-align: center;
   justify-self: center;
+  padding-top: 10px;
   min-width: 0;
 }
 .freeBox__bdQ7L {
@@ -329,8 +330,8 @@
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
@@ -363,7 +364,7 @@
   height: auto;
   max-width: 100%;
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-family: "Vazirmatn", sans-serif;
   font-size: 19px;
   font-weight: 400;
@@ -380,8 +381,8 @@
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
@@ -414,7 +415,7 @@
   height: auto;
   max-width: 100%;
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-family: "Vazirmatn", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -431,8 +432,8 @@
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
@@ -465,7 +466,7 @@
   height: auto;
   max-width: 100%;
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-family: "Vazirmatn", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -482,8 +483,8 @@
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
@@ -516,7 +517,7 @@
   height: auto;
   max-width: 100%;
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-family: "Vazirmatn", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -542,7 +543,7 @@
       calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
-  margin: 20px 0px 10px;
+  margin: 20px 0px;
 }
 .voyager > * {
   grid-column: 4;
@@ -571,7 +572,7 @@
   font-size: 16px;
   text-align: center;
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   justify-self: center;
   color: #000000;
   min-width: 0;
@@ -828,18 +829,8 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.login__eMcp:global(.__wab_instance) {
+.newLogin:global(.__wab_instance) {
   position: relative;
-  right: auto;
-  left: auto;
-  bottom: auto;
   top: auto;
-}
-@media (min-width: 0px) and (max-width: 512px) {
-  .login__eMcp:global(.__wab_instance) {
-    top: auto;
-    left: auto;
-    bottom: auto;
-    right: auto;
-  }
+  left: auto;
 }

@@ -930,32 +930,6 @@
           "componentType": "component"
         },
         {
-          "id": "N9dw7A5dJwIG",
-          "name": "LoginRequired2",
-          "type": "managed",
-          "projectId": "i2nNPeRNQPEP9BPre46c64",
-          "renderModuleFilePath": "plasmic/profile/PlasmicLoginRequired2.tsx",
-          "importSpec": {
-            "modulePath": "LoginRequired2.tsx"
-          },
-          "cssFilePath": "plasmic/profile/PlasmicLoginRequired2.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "lyuxy2GefKah",
-          "name": "Loginnn",
-          "type": "managed",
-          "projectId": "i2nNPeRNQPEP9BPre46c64",
-          "renderModuleFilePath": "plasmic/profile/PlasmicLoginnn.tsx",
-          "importSpec": {
-            "modulePath": "Loginnn.tsx"
-          },
-          "cssFilePath": "plasmic/profile/PlasmicLoginnn.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "1hegvDmx6W9E",
           "name": "Button",
           "type": "managed",
@@ -1009,7 +983,7 @@
           "componentType": "component"
         },
         {
-          "id": "zkLRq_PV6ggA",
+          "id": "kAqzy6eR7N60",
           "name": "NewLogin",
           "type": "managed",
           "projectId": "i2nNPeRNQPEP9BPre46c64",
@@ -1117,6 +1091,16 @@
           "id": "J6988OkPWAku",
           "name": "Icon6Icon",
           "moduleFilePath": "plasmic/profile/icons/PlasmicIcon__Icon6.tsx"
+        },
+        {
+          "id": "NkOv02nCk4wU",
+          "name": "CityHallSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/profile/icons/PlasmicIcon__CityHallSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "BkpnIEzRskj9",
+          "name": "DepartureAirportSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/profile/icons/PlasmicIcon__DepartureAirportSvgrepoComSvg.tsx"
         }
       ],
       "images": [
@@ -1194,6 +1178,11 @@
           "id": "JaazcBcum1iz",
           "name": "skype.png 2",
           "filePath": "../public/plasmic/profile/images/skypePng2.png"
+        },
+        {
+          "id": "Jjm1ct2tfPni",
+          "name": "Skype_Picture_2024_12_22T08_08_51_147Z copy 2.png",
+          "filePath": "../public/plasmic/profile/images/skypePicture20241222T080851147ZCopy2Png.png"
         }
       ],
       "indirect": false,
