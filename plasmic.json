@@ -994,6 +994,32 @@
           "cssFilePath": "plasmic/profile/PlasmicNewLogin.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "Axzl80BJhJhn",
+          "name": "Error2",
+          "type": "managed",
+          "projectId": "i2nNPeRNQPEP9BPre46c64",
+          "renderModuleFilePath": "plasmic/profile/PlasmicError2.tsx",
+          "importSpec": {
+            "modulePath": "Error2.tsx"
+          },
+          "cssFilePath": "plasmic/profile/PlasmicError2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "o3TZKPri98fH",
+          "name": "NewLogin2",
+          "type": "managed",
+          "projectId": "i2nNPeRNQPEP9BPre46c64",
+          "renderModuleFilePath": "plasmic/profile/PlasmicNewLogin2.tsx",
+          "importSpec": {
+            "modulePath": "NewLogin2.tsx"
+          },
+          "cssFilePath": "plasmic/profile/PlasmicNewLogin2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
