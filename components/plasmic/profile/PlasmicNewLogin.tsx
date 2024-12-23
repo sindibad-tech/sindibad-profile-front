@@ -516,6 +516,52 @@ function PlasmicNewLogin__RenderFunc(props: {
             className={classNames(projectcss.all, projectcss.a, sty.link)}
             component={Link}
             href={"https://sindibad.iq/auth?step=regin"}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["login"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          function deleteCookie(name, path = "/", domain) {
+                            const expires = "Thu, 01 Jan 1970 00:00:00 GMT";
+                            const domainAttribute = domain
+                              ? `; domain=${domain}`
+                              : "";
+                            const pathAttribute = `; path=${path}`;
+                            document.cookie = `${name}=; expires=${expires}${pathAttribute}${domainAttribute}`;
+                          }
+                          try {
+                            deleteCookie("aut_token", "/", ".sindibad.iq");
+                            console.log("deleting auth cookie");
+                          } catch {
+                            console.log("No auth cookie");
+                          }
+                          let name = "external_redirect";
+                          let value = "https://support.sindibad.iq";
+                          let path = "/";
+                          const domainAttribute = `; domain=.sindibad.iq`;
+                          window.document.cookie = `${name}=${window.encodeURIComponent(
+                            value
+                          )}; path=${path}${domainAttribute}`;
+                          return console.log("External redirect set");
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["login"] != null &&
+                typeof $steps["login"] === "object" &&
+                typeof $steps["login"].then === "function"
+              ) {
+                $steps["login"] = await $steps["login"];
+              }
+            }}
             platform={"nextjs"}
           >
             <div
