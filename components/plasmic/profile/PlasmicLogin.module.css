@@ -22,6 +22,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-top: 40px;
   align-self: center;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
