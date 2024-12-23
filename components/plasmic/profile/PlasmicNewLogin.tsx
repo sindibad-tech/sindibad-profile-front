@@ -580,7 +580,7 @@ function PlasmicNewLogin__RenderFunc(props: {
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return "";
+                      return "New Request";
                     }
                     throw e;
                   }
