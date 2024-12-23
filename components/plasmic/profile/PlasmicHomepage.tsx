@@ -95,9 +95,9 @@ export type PlasmicHomepage__OverridesType = {
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
   error?: Flex__<typeof Error>;
   duration?: Flex__<"section">;
-  days?: Flex__<"div">;
-  hours2?: Flex__<"div">;
-  minutes?: Flex__<"div">;
+  days2?: Flex__<"div">;
+  hours3?: Flex__<"div">;
+  minutes2?: Flex__<"div">;
   dreamerr?: Flex__<"section">;
   explorerr?: Flex__<"section">;
   adventurer2?: Flex__<"section">;
@@ -440,7 +440,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__pFS
+                            sty.text__yliCg
                           )}
                         >
                           <React.Fragment>
@@ -461,24 +461,22 @@ function PlasmicHomepage__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__wI2J
+                            sty.freeBox__bdQ7L
                           )}
                         >
                           <div
-                            data-plasmic-name={"days"}
-                            data-plasmic-override={overrides.days}
-                            className={classNames(projectcss.all, sty.days)}
+                            data-plasmic-name={"days2"}
+                            data-plasmic-override={overrides.days2}
+                            className={classNames(projectcss.all, sty.days2)}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text___9TM
+                                sty.text__xRzdY
                               )}
                             >
                               <React.Fragment>
@@ -517,7 +515,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__eabcc
+                                sty.text__lZxM3
                               )}
                             >
                               <React.Fragment>
@@ -541,15 +539,15 @@ function PlasmicHomepage__RenderFunc(props: {
                             </div>
                           </div>
                           <div
-                            data-plasmic-name={"hours2"}
-                            data-plasmic-override={overrides.hours2}
-                            className={classNames(projectcss.all, sty.hours2)}
+                            data-plasmic-name={"hours3"}
+                            data-plasmic-override={overrides.hours3}
+                            className={classNames(projectcss.all, sty.hours3)}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text___8Ko8A
+                                sty.text__tp43G
                               )}
                             >
                               <React.Fragment>
@@ -588,7 +586,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__b6Szg
+                                sty.text__p43Pg
                               )}
                             >
                               <React.Fragment>
@@ -612,15 +610,15 @@ function PlasmicHomepage__RenderFunc(props: {
                             </div>
                           </div>
                           <div
-                            data-plasmic-name={"minutes"}
-                            data-plasmic-override={overrides.minutes}
-                            className={classNames(projectcss.all, sty.minutes)}
+                            data-plasmic-name={"minutes2"}
+                            data-plasmic-override={overrides.minutes2}
+                            className={classNames(projectcss.all, sty.minutes2)}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text___6DbPp
+                                sty.text___7BgT
                               )}
                             >
                               <React.Fragment>
@@ -659,7 +657,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text___8ZdG
+                                sty.text__vFl2N
                               )}
                             >
                               <React.Fragment>
@@ -682,7 +680,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                           </div>
-                        </Stack__>
+                        </div>
                       </section>
                       {(() => {
                         try {
@@ -1466,9 +1464,9 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "error",
     "duration",
-    "days",
-    "hours2",
-    "minutes",
+    "days2",
+    "hours3",
+    "minutes2",
     "dreamerr",
     "explorerr",
     "adventurer2",
@@ -1487,9 +1485,9 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "error",
     "duration",
-    "days",
-    "hours2",
-    "minutes",
+    "days2",
+    "hours3",
+    "minutes2",
     "dreamerr",
     "explorerr",
     "adventurer2",
@@ -1506,9 +1504,9 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "error",
     "duration",
-    "days",
-    "hours2",
-    "minutes",
+    "days2",
+    "hours3",
+    "minutes2",
     "dreamerr",
     "explorerr",
     "adventurer2",
@@ -1522,10 +1520,10 @@ const PlasmicDescendants = {
     "airportIcon3"
   ],
   error: ["error"],
-  duration: ["duration", "days", "hours2", "minutes"],
-  days: ["days"],
-  hours2: ["hours2"],
-  minutes: ["minutes"],
+  duration: ["duration", "days2", "hours3", "minutes2"],
+  days2: ["days2"],
+  hours3: ["hours3"],
+  minutes2: ["minutes2"],
   dreamerr: ["dreamerr"],
   explorerr: ["explorerr"],
   adventurer2: ["adventurer2"],
@@ -1548,9 +1546,9 @@ type NodeDefaultElementType = {
   httpRestApiFetcher: typeof DataFetcher;
   error: typeof Error;
   duration: "section";
-  days: "div";
-  hours2: "div";
-  minutes: "div";
+  days2: "div";
+  hours3: "div";
+  minutes2: "div";
   dreamerr: "section";
   explorerr: "section";
   adventurer2: "section";
@@ -1629,9 +1627,9 @@ export const PlasmicHomepage = Object.assign(
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
     error: makeNodeComponent("error"),
     duration: makeNodeComponent("duration"),
-    days: makeNodeComponent("days"),
-    hours2: makeNodeComponent("hours2"),
-    minutes: makeNodeComponent("minutes"),
+    days2: makeNodeComponent("days2"),
+    hours3: makeNodeComponent("hours3"),
+    minutes2: makeNodeComponent("minutes2"),
     dreamerr: makeNodeComponent("dreamerr"),
     explorerr: makeNodeComponent("explorerr"),
     adventurer2: makeNodeComponent("adventurer2"),

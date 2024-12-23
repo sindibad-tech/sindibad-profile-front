@@ -194,16 +194,16 @@ function PlasmicLogin__RenderFunc(props: {
             alt={""}
             className={classNames(sty.img)}
             displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"none"}
+            displayMaxHeight={"360px"}
+            displayMaxWidth={"360px"}
             displayMinHeight={"0"}
             displayMinWidth={"0"}
             displayWidth={"auto"}
             loading={"lazy"}
             src={{
-              src: "/plasmic/profile/images/skypePng2.png",
-              fullWidth: 360,
-              fullHeight: 299,
+              src: "/plasmic/profile/images/skypePicture20241222T080851147ZPng2.png",
+              fullWidth: 1530,
+              fullHeight: 1270,
               aspectRatio: undefined
             }}
           />
