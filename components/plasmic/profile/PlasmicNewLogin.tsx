@@ -545,7 +545,7 @@ function PlasmicNewLogin__RenderFunc(props: {
                 {(() => {
                   try {
                     return $props.language === "ar"
-                      ? "لرؤية إحصائيات رحلاتك، يرجى تسجيل الدخول أولاً"
+                      ? "لرؤية سجل رحلاتي، يرجى تسجيل الدخول أولاً"
                       : "To see your Trip Stats, please login first.";
                   } catch (e) {
                     if (
