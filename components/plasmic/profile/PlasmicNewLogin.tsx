@@ -197,6 +197,19 @@ function PlasmicNewLogin__RenderFunc(props: {
           plasmic_antd_5_hostless_css.plasmic_tokens,
           sty.root
         )}
+        dr={(() => {
+          try {
+            return $state.language === "ar" ? "rtl" : "ltr";
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
       >
         <section
           data-plasmic-name={"duration2"}
@@ -483,12 +496,26 @@ function PlasmicNewLogin__RenderFunc(props: {
           data-plasmic-name={"section"}
           data-plasmic-override={overrides.section}
           className={classNames(projectcss.all, sty.section)}
+          dr={(() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         >
           <PlasmicLink__
             data-plasmic-name={"link"}
             data-plasmic-override={overrides.link}
             className={classNames(projectcss.all, projectcss.a, sty.link)}
             component={Link}
+            href={"https://sindibad.iq/auth?step=regin"}
             platform={"nextjs"}
           >
             <div
