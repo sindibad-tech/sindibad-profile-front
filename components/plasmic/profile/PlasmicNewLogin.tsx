@@ -199,7 +199,7 @@ function PlasmicNewLogin__RenderFunc(props: {
         )}
         dr={(() => {
           try {
-            return $state.language === "ar" ? "rtl" : "ltr";
+            return $props.language === "ar" ? "rtl" : "ltr";
           } catch (e) {
             if (
               e instanceof TypeError ||
