@@ -1437,9 +1437,9 @@ function PlasmicHomepage__RenderFunc(props: {
                             displayWidth={"100%"}
                             loading={"lazy"}
                             src={{
-                              src: "/plasmic/profile/images/imresizer1734782602572Jpg2.jpg",
-                              fullWidth: 1922,
-                              fullHeight: 961,
+                              src: "/plasmic/profile/images/imresizer1734970995406Jpg.jpg",
+                              fullWidth: 1911,
+                              fullHeight: 955,
                               aspectRatio: undefined
                             }}
                           />
@@ -1528,7 +1528,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayWidth={"100%"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/profile/images/img1073Jpg.jpg",
+                            src: "/plasmic/profile/images/img10732Jpg2.jpg",
                             fullWidth: 1911,
                             fullHeight: 955,
                             aspectRatio: undefined
