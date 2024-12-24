@@ -821,7 +821,7 @@ function PlasmicHomepage__RenderFunc(props: {
               url={(() => {
                 try {
                   return (
-                    "https://api.sindibad.iq/api/v1.0/international-flight/Order/mytrips-stat" +
+                    "https://api.sindibad.iq/api/v1.0/international-flight/Order/mytrips-stat?" +
                     $state.year
                   );
                 } catch (e) {
@@ -918,7 +918,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     variablePath: ["year"]
                                   },
                                   operation: 0,
-                                  value: "2022"
+                                  value: "year=2022"
                                 };
                                 return (({
                                   variable,
@@ -976,7 +976,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     variablePath: ["year"]
                                   },
                                   operation: 0,
-                                  value: "2023"
+                                  value: "year=2023"
                                 };
                                 return (({
                                   variable,
@@ -1044,7 +1044,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     variablePath: ["year"]
                                   },
                                   operation: 0,
-                                  value: "2024"
+                                  value: "year=2024"
                                 };
                                 return (({
                                   variable,
