@@ -358,12 +358,12 @@
         {
           "type": "renderModule",
           "assetId": "SEZ-EKiSKUiS",
-          "checksum": "28da9e7edf2218477818474ad7795f1d"
+          "checksum": "2c7c39ad61fbf803a61008c6223b1cb8"
         },
         {
           "type": "cssRules",
           "assetId": "SEZ-EKiSKUiS",
-          "checksum": "28da9e7edf2218477818474ad7795f1d"
+          "checksum": "2c7c39ad61fbf803a61008c6223b1cb8"
         },
         {
           "type": "renderModule",
@@ -679,6 +679,16 @@
           "assetId": "i2nNPeRNQPEP9BPre46c64",
           "type": "projectCss",
           "checksum": "5905183b84b0405d76fd8593d8094a8f"
+        },
+        {
+          "type": "image",
+          "assetId": "91NcGhm0ozVT",
+          "checksum": "a3c39e9e964a25eeb772cee325e7351c"
+        },
+        {
+          "type": "image",
+          "assetId": "McB4RyXGUl5q",
+          "checksum": "c41e5ab067dcf349667004321052bb55"
         }
       ],
       "codegenVersion": "0.0.1"
