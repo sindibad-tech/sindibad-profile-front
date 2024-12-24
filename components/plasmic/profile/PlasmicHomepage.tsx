@@ -62,6 +62,7 @@ import {
 import ProfileHeader from "../../ProfileHeader"; // plasmic-import: T35z79qnz4CS/component
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import NewLogin from "../../NewLogin"; // plasmic-import: kAqzy6eR7N60/component
+import Button from "../../Button"; // plasmic-import: 1hegvDmx6W9E/component
 
 import { useScreenVariants as useScreenVariantsj8Mi7ZgQDQt } from "../library/PlasmicGlobalVariant__Screen"; // plasmic-import: J8mi7ZG-qDQt/globalVariant
 
@@ -75,6 +76,8 @@ import sty from "./PlasmicHomepage.module.css"; // plasmic-import: SEZ-EKiSKUiS/
 import AirplanePlaneFlightSvgrepoComSvgIcon from "./icons/PlasmicIcon__AirplanePlaneFlightSvgrepoComSvg"; // plasmic-import: Pd4zaT4q7XG6/icon
 import CityHallSvgrepoComSvgIcon from "./icons/PlasmicIcon__CityHallSvgrepoComSvg"; // plasmic-import: NkOv02nCk4wU/icon
 import DepartureAirportSvgrepoComSvgIcon from "./icons/PlasmicIcon__DepartureAirportSvgrepoComSvg"; // plasmic-import: BkpnIEzRskj9/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: 3m3fsfx9bNC_/icon
+import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: G8aALch74DHO/icon
 
 createPlasmicElementProxy;
 
@@ -103,6 +106,11 @@ export type PlasmicHomepage__OverridesType = {
   cityIcon3?: Flex__<"svg">;
   airports2?: Flex__<"div">;
   airportIcon4?: Flex__<"svg">;
+  all?: Flex__<typeof Button>;
+  _2022?: Flex__<typeof Button>;
+  _2023?: Flex__<typeof Button>;
+  _2025?: Flex__<"div">;
+  _2024?: Flex__<typeof Button>;
   duration?: Flex__<"section">;
   days2?: Flex__<"div">;
   hours3?: Flex__<"div">;
@@ -215,6 +223,12 @@ function PlasmicHomepage__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "year",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -804,15 +818,276 @@ function PlasmicHomepage__RenderFunc(props: {
                   : false
               }
               previewSpinner={false}
-              url={
-                "https://api.sindibad.iq/api/v1.0/international-flight/Order/mytrips-stat"
-              }
+              url={(() => {
+                try {
+                  return (
+                    "https://api.sindibad.iq/api/v1.0/international-flight/Order/mytrips-stat" +
+                    $state.year
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "https://api.sindibad.iq/api/v1.0/international-flight/Order/mytrips-stat";
+                  }
+                  throw e;
+                }
+              })()}
             >
               <DataCtxReader__>
                 {$ctx => (
                   <section
                     className={classNames(projectcss.all, sty.section__wvP09)}
                   >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__p29D)}
+                    >
+                      <Button
+                        data-plasmic-name={"all"}
+                        data-plasmic-override={overrides.all}
+                        className={classNames("__wab_instance", sty.all)}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateYear"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["year"]
+                                  },
+                                  operation: 0,
+                                  value: "2024"
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateYear"] != null &&
+                            typeof $steps["updateYear"] === "object" &&
+                            typeof $steps["updateYear"].then === "function"
+                          ) {
+                            $steps["updateYear"] = await $steps["updateYear"];
+                          }
+                        }}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return "All Time";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "Button";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </Button>
+                      <Button
+                        data-plasmic-name={"_2022"}
+                        data-plasmic-override={overrides._2022}
+                        className={classNames("__wab_instance", sty._2022)}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateYear"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["year"]
+                                  },
+                                  operation: 0,
+                                  value: "2022"
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateYear"] != null &&
+                            typeof $steps["updateYear"] === "object" &&
+                            typeof $steps["updateYear"].then === "function"
+                          ) {
+                            $steps["updateYear"] = await $steps["updateYear"];
+                          }
+                        }}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return 2022;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "Button";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </Button>
+                      <Button
+                        data-plasmic-name={"_2023"}
+                        data-plasmic-override={overrides._2023}
+                        className={classNames("__wab_instance", sty._2023)}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateYear"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["year"]
+                                  },
+                                  operation: 0,
+                                  value: "2023"
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateYear"] != null &&
+                            typeof $steps["updateYear"] === "object" &&
+                            typeof $steps["updateYear"].then === "function"
+                          ) {
+                            $steps["updateYear"] = await $steps["updateYear"];
+                          }
+                        }}
+                      >
+                        <div
+                          data-plasmic-name={"_2025"}
+                          data-plasmic-override={overrides._2025}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty._2025
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return 2023;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Button";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </Button>
+                      <Button
+                        data-plasmic-name={"_2024"}
+                        data-plasmic-override={overrides._2024}
+                        className={classNames("__wab_instance", sty._2024)}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateYear"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["year"]
+                                  },
+                                  operation: 0,
+                                  value: "2024"
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateYear"] != null &&
+                            typeof $steps["updateYear"] === "object" &&
+                            typeof $steps["updateYear"].then === "function"
+                          ) {
+                            $steps["updateYear"] = await $steps["updateYear"];
+                          }
+                        }}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return 2024;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "Button";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </Button>
+                    </Stack__>
                     <section
                       data-plasmic-name={"duration"}
                       data-plasmic-override={overrides.duration}
@@ -1825,6 +2100,11 @@ const PlasmicDescendants = {
     "cityIcon3",
     "airports2",
     "airportIcon4",
+    "all",
+    "_2022",
+    "_2023",
+    "_2025",
+    "_2024",
     "duration",
     "days2",
     "hours3",
@@ -1856,6 +2136,11 @@ const PlasmicDescendants = {
     "cityIcon3",
     "airports2",
     "airportIcon4",
+    "all",
+    "_2022",
+    "_2023",
+    "_2025",
+    "_2024",
     "duration",
     "days2",
     "hours3",
@@ -1885,6 +2170,11 @@ const PlasmicDescendants = {
     "cityIcon3",
     "airports2",
     "airportIcon4",
+    "all",
+    "_2022",
+    "_2023",
+    "_2025",
+    "_2024",
     "duration",
     "days2",
     "hours3",
@@ -1912,6 +2202,11 @@ const PlasmicDescendants = {
   cityIcon3: ["cityIcon3"],
   airports2: ["airports2", "airportIcon4"],
   airportIcon4: ["airportIcon4"],
+  all: ["all"],
+  _2022: ["_2022"],
+  _2023: ["_2023", "_2025"],
+  _2025: ["_2025"],
+  _2024: ["_2024"],
   duration: ["duration", "days2", "hours3", "minutes2"],
   days2: ["days2"],
   hours3: ["hours3"],
@@ -1947,6 +2242,11 @@ type NodeDefaultElementType = {
   cityIcon3: "svg";
   airports2: "div";
   airportIcon4: "svg";
+  all: typeof Button;
+  _2022: typeof Button;
+  _2023: typeof Button;
+  _2025: "div";
+  _2024: typeof Button;
   duration: "section";
   days2: "div";
   hours3: "div";
@@ -2038,6 +2338,11 @@ export const PlasmicHomepage = Object.assign(
     cityIcon3: makeNodeComponent("cityIcon3"),
     airports2: makeNodeComponent("airports2"),
     airportIcon4: makeNodeComponent("airportIcon4"),
+    all: makeNodeComponent("all"),
+    _2022: makeNodeComponent("_2022"),
+    _2023: makeNodeComponent("_2023"),
+    _2025: makeNodeComponent("_2025"),
+    _2024: makeNodeComponent("_2024"),
     duration: makeNodeComponent("duration"),
     days2: makeNodeComponent("days2"),
     hours3: makeNodeComponent("hours3"),

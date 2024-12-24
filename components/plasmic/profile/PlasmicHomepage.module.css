@@ -586,6 +586,105 @@
 .section__wvP09 > * {
   grid-column: 4;
 }
+.freeBox__p29D {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-self: flex-start;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__p29D > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  min-width: 0;
+  margin-left: calc(0px - var(--token-6mQmIEer3GeD));
+  width: calc(100% + var(--token-6mQmIEer3GeD));
+}
+.freeBox__p29D > :global(.__wab_flex-container) > *,
+.freeBox__p29D > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__p29D > :global(.__wab_flex-container) > picture > img,
+.freeBox__p29D
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: var(--token-6mQmIEer3GeD);
+}
+.all:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg__gz54T {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg___3ZeNm {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+._2022:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg__fvz2N {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__lI0Wr {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+._2023:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg__fd8Eu {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__nDxp {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+._2024:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg__sdc1Q {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__aKjHl {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
 .duration {
   display: grid;
   position: relative;
@@ -594,10 +693,12 @@
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-  box-shadow: 0px 4px 16px 0px #4c4c4c33;
+  box-shadow: none;
   background: var(--token-DbGdjBpQ6R_X);
   margin-top: 25px;
   margin-bottom: 20px;
+  outline-style: dashed;
+  outline-color: var(--token-Pxe4wDL2kJpb);
   min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
