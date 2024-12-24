@@ -107,10 +107,10 @@ export type PlasmicHomepage__OverridesType = {
   airports2?: Flex__<"div">;
   airportIcon4?: Flex__<"svg">;
   all?: Flex__<typeof Button>;
-  _2022?: Flex__<typeof Button>;
-  _2023?: Flex__<typeof Button>;
-  _2025?: Flex__<"div">;
   _2024?: Flex__<typeof Button>;
+  _2023?: Flex__<typeof Button>;
+  _20233?: Flex__<"div">;
+  _2022?: Flex__<typeof Button>;
   duration?: Flex__<"section">;
   days2?: Flex__<"div">;
   hours3?: Flex__<"div">;
@@ -849,6 +849,19 @@ function PlasmicHomepage__RenderFunc(props: {
                         data-plasmic-name={"all"}
                         data-plasmic-override={overrides.all}
                         className={classNames("__wab_instance", sty.all)}
+                        color={(() => {
+                          try {
+                            return $state.year === "" ? "blue" : "softBlue";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "blue";
+                            }
+                            throw e;
+                          }
+                        })()}
                         onClick={async event => {
                           const $steps = {};
 
@@ -887,26 +900,49 @@ function PlasmicHomepage__RenderFunc(props: {
                           }
                         }}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return "All Time";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "Button";
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__cYmu
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return "All Time";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Button";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
+                            })()}
+                          </React.Fragment>
+                        </div>
                       </Button>
                       <Button
-                        data-plasmic-name={"_2022"}
-                        data-plasmic-override={overrides._2022}
-                        className={classNames("__wab_instance", sty._2022)}
+                        data-plasmic-name={"_2024"}
+                        data-plasmic-override={overrides._2024}
+                        className={classNames("__wab_instance", sty._2024)}
+                        color={(() => {
+                          try {
+                            return $state.year === "year=2024"
+                              ? "blue"
+                              : "softBlue";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
                         onClick={async event => {
                           const $steps = {};
 
@@ -918,7 +954,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     variablePath: ["year"]
                                   },
                                   operation: 0,
-                                  value: "year=2022"
+                                  value: "year=2024"
                                 };
                                 return (({
                                   variable,
@@ -945,26 +981,49 @@ function PlasmicHomepage__RenderFunc(props: {
                           }
                         }}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return 2022;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "Button";
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__x540R
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return 2024;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Button";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
+                            })()}
+                          </React.Fragment>
+                        </div>
                       </Button>
                       <Button
                         data-plasmic-name={"_2023"}
                         data-plasmic-override={overrides._2023}
                         className={classNames("__wab_instance", sty._2023)}
+                        color={(() => {
+                          try {
+                            return $state.year === "year=2023"
+                              ? "blue"
+                              : "softBlue";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
                         onClick={async event => {
                           const $steps = {};
 
@@ -1004,12 +1063,12 @@ function PlasmicHomepage__RenderFunc(props: {
                         }}
                       >
                         <div
-                          data-plasmic-name={"_2025"}
-                          data-plasmic-override={overrides._2025}
+                          data-plasmic-name={"_20233"}
+                          data-plasmic-override={overrides._20233}
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty._2025
+                            sty._20233
                           )}
                         >
                           <React.Fragment>
@@ -1030,9 +1089,24 @@ function PlasmicHomepage__RenderFunc(props: {
                         </div>
                       </Button>
                       <Button
-                        data-plasmic-name={"_2024"}
-                        data-plasmic-override={overrides._2024}
-                        className={classNames("__wab_instance", sty._2024)}
+                        data-plasmic-name={"_2022"}
+                        data-plasmic-override={overrides._2022}
+                        className={classNames("__wab_instance", sty._2022)}
+                        color={(() => {
+                          try {
+                            return $state.year === "year=2022"
+                              ? "blue"
+                              : "softBlue";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
                         onClick={async event => {
                           const $steps = {};
 
@@ -1044,7 +1118,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     variablePath: ["year"]
                                   },
                                   operation: 0,
-                                  value: "year=2024"
+                                  value: "year=2022"
                                 };
                                 return (({
                                   variable,
@@ -1071,21 +1145,29 @@ function PlasmicHomepage__RenderFunc(props: {
                           }
                         }}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return 2024;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "Button";
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__xFmYe
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return 2022;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Button";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
+                            })()}
+                          </React.Fragment>
+                        </div>
                       </Button>
                     </Stack__>
                     <section
@@ -2101,10 +2183,10 @@ const PlasmicDescendants = {
     "airports2",
     "airportIcon4",
     "all",
-    "_2022",
-    "_2023",
-    "_2025",
     "_2024",
+    "_2023",
+    "_20233",
+    "_2022",
     "duration",
     "days2",
     "hours3",
@@ -2137,10 +2219,10 @@ const PlasmicDescendants = {
     "airports2",
     "airportIcon4",
     "all",
-    "_2022",
-    "_2023",
-    "_2025",
     "_2024",
+    "_2023",
+    "_20233",
+    "_2022",
     "duration",
     "days2",
     "hours3",
@@ -2171,10 +2253,10 @@ const PlasmicDescendants = {
     "airports2",
     "airportIcon4",
     "all",
-    "_2022",
-    "_2023",
-    "_2025",
     "_2024",
+    "_2023",
+    "_20233",
+    "_2022",
     "duration",
     "days2",
     "hours3",
@@ -2203,10 +2285,10 @@ const PlasmicDescendants = {
   airports2: ["airports2", "airportIcon4"],
   airportIcon4: ["airportIcon4"],
   all: ["all"],
-  _2022: ["_2022"],
-  _2023: ["_2023", "_2025"],
-  _2025: ["_2025"],
   _2024: ["_2024"],
+  _2023: ["_2023", "_20233"],
+  _20233: ["_20233"],
+  _2022: ["_2022"],
   duration: ["duration", "days2", "hours3", "minutes2"],
   days2: ["days2"],
   hours3: ["hours3"],
@@ -2243,10 +2325,10 @@ type NodeDefaultElementType = {
   airports2: "div";
   airportIcon4: "svg";
   all: typeof Button;
-  _2022: typeof Button;
-  _2023: typeof Button;
-  _2025: "div";
   _2024: typeof Button;
+  _2023: typeof Button;
+  _20233: "div";
+  _2022: typeof Button;
   duration: "section";
   days2: "div";
   hours3: "div";
@@ -2339,10 +2421,10 @@ export const PlasmicHomepage = Object.assign(
     airports2: makeNodeComponent("airports2"),
     airportIcon4: makeNodeComponent("airportIcon4"),
     all: makeNodeComponent("all"),
-    _2022: makeNodeComponent("_2022"),
-    _2023: makeNodeComponent("_2023"),
-    _2025: makeNodeComponent("_2025"),
     _2024: makeNodeComponent("_2024"),
+    _2023: makeNodeComponent("_2023"),
+    _20233: makeNodeComponent("_20233"),
+    _2022: makeNodeComponent("_2022"),
     duration: makeNodeComponent("duration"),
     days2: makeNodeComponent("days2"),
     hours3: makeNodeComponent("hours3"),
