@@ -89,6 +89,7 @@
   top: auto;
   left: auto;
   padding-top: 5px;
+  margin-top: 10px;
   min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
