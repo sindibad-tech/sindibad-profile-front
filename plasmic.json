@@ -1127,6 +1127,11 @@
           "id": "BkpnIEzRskj9",
           "name": "DepartureAirportSvgrepoComSvgIcon",
           "moduleFilePath": "plasmic/profile/icons/PlasmicIcon__DepartureAirportSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "SYGMAPfq55zJ",
+          "name": "TimeSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/profile/icons/PlasmicIcon__TimeSvgrepoComSvg.tsx"
         }
       ],
       "images": [
@@ -1234,6 +1239,76 @@
           "id": "McB4RyXGUl5q",
           "name": "Untitled design (1) (1) (1).gif",
           "filePath": "../public/plasmic/profile/images/untitledDesign111Gif.gif"
+        },
+        {
+          "id": "NreWkAtE_OTm",
+          "name": "rating-stars-web-signs-5-stars-yellow-isolated-on-transparent-background-vector.jpg",
+          "filePath": "../public/plasmic/profile/images/ratingStarsWebSigns5StarsYellowIsolatedOnTransparentBackgroundVectorJpg.jpg"
+        },
+        {
+          "id": "ZGGGi3W-OX49",
+          "name": "14512.jpg",
+          "filePath": "../public/plasmic/profile/images/_14512Jpg.jpg"
+        },
+        {
+          "id": "IO2MH65729Ip",
+          "name": "14512.jpg 2",
+          "filePath": "../public/plasmic/profile/images/_14512Jpg2.jpg"
+        },
+        {
+          "id": "4hieiJ4chU-Q",
+          "name": "imresizer-1735115514970.jpg",
+          "filePath": "../public/plasmic/profile/images/imresizer1735115514970Jpg.jpg"
+        },
+        {
+          "id": "HLbj28w8Ed6_",
+          "name": "freepik__background__36046.png",
+          "filePath": "../public/plasmic/profile/images/freepikBackground36046Png.png"
+        },
+        {
+          "id": "mOlAULeye6Xi",
+          "name": "freepik__background__36046.png 2",
+          "filePath": "../public/plasmic/profile/images/freepikBackground36046Png2.png"
+        },
+        {
+          "id": "mu6Ecz-gjWCo",
+          "name": "15128.jpg",
+          "filePath": "../public/plasmic/profile/images/_15128Jpg.jpg"
+        },
+        {
+          "id": "OgnBp9xTj_v9",
+          "name": "15128.jpg 2",
+          "filePath": "../public/plasmic/profile/images/_15128Jpg2.jpg"
+        },
+        {
+          "id": "TqutblaEfKL8",
+          "name": "15128.jpg 3",
+          "filePath": "../public/plasmic/profile/images/_15128Jpg3.jpg"
+        },
+        {
+          "id": "db-X8Umwwqx_",
+          "name": "15128.jpg 4",
+          "filePath": "../public/plasmic/profile/images/_15128Jpg4.jpg"
+        },
+        {
+          "id": "91mJELW69A9f",
+          "name": "15128.jpg 5",
+          "filePath": "../public/plasmic/profile/images/_15128Jpg5.jpg"
+        },
+        {
+          "id": "SlBL-6aBXwIC",
+          "name": "15128.jpg 6",
+          "filePath": "../public/plasmic/profile/images/_15128Jpg6.jpg"
+        },
+        {
+          "id": "1b7j7_cXwl2F",
+          "name": "imresizer-1735123482623.jpg",
+          "filePath": "../public/plasmic/profile/images/imresizer1735123482623Jpg.jpg"
+        },
+        {
+          "id": "tIwioSONX71r",
+          "name": "imresizer-1735123919761.jpg",
+          "filePath": "../public/plasmic/profile/images/imresizer1735123919761Jpg.jpg"
         }
       ],
       "indirect": false,
