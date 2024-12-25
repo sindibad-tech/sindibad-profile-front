@@ -1881,73 +1881,87 @@ function PlasmicHomepage__RenderFunc(props: {
                         data-plasmic-override={overrides.dreamerr}
                         className={classNames(projectcss.all, sty.dreamerr)}
                       >
-                        <div
-                          data-plasmic-name={"_0Star"}
-                          data-plasmic-override={overrides._0Star}
-                          className={classNames(projectcss.all, sty._0Star)}
-                        >
+                        {(() => {
+                          try {
+                            return $ctx.fetchedData.result.flights === 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__whwh3
-                            )}
+                            data-plasmic-name={"_0Star"}
+                            data-plasmic-override={overrides._0Star}
+                            className={classNames(projectcss.all, sty._0Star)}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__jsbgh
+                                sty.freeBox__whwh3
                               )}
                             >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return "Travel Master";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__jsbgh
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return "Dreamer";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                              <section
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.section__nip8U
+                                )}
+                              />
                             </div>
                             <section
                               className={classNames(
                                 projectcss.all,
-                                sty.section__nip8U
+                                sty.section__ley5
                               )}
-                            />
+                            >
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__rveEh)}
+                                displayHeight={"auto"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={"auto"}
+                                loading={"lazy"}
+                                src={{
+                                  src: "/plasmic/profile/images/_15128Jpg5.jpg",
+                                  fullWidth: 1230,
+                                  fullHeight: 148,
+                                  aspectRatio: undefined
+                                }}
+                              />
+                            </section>
                           </div>
-                          <section
-                            className={classNames(
-                              projectcss.all,
-                              sty.section__ley5
-                            )}
-                          >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__rveEh)}
-                              displayHeight={"auto"}
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={"auto"}
-                              loading={"lazy"}
-                              src={{
-                                src: "/plasmic/profile/images/_15128Jpg5.jpg",
-                                fullWidth: 1230,
-                                fullHeight: 148,
-                                aspectRatio: undefined
-                              }}
-                            />
-                          </section>
-                        </div>
+                        ) : null}
                         {(() => {
                           try {
                             return $ctx.fetchedData.result.flights === 0;
