@@ -271,6 +271,7 @@ function PlasmicHomepage__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
+        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
         <meta name="twitter:card" content="summary" />
         <title key="title">{PlasmicHomepage.pageMetadata.title}</title>
         <meta
