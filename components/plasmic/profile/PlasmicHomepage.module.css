@@ -1233,6 +1233,7 @@
   font-family: "Vazirmatn", sans-serif;
   font-weight: 700;
   font-size: 18px;
+  color: var(--token-0pVtkP-kaM_p);
 }
 .section__nip8U {
   display: grid;
@@ -1347,6 +1348,7 @@
   font-family: "Vazirmatn", sans-serif;
   font-size: 16px;
   font-weight: 700;
+  color: var(--token-0pVtkP-kaM_p);
 }
 .section__beQRu {
   display: grid;
@@ -1461,6 +1463,7 @@
   font-family: "Vazirmatn", sans-serif;
   font-size: 16px;
   font-weight: 700;
+  color: var(--token-0pVtkP-kaM_p);
 }
 .section__wdwFi {
   display: grid;
@@ -1575,6 +1578,7 @@
   font-family: "Vazirmatn", sans-serif;
   font-size: 16px;
   font-weight: 700;
+  color: var(--token-0pVtkP-kaM_p);
 }
 .section__hS9UT {
   display: grid;
@@ -1689,6 +1693,7 @@
   font-family: "Vazirmatn", sans-serif;
   font-weight: 700;
   font-size: 16px;
+  color: var(--token-0pVtkP-kaM_p);
 }
 .section__hrTqF {
   display: grid;
@@ -1802,6 +1807,7 @@
   font-family: "Vazirmatn", sans-serif;
   font-size: 16px;
   font-weight: 700;
+  color: var(--token-0pVtkP-kaM_p);
 }
 .section__cWnb {
   display: grid;
@@ -2128,7 +2134,7 @@
   height: var(--token-8MkIlsFrrWgx);
   max-width: 100%;
   box-shadow: none;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   background: var(--token-DbGdjBpQ6R_X);
   min-width: 0;
   border-radius: 20px;
