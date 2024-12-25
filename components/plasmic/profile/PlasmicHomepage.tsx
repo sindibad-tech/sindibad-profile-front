@@ -271,7 +271,6 @@ function PlasmicHomepage__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
         <meta name="twitter:card" content="summary" />
         <title key="title">{PlasmicHomepage.pageMetadata.title}</title>
         <meta
@@ -3092,9 +3091,31 @@ function PlasmicHomepage__RenderFunc(props: {
                                   customFunction: async () => {
                                     return async function shareAppView() {
                                       try {
+                                        // Check if html2canvas is already loaded
+                                        if (
+                                          typeof window.html2canvas ===
+                                          "undefined"
+                                        ) {
+                                          await new Promise(
+                                            (resolve, reject) => {
+                                              const script =
+                                                document.createElement(
+                                                  "script"
+                                                );
+                                              script.src =
+                                                "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+                                              script.onload = resolve;
+                                              script.onerror = reject;
+                                              document.head.appendChild(script);
+                                            }
+                                          );
+                                        }
+
                                         // Capture the visible part of the app
                                         const appElement =
-                                          document.getElementById("app-box"); // Replace with the ID of your app container
+                                          document.getElementById(
+                                            "app-container-id"
+                                          ); // Replace with the ID of your app container
                                         const canvas = await window.html2canvas(
                                           appElement,
                                           {
@@ -3148,6 +3169,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                           "Failed to share the screenshot. Please try again."
                                         );
                                       } finally {
+                                        console.log("done");
                                       }
                                     };
                                   }
