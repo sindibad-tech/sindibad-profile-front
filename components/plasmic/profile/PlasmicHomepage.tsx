@@ -307,7 +307,6 @@ function PlasmicHomepage__RenderFunc(props: {
             plasmic_antd_5_hostless_css.plasmic_tokens,
             sty.root
           )}
-          id={"app-box"}
         >
           <ProfileHeader
             data-plasmic-name={"profileHeader"}
@@ -332,6 +331,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 throw e;
               }
             })()}
+            id={"app-box"}
           >
             <DataFetcher
               data-plasmic-name={"httpRestApiFetcher"}
