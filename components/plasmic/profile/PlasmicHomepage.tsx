@@ -2814,6 +2814,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               projectcss.__wab_text,
                               sty.text__dwOac
                             )}
+                            unicode-bidi={"isolate"}
                           >
                             <React.Fragment>
                               {(() => {
@@ -3138,7 +3139,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                             );
                                           }
                                           const appElement =
-                                            document.getElementById("app-box");
+                                            document.querySelector("#app-box");
+                                          if (!appElement) {
+                                            throw new Error(
+                                              'Element with ID "ap-box" not found.'
+                                            );
+                                          }
                                           const canvas =
                                             await window.html2canvas(
                                               appElement,
