@@ -1864,9 +1864,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     </Stack__>
                     <section
                       className={classNames(projectcss.all, sty.section__wvP09)}
-                      id={
-                        '$state.language === "ar" ? "\u0627\u0644\u0645\u062f\u0646 \u0627\u0644\u062a\u064a \u0632\u0631\u062a\u0647\u0627" : "Cities Visited" arabic text will get messup'
-                      }
+                      id={"app-box"}
                     >
                       {(() => {
                         try {
