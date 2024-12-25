@@ -3213,6 +3213,20 @@ function PlasmicHomepage__RenderFunc(props: {
                                             alert(
                                               "Screenshot shared successfully!"
                                             );
+                                            if (typeof gtag === "function") {
+                                              gtag(
+                                                "event",
+                                                "share_profile_stats",
+                                                {
+                                                  method: "Web Share API",
+                                                  status: "success"
+                                                }
+                                              );
+                                            } else {
+                                              console.warn(
+                                                "gtag function is not available."
+                                              );
+                                            }
                                           } else {
                                             const downloadLink =
                                               document.createElement("a");
@@ -3223,6 +3237,20 @@ function PlasmicHomepage__RenderFunc(props: {
                                             alert(
                                               "Screenshot saved successfully!"
                                             );
+                                            if (typeof gtag === "function") {
+                                              gtag(
+                                                "event",
+                                                "share_profile_stats",
+                                                {
+                                                  method: "download",
+                                                  status: "success"
+                                                }
+                                              );
+                                            } else {
+                                              console.warn(
+                                                "gtag function is not available."
+                                              );
+                                            }
                                           }
                                         } catch (error) {
                                           console.error(
@@ -3232,6 +3260,21 @@ function PlasmicHomepage__RenderFunc(props: {
                                           alert(
                                             "Failed to share the screenshot. Please try again."
                                           );
+                                          if (typeof gtag === "function") {
+                                            gtag(
+                                              "event",
+                                              "share_profile_stats",
+                                              {
+                                                method: "N/A",
+                                                status: "failure",
+                                                error: error.message
+                                              }
+                                            );
+                                          } else {
+                                            console.warn(
+                                              "gtag function is not available."
+                                            );
+                                          }
                                         } finally {
                                           console.log("done");
                                         }
