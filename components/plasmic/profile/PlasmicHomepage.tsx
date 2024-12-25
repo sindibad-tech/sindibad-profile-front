@@ -1529,6 +1529,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 {$ctx => (
                   <div
                     className={classNames(projectcss.all, sty.freeBox__t6Nfa)}
+                    id={"app-box"}
                   >
                     <Stack__
                       as={"div"}
