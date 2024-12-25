@@ -2802,83 +2802,104 @@ function PlasmicHomepage__RenderFunc(props: {
                         data-plasmic-override={overrides.time}
                         className={classNames(projectcss.all, sty.time)}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__yvt9L
-                          )}
-                        >
-                          <TimeSvgrepoComSvgIcon
-                            data-plasmic-name={"flightIcon5"}
-                            data-plasmic-override={overrides.flightIcon5}
-                            className={classNames(
-                              projectcss.all,
-                              sty.flightIcon5
-                            )}
-                            role={"img"}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__dwOac
-                            )}
-                            unicode-bidi={"isolate"}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $state.language === "ar"
-                                    ? "ساعات الطيران"
-                                    : "Hours Spent Flying";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </Stack__>
                         <div
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__fg0Zv
+                            sty.freeBox__cleXa
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  const minutes =
-                                    $ctx.fetchedData.result.duration;
-                                  const hours = Math.floor(minutes / 60);
-                                  const remainingMinutes = String(
-                                    minutes % 60
-                                  ).padStart(2, "0");
-                                  const formattedTime = `${hours}:${remainingMinutes}`;
-                                  return formattedTime;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__yvt9L
+                            )}
+                          >
+                            <TimeSvgrepoComSvgIcon
+                              data-plasmic-name={"flightIcon5"}
+                              data-plasmic-override={overrides.flightIcon5}
+                              className={classNames(
+                                projectcss.all,
+                                sty.flightIcon5
+                              )}
+                              role={"img"}
+                            />
+                          </Stack__>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__zsJvd
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__dwOac
+                              )}
+                              unicode-bidi={"isolate"}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $state.language === "ar"
+                                      ? "ساعات الطيران"
+                                      : "Hours Spent Flying";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__yyi1
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__fg0Zv
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      const minutes =
+                                        $ctx.fetchedData.result.duration;
+                                      const hours = Math.floor(minutes / 60);
+                                      const remainingMinutes = String(
+                                        minutes % 60
+                                      ).padStart(2, "0");
+                                      const formattedTime = `${hours}:${remainingMinutes}`;
+                                      return formattedTime;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div
