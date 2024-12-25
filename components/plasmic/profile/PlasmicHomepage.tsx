@@ -3113,9 +3113,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             );
                                           }
                                           const appElement =
-                                            document.getElementById(
-                                              "app-container-id"
-                                            );
+                                            document.getElementById("app-box");
                                           const canvas =
                                             await window.html2canvas(
                                               appElement,
