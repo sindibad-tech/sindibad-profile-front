@@ -271,7 +271,6 @@ function PlasmicHomepage__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
         <meta name="twitter:card" content="summary" />
         <title key="title">{PlasmicHomepage.pageMetadata.title}</title>
         <meta
@@ -3091,10 +3090,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return async function shareAppView() {
-                                      const button =
-                                        document.getElementById("share-button"); // Replace with your Plasmic button ID
-                                      button.innerText = "Sharing...";
-
                                       try {
                                         // Capture the visible part of the app
                                         const appElement =
@@ -3152,8 +3147,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                           "Failed to share the screenshot. Please try again."
                                         );
                                       } finally {
-                                        // Reset button text
-                                        button.innerText = "Share View";
                                       }
                                     };
                                   }
