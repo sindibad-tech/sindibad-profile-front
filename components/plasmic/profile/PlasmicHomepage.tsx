@@ -147,8 +147,8 @@ export type PlasmicHomepage__OverridesType = {
   flightIcon2?: Flex__<"svg">;
   cities?: Flex__<"div">;
   cityIcon2?: Flex__<"svg">;
-  airports?: Flex__<"div">;
-  airportIcon3?: Flex__<"svg">;
+  airports4?: Flex__<"div">;
+  cityIcon5?: Flex__<"svg">;
   link?: Flex__<"a"> & Partial<LinkProps>;
 };
 
@@ -1602,7 +1602,9 @@ function PlasmicHomepage__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return "All Time";
+                                return $state.language === "ar"
+                                  ? "الكل"
+                                  : "All Time";
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -3028,24 +3030,24 @@ function PlasmicHomepage__RenderFunc(props: {
                         </div>
                       </div>
                       <div
-                        data-plasmic-name={"airports"}
-                        data-plasmic-override={overrides.airports}
-                        className={classNames(projectcss.all, sty.airports)}
+                        data-plasmic-name={"airports4"}
+                        data-plasmic-override={overrides.airports4}
+                        className={classNames(projectcss.all, sty.airports4)}
                       >
                         <Stack__
                           as={"div"}
                           hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__w9Vct
+                            sty.freeBox__hHWek
                           )}
                         >
                           <DepartureAirportSvgrepoComSvgIcon
-                            data-plasmic-name={"airportIcon3"}
-                            data-plasmic-override={overrides.airportIcon3}
+                            data-plasmic-name={"cityIcon5"}
+                            data-plasmic-override={overrides.cityIcon5}
                             className={classNames(
                               projectcss.all,
-                              sty.airportIcon3
+                              sty.cityIcon5
                             )}
                             role={"img"}
                           />
@@ -3054,7 +3056,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__kxRP
+                              sty.text__iCz8F
                             )}
                           >
                             <React.Fragment>
@@ -3081,7 +3083,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__ie2Du
+                            sty.text__qsiNj
                           )}
                         >
                           <React.Fragment>
@@ -3148,13 +3150,37 @@ function PlasmicHomepage__RenderFunc(props: {
                                               }
                                             );
                                           }
+                                          const fontLink =
+                                            document.createElement("link");
+                                          fontLink.href =
+                                            "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
+                                          fontLink.rel = "stylesheet";
+                                          document.head.appendChild(fontLink);
+                                          await new Promise(
+                                            (resolve, reject) => {
+                                              fontLink.onload = resolve;
+                                              fontLink.onerror = reject;
+                                            }
+                                          );
+                                          document.body.style.fontFamily =
+                                            "Vazirmatn, sans-serif";
                                           const appElement =
                                             document.querySelector("#app-box");
                                           if (!appElement) {
                                             throw new Error(
-                                              'Element with ID "ap-box" not found.'
+                                              'Element with ID "app-box" not found.'
                                             );
                                           }
+                                          if (
+                                            appElement.innerText.match(
+                                              /[\u0600-\u06FF]/
+                                            )
+                                          ) {
+                                            appElement.style.direction = "rtl";
+                                          }
+                                          await new Promise(resolve =>
+                                            setTimeout(resolve, 500)
+                                          );
                                           const canvas =
                                             await window.html2canvas(
                                               appElement,
@@ -3322,8 +3348,8 @@ const PlasmicDescendants = {
     "flightIcon2",
     "cities",
     "cityIcon2",
-    "airports",
-    "airportIcon3",
+    "airports4",
+    "cityIcon5",
     "link"
   ],
   profileHeader: ["profileHeader"],
@@ -3381,8 +3407,8 @@ const PlasmicDescendants = {
     "flightIcon2",
     "cities",
     "cityIcon2",
-    "airports",
-    "airportIcon3",
+    "airports4",
+    "cityIcon5",
     "link"
   ],
   httpRestApiFetcher: [
@@ -3438,8 +3464,8 @@ const PlasmicDescendants = {
     "flightIcon2",
     "cities",
     "cityIcon2",
-    "airports",
-    "airportIcon3",
+    "airports4",
+    "cityIcon5",
     "link"
   ],
   all2: ["all2"],
@@ -3493,8 +3519,8 @@ const PlasmicDescendants = {
   flightIcon2: ["flightIcon2"],
   cities: ["cities", "cityIcon2"],
   cityIcon2: ["cityIcon2"],
-  airports: ["airports", "airportIcon3"],
-  airportIcon3: ["airportIcon3"],
+  airports4: ["airports4", "cityIcon5"],
+  cityIcon5: ["cityIcon5"],
   link: ["link"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -3556,8 +3582,8 @@ type NodeDefaultElementType = {
   flightIcon2: "svg";
   cities: "div";
   cityIcon2: "svg";
-  airports: "div";
-  airportIcon3: "svg";
+  airports4: "div";
+  cityIcon5: "svg";
   link: "a";
 };
 
@@ -3675,8 +3701,8 @@ export const PlasmicHomepage = Object.assign(
     flightIcon2: makeNodeComponent("flightIcon2"),
     cities: makeNodeComponent("cities"),
     cityIcon2: makeNodeComponent("cityIcon2"),
-    airports: makeNodeComponent("airports"),
-    airportIcon3: makeNodeComponent("airportIcon3"),
+    airports4: makeNodeComponent("airports4"),
+    cityIcon5: makeNodeComponent("cityIcon5"),
     link: makeNodeComponent("link"),
 
     // Metadata about props expected for PlasmicHomepage
