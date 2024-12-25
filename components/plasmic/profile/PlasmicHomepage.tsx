@@ -3095,26 +3095,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                       button.innerText = "Sharing...";
 
                                       try {
-                                        // Check if html2canvas is already loaded
-                                        if (
-                                          typeof window.html2canvas ===
-                                          "undefined"
-                                        ) {
-                                          await new Promise(
-                                            (resolve, reject) => {
-                                              const script =
-                                                document.createElement(
-                                                  "script"
-                                                );
-                                              script.src =
-                                                "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
-                                              script.onload = resolve;
-                                              script.onerror = reject;
-                                              document.head.appendChild(script);
-                                            }
-                                          );
-                                        }
-
                                         // Capture the visible part of the app
                                         const appElement =
                                           document.getElementById("app-box"); // Replace with the ID of your app container
