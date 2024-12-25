@@ -3089,89 +3089,90 @@ function PlasmicHomepage__RenderFunc(props: {
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return async function shareAppView() {
-                                      try {
-                                        // Check if html2canvas is already loaded
-                                        if (
-                                          typeof window.html2canvas ===
-                                          "undefined"
-                                        ) {
-                                          await new Promise(
-                                            (resolve, reject) => {
-                                              const script =
-                                                document.createElement(
-                                                  "script"
+                                    return (async () => {
+                                      async function shareAppView() {
+                                        try {
+                                          if (
+                                            typeof window.html2canvas ===
+                                            "undefined"
+                                          ) {
+                                            await new Promise(
+                                              (resolve, reject) => {
+                                                const script =
+                                                  document.createElement(
+                                                    "script"
+                                                  );
+                                                script.src =
+                                                  "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+                                                script.onload = resolve;
+                                                script.onerror = reject;
+                                                document.head.appendChild(
+                                                  script
                                                 );
-                                              script.src =
-                                                "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
-                                              script.onload = resolve;
-                                              script.onerror = reject;
-                                              document.head.appendChild(script);
-                                            }
-                                          );
-                                        }
-
-                                        // Capture the visible part of the app
-                                        const appElement =
-                                          document.getElementById(
-                                            "app-container-id"
-                                          ); // Replace with the ID of your app container
-                                        const canvas = await window.html2canvas(
-                                          appElement,
-                                          {
-                                            useCORS: true, // Allows cross-origin images
-                                            logging: true // Useful for debugging
+                                              }
+                                            );
                                           }
-                                        );
-
-                                        // Convert canvas to blob
-                                        const blob = await new Promise(
-                                          resolve =>
-                                            canvas.toBlob(resolve, "image/png")
-                                        );
-                                        const imageURL =
-                                          URL.createObjectURL(blob);
-
-                                        // Share the screenshot using Web Share API
-                                        if (navigator.share) {
-                                          await navigator.share({
-                                            title: "Check out my app view!",
-                                            text: "Here’s what I’m looking at!",
-                                            files: [
-                                              new File(
-                                                [blob],
-                                                "app-screenshot.png",
-                                                { type: "image/png" }
+                                          const appElement =
+                                            document.getElementById(
+                                              "app-container-id"
+                                            );
+                                          const canvas =
+                                            await window.html2canvas(
+                                              appElement,
+                                              {
+                                                useCORS: true,
+                                                logging: true
+                                              }
+                                            );
+                                          const blob = await new Promise(
+                                            resolve =>
+                                              canvas.toBlob(
+                                                resolve,
+                                                "image/png"
                                               )
-                                            ]
-                                          });
-                                          alert(
-                                            "Screenshot shared successfully!"
                                           );
-                                        } else {
-                                          // Fallback for unsupported browsers
-                                          const downloadLink =
-                                            document.createElement("a");
-                                          downloadLink.href = imageURL;
-                                          downloadLink.download =
-                                            "app-screenshot.png";
-                                          downloadLink.click();
-                                          alert(
-                                            "Screenshot saved successfully!"
+                                          const imageURL =
+                                            URL.createObjectURL(blob);
+                                          if (navigator.share) {
+                                            await navigator.share({
+                                              title: "Check out my app view!",
+                                              text: "Here\u2019s what I\u2019m looking at!",
+                                              files: [
+                                                new File(
+                                                  [blob],
+                                                  "app-screenshot.png",
+                                                  { type: "image/png" }
+                                                )
+                                              ]
+                                            });
+                                            alert(
+                                              "Screenshot shared successfully!"
+                                            );
+                                          } else {
+                                            const downloadLink =
+                                              document.createElement("a");
+                                            downloadLink.href = imageURL;
+                                            downloadLink.download =
+                                              "app-screenshot.png";
+                                            downloadLink.click();
+                                            alert(
+                                              "Screenshot saved successfully!"
+                                            );
+                                          }
+                                        } catch (error) {
+                                          console.error(
+                                            "Error capturing or sharing the screenshot:",
+                                            error
                                           );
+                                          alert(
+                                            "Failed to share the screenshot. Please try again."
+                                          );
+                                        } finally {
+                                          console.log("done");
                                         }
-                                      } catch (error) {
-                                        console.error(
-                                          "Error capturing or sharing the screenshot:",
-                                          error
-                                        );
-                                        alert(
-                                          "Failed to share the screenshot. Please try again."
-                                        );
-                                      } finally {
-                                        console.log("done");
                                       }
-                                    };
+                                      return shareAppView();
+                                    })();
                                   }
                                 };
                                 return (({ customFunction }) => {
