@@ -1918,7 +1918,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                   <React.Fragment>
                                     {(() => {
                                       try {
-                                        return "Dreamer";
+                                        return $state.language === "ar"
+                                          ? "الحالم"
+                                          : "Dreamer";
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -2069,7 +2071,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                   <React.Fragment>
                                     {(() => {
                                       try {
-                                        return "New Explorer";
+                                        return $state.language === "ar"
+                                          ? "المستكشف"
+                                          : "New Explorer";
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -2227,7 +2231,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                   <React.Fragment>
                                     {(() => {
                                       try {
-                                        return "Adventurous Beginnings";
+                                        return $state.language === "ar"
+                                          ? "المغامر"
+                                          : "Adventurous Beginnings";
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -2383,7 +2389,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                   <React.Fragment>
                                     {(() => {
                                       try {
-                                        return "Frequent Voyager";
+                                        return $state.language === "ar"
+                                          ? "الرحّال"
+                                          : "Frequent Voyager";
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -2539,7 +2547,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                   <React.Fragment>
                                     {(() => {
                                       try {
-                                        return "World Explorer";
+                                        return $state.language === "ar"
+                                          ? "المحترف"
+                                          : "World Explorer";
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -2695,7 +2705,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                   <React.Fragment>
                                     {(() => {
                                       try {
-                                        return "Travel Master";
+                                        return $state.language === "ar"
+                                          ? "الخبي"
+                                          : "Travel Master";
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
