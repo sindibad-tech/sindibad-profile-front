@@ -764,7 +764,9 @@ function PlasmicHomepage__RenderFunc(props: {
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return "All Time";
+                                    return $state.language === "ar"
+                                      ? "الكل"
+                                      : "All Time";
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -3174,12 +3176,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                                 script.src =
                                                   "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
                                                 script.onload = resolve;
-                                                script.onerror = () =>
-                                                  reject(
-                                                    new Error(
-                                                      "Failed to load html2canvas library."
-                                                    )
-                                                  );
+                                                script.onerror = reject;
                                                 document.head.appendChild(
                                                   script
                                                 );
@@ -3195,12 +3192,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                           await new Promise(
                                             (resolve, reject) => {
                                               fontLink.onload = resolve;
-                                              fontLink.onerror = () =>
-                                                reject(
-                                                  new Error(
-                                                    "Failed to load Vazirmatn font."
-                                                  )
-                                                );
+                                              fontLink.onerror = reject;
                                             }
                                           );
                                           document.body.style.fontFamily =
@@ -3231,33 +3223,35 @@ function PlasmicHomepage__RenderFunc(props: {
                                               }
                                             );
                                           const blob = await new Promise(
-                                            (resolve, reject) => {
-                                              canvas.toBlob(blob => {
-                                                if (blob) {
-                                                  resolve(blob);
-                                                } else {
-                                                  reject(
-                                                    new Error(
-                                                      "Canvas is empty."
-                                                    )
-                                                  );
-                                                }
-                                              }, "image/png");
-                                            }
+                                            resolve =>
+                                              canvas.toBlob(
+                                                resolve,
+                                                "image/png"
+                                              )
                                           );
-                                          const imageURL =
-                                            URL.createObjectURL(blob);
-                                          if (navigator.share) {
+                                          if (!blob) {
+                                            throw new Error(
+                                              "Failed to create blob from canvas."
+                                            );
+                                          }
+                                          const file = new File(
+                                            [blob],
+                                            "app-screenshot.png",
+                                            { type: "image/png" }
+                                          );
+                                          const canShareFiles =
+                                            navigator.canShare &&
+                                            navigator.canShare({
+                                              files: [file]
+                                            });
+                                          if (
+                                            navigator.share &&
+                                            canShareFiles
+                                          ) {
                                             await navigator.share({
-                                              title: "Check out my app view!",
-                                              text: "Here\u2019s what I\u2019m looking at!",
-                                              files: [
-                                                new File(
-                                                  [blob],
-                                                  "app-screenshot.png",
-                                                  { type: "image/png" }
-                                                )
-                                              ]
+                                              files: [file],
+                                              title: "App Screenshot",
+                                              text: "Check out my app screenshot!"
                                             });
                                             console.log(
                                               "Screenshot shared successfully!"
@@ -3277,50 +3271,30 @@ function PlasmicHomepage__RenderFunc(props: {
                                               );
                                             }
                                           } else {
-                                            if (
-                                              typeof AndroidShare !==
-                                                "undefined" &&
-                                              AndroidShare.fallbackShare
-                                            ) {
-                                              const reader = new FileReader();
-                                              reader.readAsDataURL(blob);
-                                              reader.onloadend = function () {
-                                                const base64Image =
-                                                  reader.result.split(",")[1];
-                                                AndroidShare.fallbackShare(
-                                                  base64Image
-                                                );
-                                              };
+                                            const imageURL =
+                                              URL.createObjectURL(blob);
+                                            const downloadLink =
+                                              document.createElement("a");
+                                            downloadLink.href = imageURL;
+                                            downloadLink.download =
+                                              "app-screenshot.png";
+                                            downloadLink.click();
+                                            alert(
+                                              "Screenshot saved successfully!"
+                                            );
+                                            if (typeof gtag === "function") {
+                                              gtag(
+                                                "event",
+                                                "share_profile_stats",
+                                                {
+                                                  method: "download",
+                                                  status: "success"
+                                                }
+                                              );
                                             } else {
-                                              const downloadLink =
-                                                document.createElement("a");
-                                              downloadLink.href = imageURL;
-                                              downloadLink.download =
-                                                "app-screenshot.png";
-                                              document.body.appendChild(
-                                                downloadLink
+                                              console.warn(
+                                                "gtag function is not available."
                                               );
-                                              downloadLink.click();
-                                              document.body.removeChild(
-                                                downloadLink
-                                              );
-                                              alert(
-                                                "Screenshot saved successfully!"
-                                              );
-                                              if (typeof gtag === "function") {
-                                                gtag(
-                                                  "event",
-                                                  "share_profile_stats",
-                                                  {
-                                                    method: "download",
-                                                    status: "success"
-                                                  }
-                                                );
-                                              } else {
-                                                console.warn(
-                                                  "gtag function is not available."
-                                                );
-                                              }
                                             }
                                           }
                                         } catch (error) {
@@ -3347,9 +3321,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             );
                                           }
                                         } finally {
-                                          console.log(
-                                            "Share operation completed."
-                                          );
+                                          console.log("done");
                                         }
                                       }
                                       return shareAppView();
