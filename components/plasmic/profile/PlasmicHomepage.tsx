@@ -3160,124 +3160,109 @@ function PlasmicHomepage__RenderFunc(props: {
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return (async () => {
-                                      async function shareAppView() {
-                                        try {
-                                          if (
-                                            typeof window.html2canvas ===
-                                            "undefined"
-                                          ) {
-                                            await new Promise(
-                                              (resolve, reject) => {
-                                                const script =
-                                                  document.createElement(
-                                                    "script"
-                                                  );
-                                                script.src =
-                                                  "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
-                                                script.onload = resolve;
-                                                script.onerror = reject;
-                                                document.head.appendChild(
-                                                  script
-                                                );
-                                              }
-                                            );
-                                          }
-                                          const fontLink =
-                                            document.createElement("link");
-                                          fontLink.href =
-                                            "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
-                                          fontLink.rel = "stylesheet";
-                                          document.head.appendChild(fontLink);
+                                    return async function shareAppView() {
+                                      try {
+                                        // Load html2canvas if not already loaded
+                                        if (
+                                          typeof window.html2canvas ===
+                                          "undefined"
+                                        ) {
                                           await new Promise(
                                             (resolve, reject) => {
-                                              fontLink.onload = resolve;
-                                              fontLink.onerror = reject;
+                                              const script =
+                                                document.createElement(
+                                                  "script"
+                                                );
+                                              script.src =
+                                                "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+                                              script.onload = resolve;
+                                              script.onerror = reject;
+                                              document.head.appendChild(script);
                                             }
                                           );
-                                          document.body.style.fontFamily =
-                                            "Vazirmatn, sans-serif";
-                                          const appElement =
-                                            document.querySelector("#app-box");
-                                          if (!appElement)
-                                            throw new Error(
-                                              'Element with ID "app-box" not found.'
-                                            );
-                                          if (
-                                            appElement.innerText.match(
-                                              /[\u0600-\u06FF]/
-                                            )
-                                          )
-                                            appElement.style.direction = "rtl";
-                                          await new Promise(resolve =>
-                                            setTimeout(resolve, 500)
-                                          );
-                                          const canvas =
-                                            await window.html2canvas(
-                                              appElement,
-                                              {
-                                                useCORS: true,
-                                                logging: true
-                                              }
-                                            );
-                                          const blob = await new Promise(
-                                            resolve =>
-                                              canvas.toBlob(
-                                                resolve,
-                                                "image/png"
-                                              )
-                                          );
-                                          if (!blob)
-                                            throw new Error(
-                                              "Failed to create blob from canvas."
-                                            );
-                                          const formData = new FormData();
-                                          formData.append(
-                                            "key",
-                                            "c4c4db147224f29c019f0c0dc3e6f9a0"
-                                          );
-                                          formData.append("image", blob);
-                                          const response = await fetch(
-                                            "https://api.imgbb.com/1/upload",
-                                            {
-                                              method: "POST",
-                                              body: formData
-                                            }
-                                          );
-                                          if (!response.ok)
-                                            throw new Error(
-                                              "Failed to upload image to ImgBB."
-                                            );
-                                          const result = await response.json();
-                                          const imgUrl = result.data.url;
-                                          const choice = prompt(
-                                            `Image uploaded successfully! Choose an option:\n1: Share on WhatsApp\n2: Share on Telegram\n3: Preview Image`
-                                          );
-                                          if (choice === "1") {
-                                            const whatsappUrl = `https://wa.me/?text=Check out this image: ${imgUrl}`;
-                                            window.open(whatsappUrl, "_blank");
-                                          } else if (choice === "2") {
-                                            const telegramUrl = `https://t.me/share/url?url=${imgUrl}&text=Check out this image!`;
-                                            window.open(telegramUrl, "_blank");
-                                          } else if (choice === "3") {
-                                            window.open(imgUrl, "_blank");
-                                          } else {
-                                            alert("No option selected.");
-                                          }
-                                        } catch (error) {
-                                          console.error(
-                                            "Error capturing or sharing the screenshot:",
-                                            error
-                                          );
-                                          alert(
-                                            "Failed to share the screenshot. Please try again."
-                                          );
-                                        } finally {
-                                          console.log("done");
                                         }
+
+                                        // Load Vazirmatn font
+                                        const fontLink =
+                                          document.createElement("link");
+                                        fontLink.href =
+                                          "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
+                                        fontLink.rel = "stylesheet";
+                                        document.head.appendChild(fontLink);
+                                        await new Promise((resolve, reject) => {
+                                          fontLink.onload = resolve;
+                                          fontLink.onerror = reject;
+                                        });
+
+                                        document.body.style.fontFamily =
+                                          "Vazirmatn, sans-serif";
+                                        const appElement =
+                                          document.querySelector("#app-box");
+                                        if (!appElement)
+                                          throw new Error(
+                                            'Element with ID "app-box" not found.'
+                                          );
+                                        if (
+                                          appElement.innerText.match(
+                                            /[\u0600-\u06FF]/
+                                          )
+                                        )
+                                          appElement.style.direction = "rtl";
+
+                                        await new Promise(resolve =>
+                                          setTimeout(resolve, 500)
+                                        ); // Ensure font applies
+
+                                        const canvas = await window.html2canvas(
+                                          appElement,
+                                          { useCORS: true, logging: true }
+                                        );
+                                        const blob = await new Promise(
+                                          resolve =>
+                                            canvas.toBlob(resolve, "image/png")
+                                        );
+                                        if (!blob)
+                                          throw new Error(
+                                            "Failed to create blob from canvas."
+                                          );
+
+                                        // Upload to ImgBB
+                                        const formData = new FormData();
+                                        formData.append(
+                                          "key",
+                                          "YOUR_IMGBB_API_KEY"
+                                        ); // Replace with your ImgBB API key
+                                        formData.append("image", blob);
+
+                                        const response = await fetch(
+                                          "https://api.imgbb.com/1/upload",
+                                          {
+                                            method: "POST",
+                                            body: formData
+                                          }
+                                        );
+
+                                        if (!response.ok)
+                                          throw new Error(
+                                            "Failed to upload image to ImgBB."
+                                          );
+                                        const result = await response.json();
+                                        const imgUrl = result.data.url;
+
+                                        // Immediately open the image URL in the browser
+                                        window.open(imgUrl, "_blank");
+                                      } catch (error) {
+                                        console.error(
+                                          "Error capturing or sharing the screenshot:",
+                                          error
+                                        );
+                                        alert(
+                                          "Failed to share the screenshot. Please try again."
+                                        );
+                                      } finally {
+                                        console.log("done");
                                       }
-                                      return shareAppView();
-                                    })();
+                                    };
                                   }
                                 };
                                 return (({ customFunction }) => {
