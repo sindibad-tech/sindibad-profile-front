@@ -1812,41 +1812,6 @@
   padding: 40px 8px;
   border: 1px dashed var(--token-Pxe4wDL2kJpb);
 }
-.freeBox__yvt9L {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  min-width: 0;
-}
-.freeBox__yvt9L > :global(.__wab_flex-container) {
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  min-width: 0;
-  margin-left: calc(0px - var(--token-Pky-E4CaFvs4));
-  width: calc(100% + var(--token-Pky-E4CaFvs4));
-}
-.freeBox__yvt9L > :global(.__wab_flex-container) > *,
-.freeBox__yvt9L > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__yvt9L > :global(.__wab_flex-container) > picture > img,
-.freeBox__yvt9L
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: var(--token-Pky-E4CaFvs4);
-}
-.flightIcon5 {
-  backdrop-filter: blur(0px);
-  transform: none;
-  color: var(--token-0pVtkP-kaM_p);
-  height: var(--token-6mQmIEer3GeD);
-  width: auto;
-  object-fit: cover;
-  display: none;
-  -webkit-backdrop-filter: blur(0px);
-}
 .text__dwOac {
   position: relative;
   width: auto;
@@ -1856,6 +1821,61 @@
   font-weight: 400;
   font-size: 18px;
   font-family: "Vazirmatn", sans-serif;
+}
+.text__vy3E9 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #000000;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: "Vazirmatn", sans-serif;
+}
+.text___6MxIa {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #000000;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: "Vazirmatn", sans-serif;
+}
+.freeBox__b147 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-width: 0;
+}
+.freeBox__b147 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-left: calc(0px - var(--token-Pky-E4CaFvs4));
+  width: calc(100% + var(--token-Pky-E4CaFvs4));
+}
+.freeBox__b147 > :global(.__wab_flex-container) > *,
+.freeBox__b147 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__b147 > :global(.__wab_flex-container) > picture > img,
+.freeBox__b147
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: var(--token-Pky-E4CaFvs4);
+}
+.flightIcon8 {
+  backdrop-filter: blur(0px);
+  transform: none;
+  color: var(--token-0pVtkP-kaM_p);
+  height: var(--token-6mQmIEer3GeD);
+  width: auto;
+  object-fit: cover;
+  display: none;
+  -webkit-backdrop-filter: blur(0px);
 }
 .text__fg0Zv {
   position: relative;

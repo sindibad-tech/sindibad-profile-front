@@ -140,7 +140,7 @@ export type PlasmicHomepage__OverridesType = {
   _5Star?: Flex__<"div">;
   starImage?: Flex__<"section">;
   time?: Flex__<"div">;
-  flightIcon5?: Flex__<"svg">;
+  flightIcon8?: Flex__<"svg">;
   flights?: Flex__<"div">;
   flightIcon2?: Flex__<"svg">;
   cities?: Flex__<"div">;
@@ -2666,51 +2666,99 @@ function PlasmicHomepage__RenderFunc(props: {
                         data-plasmic-override={overrides.time}
                         className={classNames(projectcss.all, sty.time)}
                       >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__dwOac
+                          )}
+                          unicode-bidi={"isolate"}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.language === "ar"
+                                  ? "ساعات\u00A0"
+                                  : "Hours\u00A0";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__vy3E9
+                          )}
+                          unicode-bidi={"isolate"}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.language === "ar"
+                                  ? "الطيران"
+                                  : "Spent\u00A0";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___6MxIa
+                          )}
+                          unicode-bidi={"isolate"}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.language === "ar" ? "" : "Flying";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
                         <Stack__
                           as={"div"}
                           hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__yvt9L
+                            sty.freeBox__b147
                           )}
                         >
                           <TimeSvgrepoComSvgIcon
-                            data-plasmic-name={"flightIcon5"}
-                            data-plasmic-override={overrides.flightIcon5}
+                            data-plasmic-name={"flightIcon8"}
+                            data-plasmic-override={overrides.flightIcon8}
                             className={classNames(
                               projectcss.all,
-                              sty.flightIcon5
+                              sty.flightIcon8
                             )}
                             role={"img"}
                           />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__dwOac
-                            )}
-                            unicode-bidi={"isolate"}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $state.language === "ar"
-                                    ? "ساعات الطيران"
-                                    : "Hours Spent Flying";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
                         </Stack__>
                         <div
                           className={classNames(
@@ -3248,7 +3296,7 @@ const PlasmicDescendants = {
     "_5Star",
     "starImage",
     "time",
-    "flightIcon5",
+    "flightIcon8",
     "flights",
     "flightIcon2",
     "cities",
@@ -3305,7 +3353,7 @@ const PlasmicDescendants = {
     "_5Star",
     "starImage",
     "time",
-    "flightIcon5",
+    "flightIcon8",
     "flights",
     "flightIcon2",
     "cities",
@@ -3360,7 +3408,7 @@ const PlasmicDescendants = {
     "_5Star",
     "starImage",
     "time",
-    "flightIcon5",
+    "flightIcon8",
     "flights",
     "flightIcon2",
     "cities",
@@ -3412,8 +3460,8 @@ const PlasmicDescendants = {
   travelMaster: ["travelMaster", "_5Star", "starImage"],
   _5Star: ["_5Star", "starImage"],
   starImage: ["starImage"],
-  time: ["time", "flightIcon5"],
-  flightIcon5: ["flightIcon5"],
+  time: ["time", "flightIcon8"],
+  flightIcon8: ["flightIcon8"],
   flights: ["flights", "flightIcon2"],
   flightIcon2: ["flightIcon2"],
   cities: ["cities", "cityIcon2"],
@@ -3474,7 +3522,7 @@ type NodeDefaultElementType = {
   _5Star: "div";
   starImage: "section";
   time: "div";
-  flightIcon5: "svg";
+  flightIcon8: "svg";
   flights: "div";
   flightIcon2: "svg";
   cities: "div";
@@ -3591,7 +3639,7 @@ export const PlasmicHomepage = Object.assign(
     _5Star: makeNodeComponent("_5Star"),
     starImage: makeNodeComponent("starImage"),
     time: makeNodeComponent("time"),
-    flightIcon5: makeNodeComponent("flightIcon5"),
+    flightIcon8: makeNodeComponent("flightIcon8"),
     flights: makeNodeComponent("flights"),
     flightIcon2: makeNodeComponent("flightIcon2"),
     cities: makeNodeComponent("cities"),
