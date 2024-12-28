@@ -1413,9 +1413,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      return (document.querySelectorAll(
-                                        "[name = 'oknotif']"
-                                      )[currentIndex].style.display = "none");
+                                      return (document.getElementById(
+                                        "oknotif"
+                                      ).style.display = "none");
                                     })();
                                   }
                                 };
@@ -1493,9 +1493,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      return (document.querySelectorAll(
-                                        "[name = 'errornotif']"
-                                      )[currentIndex].style.display = "none");
+                                      return (document.getElementById(
+                                        "errornotif"
+                                      ).style.display = "none");
                                     })();
                                   }
                                 };
@@ -1538,17 +1538,6 @@ function PlasmicHomepage__RenderFunc(props: {
                               {"\u062d\u062f\u062b \u062e\u0637\u0623"}
                             </span>
                           </React.Fragment>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__a7A8O
-                          )}
-                        >
-                          {
-                            "\u064a\u0645\u0643\u0646\u0643 \u0644\u0635\u0642\u0647\u0627 \u0641\u064a \u0627\u0644\u0648\u0627\u062a\u0633 \u0627\u0628 \u0623\u0648 \u0627\u0644\u062a\u0644\u064a\u062c\u0631\u0627\u0645 \u0644\u0645\u0634\u0627\u0631\u0643\u062a\u0647\u0627 \u0623\u0648 \u0644\u0635\u0642\u0647\u0627 \u0641\u064a \u0627\u0644\u0645\u062a\u0635\u0641\u062d \u0644\u0645\u0634\u0627\u0647\u062f\u062a\u0647\u0627 \u0623\u0648 \u062d\u0641\u0638\u0647\u0627"
-                          }
                         </div>
                       </div>
                     </div>
@@ -3499,8 +3488,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                             await navigator.clipboard.writeText(
                                               imgUrl
                                             );
-                                            document.querySelector(
-                                              "#oknotif"
+                                            document.getElementById(
+                                              "oknotif"
                                             ).style.display = "flex";
                                             console.log(
                                               "Image URL copied to clipboard."
@@ -3510,7 +3499,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                               "Error capturing or sharing the screenshot:",
                                               error
                                             );
-                                            document.querySelector(
+                                            document.getElementById(
                                               "#errornotif"
                                             ).style.display = "flex";
                                           } finally {
