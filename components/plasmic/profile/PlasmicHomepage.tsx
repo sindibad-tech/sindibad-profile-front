@@ -3241,8 +3241,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                                 )
                                               ]
                                             });
-                                            alert(
-                                              "Screenshot shared successfully!"
+                                            console.log(
+                                              "Screenshot shared successfully-!"
                                             );
                                             if (typeof gtag === "function") {
                                               gtag(
