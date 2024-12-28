@@ -3201,7 +3201,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             document.querySelector("#app-box");
                                           if (!appElement)
                                             throw new Error(
-                                              'Element with ID "app-box" not found.'
+                                              'لم يتم العثور على العنصر الذي يحتوي على المعرف "app-box".'
                                             );
                                           if (
                                             appElement.innerText.match(
@@ -3229,11 +3229,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                           );
                                           if (!blob)
                                             throw new Error(
-                                              "Failed to create blob from canvas."
+                                              "فشل إنشاء الصورة من العنصر."
                                             );
+                                          const fileName = "app-screenshot.png";
                                           const file = new File(
                                             [blob],
-                                            "app-screenshot.png",
+                                            fileName,
                                             { type: "image/png" }
                                           );
                                           const canShareFiles =
@@ -3250,12 +3251,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                                 files: [file]
                                               });
                                               console.log(
-                                                "Screenshot shared successfully!"
+                                                "تمت مشاركة الصورة بنجاح!"
                                               );
                                               return;
                                             } catch (shareError) {
                                               console.warn(
-                                                "Sharing via navigator.share failed, falling back to ImgBB upload.",
+                                                "فشلت المشاركة باستخدام navigator.share\u060C سيتم التحميل على ImgBB.",
                                                 shareError
                                               );
                                             }
@@ -3266,6 +3267,10 @@ function PlasmicHomepage__RenderFunc(props: {
                                             "c4c4db147224f29c019f0c0dc3e6f9a0"
                                           );
                                           formData.append("image", blob);
+                                          formData.append(
+                                            "name",
+                                            fileName.split(".")[0]
+                                          );
                                           const response = await fetch(
                                             "https://api.imgbb.com/1/upload",
                                             {
@@ -3275,29 +3280,25 @@ function PlasmicHomepage__RenderFunc(props: {
                                           );
                                           if (!response.ok)
                                             throw new Error(
-                                              "Failed to upload image to ImgBB."
+                                              "فشل تحميل الصورة إلى ImgBB."
                                             );
                                           const result = await response.json();
                                           const imgUrl = result.data.url;
-                                          await navigator.clipboard.writeText(
-                                            imgUrl
-                                          );
-                                          alert(
-                                            `Image URL copied to clipboard:\n${imgUrl}`
-                                          );
+                                          const whatsappUrl = `https://wa.me/?text=شاهد هذه الصورة: ${imgUrl}`;
+                                          window.open(whatsappUrl, "_blank");
                                           console.log(
-                                            "Image URL copied to clipboard."
+                                            "تمت مشاركة رابط الصورة على واتساب."
                                           );
                                         } catch (error) {
                                           console.error(
-                                            "Error capturing or sharing the screenshot:",
+                                            "خطأ أثناء التقاط أو مشاركة الصورة:",
                                             error
                                           );
                                           alert(
-                                            "Failed to share the screenshot. Please try again."
+                                            "فشل في مشاركة الصورة. يرجى المحاولة مرة أخرى."
                                           );
                                         } finally {
-                                          console.log("done");
+                                          console.log("تم الانتهاء.");
                                         }
                                       }
                                       return shareAppView();
