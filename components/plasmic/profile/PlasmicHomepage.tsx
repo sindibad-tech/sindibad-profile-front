@@ -3252,20 +3252,37 @@ function PlasmicHomepage__RenderFunc(props: {
                                               "Screenshot shared successfully!"
                                             );
                                           } else {
+                                            await loadShareThis();
                                             const url =
                                               URL.createObjectURL(blob);
-                                            const link =
-                                              document.createElement("a");
-                                            link.href = url;
-                                            link.download =
-                                              "app-screenshot.png";
-                                            document.body.appendChild(link);
-                                            link.click();
-                                            document.body.removeChild(link);
-                                            URL.revokeObjectURL(url);
-                                            console.log(
-                                              "Screenshot downloaded as fallback."
+                                            const shareDiv =
+                                              document.createElement("div");
+                                            shareDiv.className =
+                                              "sharethis-inline-share-buttons";
+                                            document.body.appendChild(shareDiv);
+                                            await new Promise(resolve =>
+                                              setTimeout(resolve, 1000)
                                             );
+                                            const shareThisScript =
+                                              window.__sharethis__;
+                                            if (shareThisScript) {
+                                              shareThisScript.update({
+                                                url,
+                                                title:
+                                                  "Check this amazing screenshot!",
+                                                image: url
+                                              });
+                                              console.log(
+                                                "ShareThis triggered as fallback."
+                                              );
+                                            } else {
+                                              console.error(
+                                                "ShareThis script failed to initialize."
+                                              );
+                                              alert(
+                                                "Failed to initialize fallback sharing options."
+                                              );
+                                            }
                                           }
                                         } catch (error) {
                                           console.error(
@@ -3276,8 +3293,26 @@ function PlasmicHomepage__RenderFunc(props: {
                                             "Failed to share the screenshot. Please try again."
                                           );
                                         } finally {
-                                          console.log("done");
+                                          console.log("Process completed.");
                                         }
+                                      }
+                                      async function loadShareThis() {
+                                        return new Promise(
+                                          (resolve, reject) => {
+                                            const script =
+                                              document.createElement("script");
+                                            script.src =
+                                              "https://platform-api.sharethis.com/js/sharethis.js#property=YOUR_PROPERTY_ID&product=inline-share-buttons";
+                                            script.onload = resolve;
+                                            script.onerror = () =>
+                                              reject(
+                                                new Error(
+                                                  "Failed to load ShareThis script."
+                                                )
+                                              );
+                                            document.head.appendChild(script);
+                                          }
+                                        );
                                       }
                                       return shareAppView();
                                     })();
