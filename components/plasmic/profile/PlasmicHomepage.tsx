@@ -3160,109 +3160,143 @@ function PlasmicHomepage__RenderFunc(props: {
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return async function shareAppView() {
-                                      try {
-                                        // Load html2canvas if not already loaded
-                                        if (
-                                          typeof window.html2canvas ===
-                                          "undefined"
-                                        ) {
+                                    return (async () => {
+                                      async function shareAppView() {
+                                        try {
+                                          if (
+                                            typeof window.html2canvas ===
+                                            "undefined"
+                                          ) {
+                                            await new Promise(
+                                              (resolve, reject) => {
+                                                const script =
+                                                  document.createElement(
+                                                    "script"
+                                                  );
+                                                script.src =
+                                                  "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+                                                script.onload = resolve;
+                                                script.onerror = reject;
+                                                document.head.appendChild(
+                                                  script
+                                                );
+                                              }
+                                            );
+                                          }
+                                          const fontLink =
+                                            document.createElement("link");
+                                          fontLink.href =
+                                            "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
+                                          fontLink.rel = "stylesheet";
+                                          document.head.appendChild(fontLink);
                                           await new Promise(
                                             (resolve, reject) => {
-                                              const script =
-                                                document.createElement(
-                                                  "script"
-                                                );
-                                              script.src =
-                                                "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
-                                              script.onload = resolve;
-                                              script.onerror = reject;
-                                              document.head.appendChild(script);
+                                              fontLink.onload = resolve;
+                                              fontLink.onerror = reject;
                                             }
                                           );
-                                        }
-
-                                        // Load Vazirmatn font
-                                        const fontLink =
-                                          document.createElement("link");
-                                        fontLink.href =
-                                          "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
-                                        fontLink.rel = "stylesheet";
-                                        document.head.appendChild(fontLink);
-                                        await new Promise((resolve, reject) => {
-                                          fontLink.onload = resolve;
-                                          fontLink.onerror = reject;
-                                        });
-
-                                        document.body.style.fontFamily =
-                                          "Vazirmatn, sans-serif";
-                                        const appElement =
-                                          document.querySelector("#app-box");
-                                        if (!appElement)
-                                          throw new Error(
-                                            'Element with ID "app-box" not found.'
-                                          );
-                                        if (
-                                          appElement.innerText.match(
-                                            /[\u0600-\u06FF]/
+                                          document.body.style.fontFamily =
+                                            "Vazirmatn, sans-serif";
+                                          const appElement =
+                                            document.querySelector("#app-box");
+                                          if (!appElement)
+                                            throw new Error(
+                                              'Element with ID "app-box" not found.'
+                                            );
+                                          if (
+                                            appElement.innerText.match(
+                                              /[\u0600-\u06FF]/
+                                            )
                                           )
-                                        )
-                                          appElement.style.direction = "rtl";
-
-                                        await new Promise(resolve =>
-                                          setTimeout(resolve, 500)
-                                        ); // Ensure font applies
-
-                                        const canvas = await window.html2canvas(
-                                          appElement,
-                                          { useCORS: true, logging: true }
-                                        );
-                                        const blob = await new Promise(
-                                          resolve =>
-                                            canvas.toBlob(resolve, "image/png")
-                                        );
-                                        if (!blob)
-                                          throw new Error(
-                                            "Failed to create blob from canvas."
+                                            appElement.style.direction = "rtl";
+                                          await new Promise(resolve =>
+                                            setTimeout(resolve, 500)
                                           );
-
-                                        // Upload to ImgBB
-                                        const formData = new FormData();
-                                        formData.append(
-                                          "key",
-                                          "YOUR_IMGBB_API_KEY"
-                                        ); // Replace with your ImgBB API key
-                                        formData.append("image", blob);
-
-                                        const response = await fetch(
-                                          "https://api.imgbb.com/1/upload",
-                                          {
-                                            method: "POST",
-                                            body: formData
+                                          const canvas =
+                                            await window.html2canvas(
+                                              appElement,
+                                              {
+                                                useCORS: true,
+                                                logging: true
+                                              }
+                                            );
+                                          const blob = await new Promise(
+                                            resolve =>
+                                              canvas.toBlob(
+                                                resolve,
+                                                "image/png"
+                                              )
+                                          );
+                                          if (!blob)
+                                            throw new Error(
+                                              "Failed to create blob from canvas."
+                                            );
+                                          const file = new File(
+                                            [blob],
+                                            "app-screenshot.png",
+                                            { type: "image/png" }
+                                          );
+                                          const canShareFiles =
+                                            navigator.canShare &&
+                                            navigator.canShare({
+                                              files: [file]
+                                            });
+                                          if (
+                                            navigator.share &&
+                                            canShareFiles
+                                          ) {
+                                            try {
+                                              await navigator.share({
+                                                files: [file]
+                                              });
+                                              console.log(
+                                                "Screenshot shared successfully!"
+                                              );
+                                              return;
+                                            } catch (shareError) {
+                                              console.warn(
+                                                "Sharing via navigator.share failed, falling back to ImgBB upload.",
+                                                shareError
+                                              );
+                                            }
                                           }
-                                        );
-
-                                        if (!response.ok)
-                                          throw new Error(
-                                            "Failed to upload image to ImgBB."
+                                          const formData = new FormData();
+                                          formData.append(
+                                            "key",
+                                            "c4c4db147224f29c019f0c0dc3e6f9a0"
                                           );
-                                        const result = await response.json();
-                                        const imgUrl = result.data.url;
-
-                                        // Immediately open the image URL in the browser
-                                        window.open(imgUrl, "_blank");
-                                      } catch (error) {
-                                        console.error(
-                                          "Error capturing or sharing the screenshot:",
-                                          error
-                                        );
-                                        alert(
-                                          "Failed to share the screenshot. Please try again."
-                                        );
-                                      } finally {
-                                        console.log("done");
+                                          formData.append("image", blob);
+                                          const response = await fetch(
+                                            "https://api.imgbb.com/1/upload",
+                                            {
+                                              method: "POST",
+                                              body: formData
+                                            }
+                                          );
+                                          if (!response.ok)
+                                            throw new Error(
+                                              "Failed to upload image to ImgBB."
+                                            );
+                                          const result = await response.json();
+                                          const imgUrl = result.data.url;
+                                          window.open(imgUrl, "_blank");
+                                          console.log(
+                                            "Fallback: Image opened in a new tab."
+                                          );
+                                        } catch (error) {
+                                          console.error(
+                                            "Error capturing or sharing the screenshot:",
+                                            error
+                                          );
+                                          alert(
+                                            "Failed to share the screenshot. Please try again."
+                                          );
+                                        } finally {
+                                          console.log("done");
+                                        }
                                       }
-                                    };
+                                      return shareAppView();
+                                    })();
                                   }
                                 };
                                 return (({ customFunction }) => {
