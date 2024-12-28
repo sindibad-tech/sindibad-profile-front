@@ -1542,6 +1542,30 @@ function PlasmicHomepage__RenderFunc(props: {
                       </div>
                     </div>
                     <div
+                      Name={"loadnotif"}
+                      className={classNames(projectcss.all, sty.freeBox__cbveK)}
+                      id={"loadnotif"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___0NMKi
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__mm6LI
+                          )}
+                        >
+                          {
+                            "\u0627\u0644\u0639\u0645\u0644 \u0639\u0644\u0649 \u0627\u0644\u0635\u0648\u0631\u0629..."
+                          }
+                        </div>
+                      </div>
+                    </div>
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__t6Nfa)}
                     >
                       <Stack__
@@ -3365,6 +3389,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                       return (async () => {
                                         async function shareAppView() {
                                           try {
+                                            document.getElementById(
+                                              "loadnotif"
+                                            ).style.display = "flex";
                                             if (
                                               typeof window.html2canvas ===
                                               "undefined"
@@ -3457,6 +3484,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                                 console.log(
                                                   "Screenshot shared successfully!"
                                                 );
+                                                document.getElementById(
+                                                  "loadnotif"
+                                                ).style.display = "none";
                                                 return;
                                               } catch (shareError) {
                                                 console.warn(
@@ -3489,6 +3519,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                               imgUrl
                                             );
                                             document.getElementById(
+                                              "loadnotif"
+                                            ).style.display = "none";
+                                            document.getElementById(
                                               "oknotif"
                                             ).style.display = "flex";
                                             console.log(
@@ -3500,7 +3533,10 @@ function PlasmicHomepage__RenderFunc(props: {
                                               error
                                             );
                                             document.getElementById(
-                                              "#errornotif"
+                                              "loadnotif"
+                                            ).style.display = "none";
+                                            document.getElementById(
+                                              "errornotif"
                                             ).style.display = "flex";
                                           } finally {
                                             console.log("done");
