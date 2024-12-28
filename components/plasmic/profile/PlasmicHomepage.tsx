@@ -3276,8 +3276,15 @@ function PlasmicHomepage__RenderFunc(props: {
                                             const downloadLink =
                                               document.createElement("a");
                                             downloadLink.href = imageURL;
-                                            downloadLink.download = file;
+                                            downloadLink.download = file.name;
+                                            document.body.appendChild(
+                                              downloadLink
+                                            );
                                             downloadLink.click();
+                                            document.body.removeChild(
+                                              downloadLink
+                                            );
+                                            URL.revokeObjectURL(imageURL);
                                             alert(
                                               "Screenshot saved successfully!"
                                             );
