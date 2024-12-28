@@ -3161,170 +3161,197 @@ function PlasmicHomepage__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (async () => {
-                                      async function shareAppView() {
-                                        try {
-                                          if (
-                                            typeof window.html2canvas ===
-                                            "undefined"
-                                          ) {
+                                      function shareAppView() {
+                                        async function loadDependencies() {
+                                          try {
+                                            if (
+                                              typeof window.html2canvas ===
+                                              "undefined"
+                                            ) {
+                                              await new Promise(
+                                                (resolve, reject) => {
+                                                  const script =
+                                                    document.createElement(
+                                                      "script"
+                                                    );
+                                                  script.src =
+                                                    "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+                                                  script.onload = resolve;
+                                                  script.onerror = reject;
+                                                  document.head.appendChild(
+                                                    script
+                                                  );
+                                                }
+                                              );
+                                            }
+                                            const fontLink =
+                                              document.createElement("link");
+                                            fontLink.href =
+                                              "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
+                                            fontLink.rel = "stylesheet";
+                                            document.head.appendChild(fontLink);
                                             await new Promise(
                                               (resolve, reject) => {
-                                                const script =
-                                                  document.createElement(
-                                                    "script"
-                                                  );
-                                                script.src =
-                                                  "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
-                                                script.onload = resolve;
-                                                script.onerror = reject;
-                                                document.head.appendChild(
-                                                  script
-                                                );
+                                                fontLink.onload = resolve;
+                                                fontLink.onerror = reject;
                                               }
                                             );
-                                          }
-                                          const fontLink =
-                                            document.createElement("link");
-                                          fontLink.href =
-                                            "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
-                                          fontLink.rel = "stylesheet";
-                                          document.head.appendChild(fontLink);
-                                          await new Promise(
-                                            (resolve, reject) => {
-                                              fontLink.onload = resolve;
-                                              fontLink.onerror = reject;
-                                            }
-                                          );
-                                          document.body.style.fontFamily =
-                                            "Vazirmatn, sans-serif";
-                                          const appElement =
-                                            document.querySelector("#app-box");
-                                          if (!appElement) {
+                                          } catch (error) {
+                                            console.error(
+                                              "Error loading dependencies:",
+                                              error
+                                            );
                                             throw new Error(
-                                              'Element with ID "app-box" not found.'
+                                              "Failed to load required dependencies."
                                             );
                                           }
-                                          if (
-                                            appElement.innerText.match(
-                                              /[\u0600-\u06FF]/
-                                            )
-                                          ) {
-                                            appElement.style.direction = "rtl";
-                                          }
-                                          await new Promise(resolve =>
-                                            setTimeout(resolve, 500)
-                                          );
-                                          const canvas =
-                                            await window.html2canvas(
-                                              appElement,
+                                        }
+                                        async function captureScreenshot(
+                                          targetElement
+                                        ) {
+                                          try {
+                                            if (!targetElement) {
+                                              throw new Error(
+                                                "Target element not found."
+                                              );
+                                            }
+                                            if (
+                                              targetElement.innerText.match(
+                                                /[\u0600-\u06FF]/
+                                              )
+                                            ) {
+                                              targetElement.style.direction =
+                                                "rtl";
+                                            }
+                                            await new Promise(resolve =>
+                                              setTimeout(resolve, 500)
+                                            );
+                                            const canvas = await html2canvas(
+                                              targetElement,
                                               {
                                                 useCORS: true,
                                                 logging: true
                                               }
                                             );
-                                          const blob = await new Promise(
-                                            resolve =>
-                                              canvas.toBlob(
-                                                resolve,
-                                                "image/png"
-                                              )
-                                          );
-                                          if (!blob) {
+                                            return canvas.toDataURL(
+                                              "image/png"
+                                            );
+                                          } catch (error) {
+                                            console.error(
+                                              "Error capturing screenshot:",
+                                              error
+                                            );
                                             throw new Error(
-                                              "Failed to create blob from canvas."
+                                              "Screenshot capture failed."
                                             );
                                           }
-                                          const file = new File(
-                                            [blob],
-                                            "app-screenshot.png",
-                                            { type: "image/png" }
+                                        }
+                                        async function shareScreenshot(
+                                          base64Image,
+                                          canvas
+                                        ) {
+                                          try {
+                                            if (
+                                              window.Android &&
+                                              typeof window.Android
+                                                .shareScreenshot === "function"
+                                            ) {
+                                              window.Android.shareScreenshot(
+                                                base64Image
+                                              );
+                                            } else {
+                                              const blob = await new Promise(
+                                                resolve =>
+                                                  canvas.toBlob(
+                                                    resolve,
+                                                    "image/png"
+                                                  )
+                                              );
+                                              if (!blob)
+                                                throw new Error(
+                                                  "Failed to create blob from canvas."
+                                                );
+                                              const file = new File(
+                                                [blob],
+                                                "app-screenshot.png",
+                                                { type: "image/png" }
+                                              );
+                                              if (
+                                                navigator.share &&
+                                                navigator.canShare({
+                                                  files: [file]
+                                                })
+                                              ) {
+                                                await navigator.share({
+                                                  files: [file],
+                                                  title: "App Screenshot",
+                                                  text: "Check out my app screenshot!"
+                                                });
+                                              } else {
+                                                console.warn(
+                                                  "Web Share API not supported or sharing failed."
+                                                );
+                                              }
+                                            }
+                                            if (typeof gtag === "function") {
+                                              gtag(
+                                                "event",
+                                                "share_profile_stats",
+                                                {
+                                                  method: window.Android
+                                                    ? "Android WebView"
+                                                    : "Web Share API",
+                                                  status: "success"
+                                                }
+                                              );
+                                            }
+                                          } catch (error) {
+                                            console.error(
+                                              "Error sharing screenshot:",
+                                              error
+                                            );
+                                            if (typeof gtag === "function") {
+                                              gtag(
+                                                "event",
+                                                "share_profile_stats",
+                                                {
+                                                  method: window.Android
+                                                    ? "Android WebView"
+                                                    : "Web Share API",
+                                                  status: "failure",
+                                                  error: error.message
+                                                }
+                                              );
+                                            }
+                                            throw error;
+                                          }
+                                        }
+                                        async function captureAndShare() {
+                                          await loadDependencies();
+                                          document.body.style.fontFamily =
+                                            "Vazirmatn, sans-serif";
+                                          const targetElement =
+                                            document.querySelector("#app-box");
+                                          const base64Image =
+                                            await captureScreenshot(
+                                              targetElement
+                                            );
+                                          const canvas =
+                                            document.createElement("canvas");
+                                          await shareScreenshot(
+                                            base64Image,
+                                            canvas
                                           );
-                                          const canShareFiles =
-                                            navigator.canShare &&
-                                            navigator.canShare({
-                                              files: [file]
-                                            });
-                                          if (
-                                            navigator.share &&
-                                            canShareFiles
-                                          ) {
-                                            await navigator.share({
-                                              files: [file],
-                                              title: "App Screenshot",
-                                              text: "Check out my app screenshot!"
-                                            });
-                                            console.log(
-                                              "Screenshot shared successfully!"
-                                            );
-                                            if (typeof gtag === "function") {
-                                              gtag(
-                                                "event",
-                                                "share_profile_stats",
-                                                {
-                                                  method: "Web Share API",
-                                                  status: "success"
-                                                }
-                                              );
-                                            } else {
-                                              console.warn(
-                                                "gtag function is not available."
-                                              );
-                                            }
-                                          } else {
-                                            const imageURL =
-                                              URL.createObjectURL(blob);
-                                            const downloadLink =
-                                              document.createElement("a");
-                                            downloadLink.href = imageURL;
-                                            downloadLink.download = file.name;
-                                            document.body.appendChild(
-                                              downloadLink
-                                            );
-                                            downloadLink.click();
-                                            alert(
-                                              "Screenshot saved successfully!"
-                                            );
-                                            if (typeof gtag === "function") {
-                                              gtag(
-                                                "event",
-                                                "share_profile_stats",
-                                                {
-                                                  method: "download",
-                                                  status: "success"
-                                                }
-                                              );
-                                            } else {
-                                              console.warn(
-                                                "gtag function is not available."
-                                              );
-                                            }
-                                          }
-                                        } catch (error) {
+                                        }
+                                        captureAndShare().catch(error => {
                                           console.error(
-                                            "Error capturing or sharing the screenshot:",
+                                            "Error in shareAppView:",
                                             error
                                           );
                                           alert(
-                                            "Failed to share the screenshot. Please try again."
+                                            "Failed to share screenshot. Please try again."
                                           );
-                                          if (typeof gtag === "function") {
-                                            gtag(
-                                              "event",
-                                              "share_profile_stats",
-                                              {
-                                                method: "N/A",
-                                                status: "failure",
-                                                error: error.message
-                                              }
-                                            );
-                                          } else {
-                                            console.warn(
-                                              "gtag function is not available."
-                                            );
-                                          }
-                                        } finally {
-                                          console.log("done");
-                                        }
+                                        });
                                       }
                                       return shareAppView();
                                     })();
