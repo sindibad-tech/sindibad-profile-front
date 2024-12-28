@@ -3231,46 +3231,38 @@ function PlasmicHomepage__RenderFunc(props: {
                                             throw new Error(
                                               "Failed to create blob from canvas."
                                             );
-                                          const file = new File(
-                                            [blob],
-                                            "app-screenshot.png",
-                                            { type: "image/png" }
+                                          const formData = new FormData();
+                                          formData.append(
+                                            "key",
+                                            "c4c4db147224f29c019f0c0dc3e6f9a0"
                                           );
-                                          const canShareFiles =
-                                            navigator.canShare &&
-                                            navigator.canShare({
-                                              files: [file]
-                                            });
-                                          if (
-                                            navigator.share &&
-                                            canShareFiles
-                                          ) {
-                                            await navigator.share({
-                                              files: [file]
-                                            });
-                                            console.log(
-                                              "Screenshot shared successfully!"
+                                          formData.append("image", blob);
+                                          const response = await fetch(
+                                            "https://api.imgbb.com/1/upload",
+                                            {
+                                              method: "POST",
+                                              body: formData
+                                            }
+                                          );
+                                          if (!response.ok)
+                                            throw new Error(
+                                              "Failed to upload image to ImgBB."
                                             );
+                                          const result = await response.json();
+                                          const imgUrl = result.data.url;
+                                          const choice = prompt(
+                                            `Image uploaded successfully! Choose an option:\n1: Share on WhatsApp\n2: Share on Telegram\n3: Preview Image`
+                                          );
+                                          if (choice === "1") {
+                                            const whatsappUrl = `https://wa.me/?text=Check out this image: ${imgUrl}`;
+                                            window.open(whatsappUrl, "_blank");
+                                          } else if (choice === "2") {
+                                            const telegramUrl = `https://t.me/share/url?url=${imgUrl}&text=Check out this image!`;
+                                            window.open(telegramUrl, "_blank");
+                                          } else if (choice === "3") {
+                                            window.open(imgUrl, "_blank");
                                           } else {
-                                            const url =
-                                              URL.createObjectURL(blob);
-                                            const link =
-                                              document.createElement("a");
-                                            link.href = url;
-                                            link.download =
-                                              "app-screenshot.png";
-                                            document.body.appendChild(link);
-                                            setTimeout(() => {
-                                              link.click();
-                                              document.body.removeChild(link);
-                                              URL.revokeObjectURL(url);
-                                              console.log(
-                                                "Fallback download triggered."
-                                              );
-                                              alert(
-                                                "Screenshot downloaded as fallback."
-                                              );
-                                            }, 100);
+                                            alert("No option selected.");
                                           }
                                         } catch (error) {
                                           console.error(
