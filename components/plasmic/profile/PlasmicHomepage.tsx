@@ -3254,34 +3254,23 @@ function PlasmicHomepage__RenderFunc(props: {
                                           } else {
                                             const url =
                                               URL.createObjectURL(blob);
-                                            const downloadLink =
+                                            const link =
                                               document.createElement("a");
-                                            downloadLink.href = url;
-                                            downloadLink.download =
+                                            link.href = url;
+                                            link.download =
                                               "app-screenshot.png";
-                                            downloadLink.textContent =
-                                              "Click here to download the image for Instagram";
-                                            downloadLink.style.display =
-                                              "block";
-                                            downloadLink.style.marginTop =
-                                              "20px";
-                                            const instructions =
-                                              document.createElement("p");
-                                            instructions.textContent =
-                                              "To share on Instagram: Download the image, open Instagram, and upload it manually.";
-                                            instructions.style.marginTop =
-                                              "10px";
-                                            instructions.style.fontFamily =
-                                              "Vazirmatn, sans-serif";
-                                            document.body.appendChild(
-                                              instructions
-                                            );
-                                            document.body.appendChild(
-                                              downloadLink
-                                            );
-                                            console.log(
-                                              "Fallback mechanism for Instagram sharing initiated."
-                                            );
+                                            document.body.appendChild(link);
+                                            setTimeout(() => {
+                                              link.click();
+                                              document.body.removeChild(link);
+                                              URL.revokeObjectURL(url);
+                                              console.log(
+                                                "Fallback download triggered."
+                                              );
+                                              alert(
+                                                "Screenshot downloaded as fallback."
+                                              );
+                                            }, 100);
                                           }
                                         } catch (error) {
                                           console.error(
@@ -3292,7 +3281,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             "Failed to share the screenshot. Please try again."
                                           );
                                         } finally {
-                                          console.log("Process completed.");
+                                          console.log("done");
                                         }
                                       }
                                       return shareAppView();
