@@ -1857,9 +1857,9 @@ function PlasmicHomepage__RenderFunc(props: {
                               displayWidth={"100%"}
                               loading={"lazy"}
                               src={{
-                                src: "/plasmic/profile/images/imresizer1734782686280Jpg2.jpg",
+                                src: "/plasmic/profile/images/imresizer1735384423270Jpg.jpg",
                                 fullWidth: 1922,
-                                fullHeight: 961,
+                                fullHeight: 960,
                                 aspectRatio: undefined
                               }}
                             />
@@ -2572,7 +2572,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     {(() => {
                                       try {
                                         return $state.language === "ar"
-                                          ? "الخبي"
+                                          ? "الخبير"
                                           : "Travel Master";
                                       } catch (e) {
                                         if (
@@ -3174,7 +3174,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                                 script.src =
                                                   "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
                                                 script.onload = resolve;
-                                                script.onerror = reject;
+                                                script.onerror = () =>
+                                                  reject(
+                                                    new Error(
+                                                      "Failed to load html2canvas library."
+                                                    )
+                                                  );
                                                 document.head.appendChild(
                                                   script
                                                 );
@@ -3190,7 +3195,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                           await new Promise(
                                             (resolve, reject) => {
                                               fontLink.onload = resolve;
-                                              fontLink.onerror = reject;
+                                              fontLink.onerror = () =>
+                                                reject(
+                                                  new Error(
+                                                    "Failed to load Vazirmatn font."
+                                                  )
+                                                );
                                             }
                                           );
                                           document.body.style.fontFamily =
@@ -3221,11 +3231,19 @@ function PlasmicHomepage__RenderFunc(props: {
                                               }
                                             );
                                           const blob = await new Promise(
-                                            resolve =>
-                                              canvas.toBlob(
-                                                resolve,
-                                                "image/png"
-                                              )
+                                            (resolve, reject) => {
+                                              canvas.toBlob(blob => {
+                                                if (blob) {
+                                                  resolve(blob);
+                                                } else {
+                                                  reject(
+                                                    new Error(
+                                                      "Canvas is empty."
+                                                    )
+                                                  );
+                                                }
+                                              }, "image/png");
+                                            }
                                           );
                                           const imageURL =
                                             URL.createObjectURL(blob);
@@ -3242,7 +3260,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                               ]
                                             });
                                             console.log(
-                                              "Screenshot shared successfully-!"
+                                              "Screenshot shared successfully!"
                                             );
                                             if (typeof gtag === "function") {
                                               gtag(
@@ -3259,28 +3277,50 @@ function PlasmicHomepage__RenderFunc(props: {
                                               );
                                             }
                                           } else {
-                                            const downloadLink =
-                                              document.createElement("a");
-                                            downloadLink.href = imageURL;
-                                            downloadLink.download =
-                                              "app-screenshot.png";
-                                            downloadLink.click();
-                                            alert(
-                                              "Screenshot saved successfully!"
-                                            );
-                                            if (typeof gtag === "function") {
-                                              gtag(
-                                                "event",
-                                                "share_profile_stats",
-                                                {
-                                                  method: "download",
-                                                  status: "success"
-                                                }
-                                              );
+                                            if (
+                                              typeof AndroidShare !==
+                                                "undefined" &&
+                                              AndroidShare.fallbackShare
+                                            ) {
+                                              const reader = new FileReader();
+                                              reader.readAsDataURL(blob);
+                                              reader.onloadend = function () {
+                                                const base64Image =
+                                                  reader.result.split(",")[1];
+                                                AndroidShare.fallbackShare(
+                                                  base64Image
+                                                );
+                                              };
                                             } else {
-                                              console.warn(
-                                                "gtag function is not available."
+                                              const downloadLink =
+                                                document.createElement("a");
+                                              downloadLink.href = imageURL;
+                                              downloadLink.download =
+                                                "app-screenshot.png";
+                                              document.body.appendChild(
+                                                downloadLink
                                               );
+                                              downloadLink.click();
+                                              document.body.removeChild(
+                                                downloadLink
+                                              );
+                                              alert(
+                                                "Screenshot saved successfully!"
+                                              );
+                                              if (typeof gtag === "function") {
+                                                gtag(
+                                                  "event",
+                                                  "share_profile_stats",
+                                                  {
+                                                    method: "download",
+                                                    status: "success"
+                                                  }
+                                                );
+                                              } else {
+                                                console.warn(
+                                                  "gtag function is not available."
+                                                );
+                                              }
                                             }
                                           }
                                         } catch (error) {
@@ -3307,10 +3347,30 @@ function PlasmicHomepage__RenderFunc(props: {
                                             );
                                           }
                                         } finally {
-                                          console.log("done");
+                                          console.log(
+                                            "Share operation completed."
+                                          );
                                         }
                                       }
-                                      return shareAppView();
+                                      return document.addEventListener(
+                                        "DOMContentLoaded",
+                                        () => {
+                                          const shareButton =
+                                            document.querySelector(
+                                              "#share-button"
+                                            );
+                                          if (shareButton) {
+                                            shareButton.addEventListener(
+                                              "click",
+                                              shareAppView
+                                            );
+                                          } else {
+                                            console.warn(
+                                              'Share button with ID "share-button" not found.'
+                                            );
+                                          }
+                                        }
+                                      );
                                     })();
                                   }
                                 };
