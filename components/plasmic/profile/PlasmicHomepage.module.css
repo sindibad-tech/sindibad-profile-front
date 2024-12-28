@@ -2108,7 +2108,7 @@
   height: var(--token-8MkIlsFrrWgx);
   max-width: 100%;
   box-shadow: none;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   background: var(--token-DbGdjBpQ6R_X);
   min-width: 0;
   border-radius: 20px;
@@ -2231,7 +2231,7 @@
   right: auto;
   bottom: auto;
   min-width: 0;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 8px;
 }
 .text__gh9Zg {

@@ -3335,7 +3335,9 @@ function PlasmicHomepage__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return "Share";
+                                return $state.language === "ar"
+                                  ? "مشاركة"
+                                  : "Share";
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
