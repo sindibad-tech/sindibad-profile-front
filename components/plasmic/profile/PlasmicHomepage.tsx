@@ -1397,6 +1397,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     <div
                       Name={"oknotif"}
                       className={classNames(projectcss.all, sty.freeBox__mZKz)}
+                      id={"oknotif"}
                     >
                       <div
                         className={classNames(
@@ -1476,6 +1477,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     <div
                       Name={"errornotif"}
                       className={classNames(projectcss.all, sty.freeBox__egn6M)}
+                      id={"errornotif"}
                     >
                       <div
                         className={classNames(
@@ -3497,10 +3499,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                             await navigator.clipboard.writeText(
                                               imgUrl
                                             );
-                                            document.querySelectorAll(
-                                              "[name ='oknotif']"
-                                            )[currentIndex].style.display =
-                                              "flex";
+                                            document.querySelector(
+                                              "#oknotif"
+                                            ).style.display = "flex";
                                             console.log(
                                               "Image URL copied to clipboard."
                                             );
@@ -3509,10 +3510,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                               "Error capturing or sharing the screenshot:",
                                               error
                                             );
-                                            document.querySelectorAll(
-                                              "[name ='errornotif']"
-                                            )[currentIndex].style.display =
-                                              "flex";
+                                            document.querySelector(
+                                              "#errornotif"
+                                            ).style.display = "flex";
                                           } finally {
                                             console.log("done");
                                           }
