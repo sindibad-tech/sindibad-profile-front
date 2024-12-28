@@ -3252,36 +3252,36 @@ function PlasmicHomepage__RenderFunc(props: {
                                               "Screenshot shared successfully!"
                                             );
                                           } else {
-                                            await loadShareThis();
                                             const url =
                                               URL.createObjectURL(blob);
-                                            const shareDiv =
-                                              document.createElement("div");
-                                            shareDiv.className =
-                                              "sharethis-inline-share-buttons";
-                                            document.body.appendChild(shareDiv);
-                                            await new Promise(resolve =>
-                                              setTimeout(resolve, 1000)
+                                            const downloadLink =
+                                              document.createElement("a");
+                                            downloadLink.href = url;
+                                            downloadLink.download =
+                                              "app-screenshot.png";
+                                            downloadLink.textContent =
+                                              "Click here to download the image for Instagram";
+                                            downloadLink.style.display =
+                                              "block";
+                                            downloadLink.style.marginTop =
+                                              "20px";
+                                            const instructions =
+                                              document.createElement("p");
+                                            instructions.textContent =
+                                              "To share on Instagram: Download the image, open Instagram, and upload it manually.";
+                                            instructions.style.marginTop =
+                                              "10px";
+                                            instructions.style.fontFamily =
+                                              "Vazirmatn, sans-serif";
+                                            document.body.appendChild(
+                                              instructions
                                             );
-                                            const shareThisScript =
-                                              window.__sharethis__;
-                                            if (shareThisScript) {
-                                              shareThisScript.update({
-                                                url,
-                                                title: "My Trips Stat",
-                                                image: url
-                                              });
-                                              console.log(
-                                                "ShareThis triggered as fallback."
-                                              );
-                                            } else {
-                                              console.error(
-                                                "ShareThis script failed to initialize."
-                                              );
-                                              alert(
-                                                "Failed to initialize fallback sharing options."
-                                              );
-                                            }
+                                            document.body.appendChild(
+                                              downloadLink
+                                            );
+                                            console.log(
+                                              "Fallback mechanism for Instagram sharing initiated."
+                                            );
                                           }
                                         } catch (error) {
                                           console.error(
@@ -3294,24 +3294,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                         } finally {
                                           console.log("Process completed.");
                                         }
-                                      }
-                                      async function loadShareThis() {
-                                        return new Promise(
-                                          (resolve, reject) => {
-                                            const script =
-                                              document.createElement("script");
-                                            script.src =
-                                              "https://platform-api.sharethis.com/js/sharethis.js#property=67331095fb20e60013270b8c&product=inline-share-buttons";
-                                            script.onload = resolve;
-                                            script.onerror = () =>
-                                              reject(
-                                                new Error(
-                                                  "Failed to load ShareThis script."
-                                                )
-                                              );
-                                            document.head.appendChild(script);
-                                          }
-                                        );
                                       }
                                       return shareAppView();
                                     })();
