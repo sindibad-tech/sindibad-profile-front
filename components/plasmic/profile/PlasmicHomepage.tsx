@@ -271,17 +271,6 @@ function PlasmicHomepage__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9C9BT12S2"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-L9C9BT12S2');
-            `,
-          }}
-        />
         <meta name="twitter:card" content="summary" />
         <title key="title">{PlasmicHomepage.pageMetadata.title}</title>
         <meta
