@@ -2773,11 +2773,15 @@ function PlasmicHomepage__RenderFunc(props: {
                                 return (() => {
                                   const minutes =
                                     $ctx.fetchedData.result.duration;
-                                  const hours = Math.floor(minutes / 60);
+                                  const hours = String(
+                                    Math.floor(minutes / 60)
+                                  ).padStart(2, "0");
                                   const remainingMinutes = String(
                                     minutes % 60
                                   ).padStart(2, "0");
-                                  const formattedTime = `${hours}:${remainingMinutes}`;
+                                  const formattedTime = `${
+                                    hours > 0 ? hours : "00"
+                                  }:${remainingMinutes}`;
                                   return formattedTime;
                                 })();
                               } catch (e) {
