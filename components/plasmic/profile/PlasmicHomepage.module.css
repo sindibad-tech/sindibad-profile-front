@@ -958,6 +958,133 @@
   padding-right: 10px;
   padding-left: 10px;
 }
+.freeBox__mZKz {
+  position: fixed;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  background: var(--token-jgohepLVeKvh);
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  overflow: auto;
+  flex-direction: row;
+  display: none;
+  border-radius: 15px;
+  padding: 8px;
+  border: 3px solid var(--token-U2IgSncNyCpY);
+}
+.text__wN8Vh {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 2rem;
+  color: #d50b0b;
+  text-align: left;
+  align-self: flex-start;
+  left: auto;
+  top: auto;
+  position: relative;
+  margin-right: 5px;
+}
+.freeBox___6GLj1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  left: auto;
+  top: auto;
+  min-width: 0;
+  padding: 8px;
+}
+.text___7SKsn {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: "Vazirmatn", sans-serif;
+  min-width: 0;
+}
+.text__hbWw6 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-family: "Vazirmatn", sans-serif;
+  align-self: center;
+  text-align: center;
+  min-width: 0;
+}
+.freeBox__egn6M {
+  position: fixed;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  background: var(--token-jgohepLVeKvh);
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  overflow: auto;
+  flex-direction: row;
+  display: none;
+  border-radius: 15px;
+  padding: 8px;
+  border: 3px solid var(--token-Bo2_tT25lwh4);
+}
+.text__wo6Sv {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 2rem;
+  color: #d50b0b;
+  text-align: left;
+  align-self: flex-start;
+  left: auto;
+  top: auto;
+  position: relative;
+  margin-right: 5px;
+}
+.freeBox___7NaCr {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  left: auto;
+  top: auto;
+  min-width: 0;
+  padding: 8px;
+}
+.text___9A4G7 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: "Vazirmatn", sans-serif;
+  min-width: 0;
+}
+.text__a7A8O {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-family: "Vazirmatn", sans-serif;
+  min-width: 0;
+  display: none;
+}
 .freeBox__t6Nfa {
   display: flex;
   flex-direction: column;
