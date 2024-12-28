@@ -3279,9 +3279,15 @@ function PlasmicHomepage__RenderFunc(props: {
                                             );
                                           const result = await response.json();
                                           const imgUrl = result.data.url;
-                                          window.open(imgUrl, "_blank");
+                                          const link =
+                                            document.createElement("a");
+                                          link.href = imgUrl;
+                                          link.download = "app-screenshot.png";
+                                          document.body.appendChild(link);
+                                          link.click();
+                                          document.body.removeChild(link);
                                           console.log(
-                                            "Fallback: Image opened in a new tab."
+                                            "Image downloaded successfully."
                                           );
                                         } catch (error) {
                                           console.error(
