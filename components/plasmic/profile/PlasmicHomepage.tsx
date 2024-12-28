@@ -3268,8 +3268,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             if (shareThisScript) {
                                               shareThisScript.update({
                                                 url,
-                                                title:
-                                                  "Check this amazing screenshot!",
+                                                title: "My Trips Stat",
                                                 image: url
                                               });
                                               console.log(
@@ -3302,7 +3301,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             const script =
                                               document.createElement("script");
                                             script.src =
-                                              "https://platform-api.sharethis.com/js/sharethis.js#property=YOUR_PROPERTY_ID&product=inline-share-buttons";
+                                              "https://platform-api.sharethis.com/js/sharethis.js#property=67331095fb20e60013270b8c&product=inline-share-buttons";
                                             script.onload = resolve;
                                             script.onerror = () =>
                                               reject(
