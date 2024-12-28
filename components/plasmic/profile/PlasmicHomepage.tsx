@@ -101,11 +101,11 @@ export type PlasmicHomepage__OverridesType = {
   _2026?: Flex__<typeof Button>;
   _20234?: Flex__<"div">;
   _2027?: Flex__<typeof Button>;
+  loadimg?: Flex__<"section">;
   duration3?: Flex__<"section">;
   days4?: Flex__<"div">;
   hours5?: Flex__<"div">;
   minutes4?: Flex__<"div">;
-  loadimg?: Flex__<"section">;
   flights3?: Flex__<"div">;
   flightIcon4?: Flex__<"svg">;
   cities3?: Flex__<"div">;
@@ -383,8 +383,8 @@ function PlasmicHomepage__RenderFunc(props: {
                               {(() => {
                                 try {
                                   return $state.language === "ar"
-                                    ? "مدة الوقت في الطيران"
-                                    : "Time Spent Flying";
+                                    ? "ساعات الطيران"
+                                    : "Hours Spent Flying";
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1041,6 +1041,34 @@ function PlasmicHomepage__RenderFunc(props: {
                         </Stack__>
                       ) : null}
                       <section
+                        data-plasmic-name={"loadimg"}
+                        data-plasmic-override={overrides.loadimg}
+                        className={classNames(projectcss.all, sty.loadimg)}
+                      >
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img___9Mgzk)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"none"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={
+                            hasVariant(
+                              globalVariants,
+                              "screen",
+                              "desktopDefault"
+                            )
+                              ? "100%"
+                              : "auto"
+                          }
+                          loading={"lazy"}
+                          src={
+                            "https://static.sindibad.iq/upload/Untitled%20design%20(1).gif"
+                          }
+                        />
+                      </section>
+                      <section
                         data-plasmic-name={"duration3"}
                         data-plasmic-override={overrides.duration3}
                         className={classNames(projectcss.all, sty.duration3)}
@@ -1245,34 +1273,6 @@ function PlasmicHomepage__RenderFunc(props: {
                             </div>
                           </div>
                         </div>
-                      </section>
-                      <section
-                        data-plasmic-name={"loadimg"}
-                        data-plasmic-override={overrides.loadimg}
-                        className={classNames(projectcss.all, sty.loadimg)}
-                      >
-                        <PlasmicImg__
-                          alt={""}
-                          className={classNames(sty.img___9Mgzk)}
-                          displayHeight={"auto"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"none"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={
-                            hasVariant(
-                              globalVariants,
-                              "screen",
-                              "desktopDefault"
-                            )
-                              ? "100%"
-                              : "auto"
-                          }
-                          loading={"lazy"}
-                          src={
-                            "https://static.sindibad.iq/upload/Untitled%20design%20(1).gif"
-                          }
-                        />
                       </section>
                       <div
                         data-plasmic-name={"flights3"}
@@ -3345,11 +3345,11 @@ const PlasmicDescendants = {
     "_2026",
     "_20234",
     "_2027",
+    "loadimg",
     "duration3",
     "days4",
     "hours5",
     "minutes4",
-    "loadimg",
     "flights3",
     "flightIcon4",
     "cities3",
@@ -3404,11 +3404,11 @@ const PlasmicDescendants = {
     "_2026",
     "_20234",
     "_2027",
+    "loadimg",
     "duration3",
     "days4",
     "hours5",
     "minutes4",
-    "loadimg",
     "flights3",
     "flightIcon4",
     "cities3",
@@ -3461,11 +3461,11 @@ const PlasmicDescendants = {
     "_2026",
     "_20234",
     "_2027",
+    "loadimg",
     "duration3",
     "days4",
     "hours5",
     "minutes4",
-    "loadimg",
     "flights3",
     "flightIcon4",
     "cities3",
@@ -3516,11 +3516,11 @@ const PlasmicDescendants = {
   _2026: ["_2026", "_20234"],
   _20234: ["_20234"],
   _2027: ["_2027"],
+  loadimg: ["loadimg"],
   duration3: ["duration3", "days4", "hours5", "minutes4"],
   days4: ["days4"],
   hours5: ["hours5"],
   minutes4: ["minutes4"],
-  loadimg: ["loadimg"],
   flights3: ["flights3", "flightIcon4"],
   flightIcon4: ["flightIcon4"],
   cities3: ["cities3", "cityIcon4"],
@@ -3579,11 +3579,11 @@ type NodeDefaultElementType = {
   _2026: typeof Button;
   _20234: "div";
   _2027: typeof Button;
+  loadimg: "section";
   duration3: "section";
   days4: "div";
   hours5: "div";
   minutes4: "div";
-  loadimg: "section";
   flights3: "div";
   flightIcon4: "svg";
   cities3: "div";
@@ -3698,11 +3698,11 @@ export const PlasmicHomepage = Object.assign(
     _2026: makeNodeComponent("_2026"),
     _20234: makeNodeComponent("_20234"),
     _2027: makeNodeComponent("_2027"),
+    loadimg: makeNodeComponent("loadimg"),
     duration3: makeNodeComponent("duration3"),
     days4: makeNodeComponent("days4"),
     hours5: makeNodeComponent("hours5"),
     minutes4: makeNodeComponent("minutes4"),
-    loadimg: makeNodeComponent("loadimg"),
     flights3: makeNodeComponent("flights3"),
     flightIcon4: makeNodeComponent("flightIcon4"),
     cities3: makeNodeComponent("cities3"),
