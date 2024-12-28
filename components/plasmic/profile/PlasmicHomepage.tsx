@@ -3281,10 +3281,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                               downloadLink
                                             );
                                             downloadLink.click();
-                                            document.body.removeChild(
-                                              downloadLink
-                                            );
-                                            URL.revokeObjectURL(imageURL);
                                             alert(
                                               "Screenshot saved successfully!"
                                             );
