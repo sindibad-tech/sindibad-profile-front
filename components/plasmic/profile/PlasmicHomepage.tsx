@@ -3352,25 +3352,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                           );
                                         }
                                       }
-                                      return document.addEventListener(
-                                        "DOMContentLoaded",
-                                        () => {
-                                          const shareButton =
-                                            document.querySelector(
-                                              "#share-button"
-                                            );
-                                          if (shareButton) {
-                                            shareButton.addEventListener(
-                                              "click",
-                                              shareAppView
-                                            );
-                                          } else {
-                                            console.warn(
-                                              'Share button with ID "share-button" not found.'
-                                            );
-                                          }
-                                        }
-                                      );
+                                      return shareAppView();
                                     })();
                                   }
                                 };
