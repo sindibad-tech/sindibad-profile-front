@@ -3490,8 +3490,33 @@ function PlasmicHomepage__RenderFunc(props: {
                                                 return;
                                               } catch (shareError) {
                                                 console.warn(
-                                                  "Sharing via navigator.share failed, falling back to ImgBB upload.",
+                                                  "Sharing via navigator.share failed, falling back to Share.open.",
                                                   shareError
+                                                );
+                                              }
+                                            }
+                                            if (
+                                              typeof Share !== "undefined" &&
+                                              Share.open
+                                            ) {
+                                              try {
+                                                await Share.open({
+                                                  url: URL.createObjectURL(
+                                                    blob
+                                                  ),
+                                                  type: "image/png"
+                                                });
+                                                console.log(
+                                                  "Shared via Share.open successfully!"
+                                                );
+                                                document.getElementById(
+                                                  "loadnotif"
+                                                ).style.display = "none";
+                                                return;
+                                              } catch (shareOpenError) {
+                                                console.warn(
+                                                  "Sharing via Share.open failed, falling back to ImgBB upload.",
+                                                  shareOpenError
                                                 );
                                               }
                                             }
