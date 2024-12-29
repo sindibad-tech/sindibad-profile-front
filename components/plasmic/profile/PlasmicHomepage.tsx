@@ -3574,18 +3574,23 @@ function PlasmicHomepage__RenderFunc(props: {
                                               alert(
                                                 `Fallback Error: ${apiError.message}`
                                               );
+                                              alert($state.userId);
+                                              alert($state.userId);
                                               console.error(
                                                 "API fallback failed. Copying image URL to clipboard.",
                                                 apiError
                                               );
+                                              document.getElementById(
+                                                "errornotif"
+                                              ).style.display = "flex";
                                               await navigator.clipboard.writeText(
                                                 imgUrl
                                               );
-                                              console.log(
-                                                "Image URL copied to clipboard."
+                                              alert(
+                                                `Image URL copied to clipboard.${imgUrl}`
                                               );
                                               document.getElementById(
-                                                "errornotif"
+                                                "oknotif"
                                               ).style.display = "flex";
                                             }
                                           } catch (error) {
