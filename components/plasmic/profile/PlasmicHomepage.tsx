@@ -3606,10 +3606,15 @@ function PlasmicHomepage__RenderFunc(props: {
                                               );
                                             const base64Image =
                                               canvas.toDataURL("image/png");
+                                            const file = new File(
+                                              [blob],
+                                              "app-screenshot.png",
+                                              { type: "image/png" }
+                                            );
                                             if (navigator.share) {
                                               try {
                                                 await navigator.share({
-                                                  files: [base64Image]
+                                                  files: [file]
                                                 });
                                                 console.log(
                                                   "Shared successfully using navigator.share."
