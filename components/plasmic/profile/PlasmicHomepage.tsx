@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import ProfileHeader from "../../ProfileHeader"; // plasmic-import: T35z79qnz4CS/component
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import Button from "../../Button"; // plasmic-import: 1hegvDmx6W9E/component
@@ -94,6 +95,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
   profileHeader?: Flex__<typeof ProfileHeader>;
   body?: Flex__<"div">;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
@@ -333,6 +335,15 @@ function PlasmicHomepage__RenderFunc(props: {
             sty.root
           )}
         >
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              "<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-L9C9BT12S2\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', 'G-L9C9BT12S2');\n</script>\n"
+            }
+          />
+
           <ProfileHeader
             data-plasmic-name={"profileHeader"}
             data-plasmic-override={overrides.profileHeader}
@@ -3527,206 +3538,202 @@ function PlasmicHomepage__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return (async () => {
-                                        async function shareAppView() {
-                                          try {
-                                            document.getElementById(
-                                              "loadnotif"
-                                            ).style.display = "flex";
-                                            if (
-                                              typeof window.html2canvas ===
-                                              "undefined"
-                                            ) {
-                                              await new Promise(
-                                                (resolve, reject) => {
-                                                  const script =
-                                                    document.createElement(
-                                                      "script"
-                                                    );
-                                                  script.src =
-                                                    "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
-                                                  script.onload = resolve;
-                                                  script.onerror = reject;
-                                                  document.head.appendChild(
-                                                    script
-                                                  );
-                                                }
-                                              );
-                                            }
-                                            const fontLink =
-                                              document.createElement("link");
-                                            fontLink.href =
-                                              "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
-                                            fontLink.rel = "stylesheet";
-                                            document.head.appendChild(fontLink);
+                                      return async function shareAppView() {
+                                        try {
+                                          document.getElementById(
+                                            "loadnotif"
+                                          ).style.display = "flex";
+
+                                          // Load html2canvas if not already loaded
+                                          if (
+                                            typeof window.html2canvas ===
+                                            "undefined"
+                                          ) {
                                             await new Promise(
                                               (resolve, reject) => {
-                                                fontLink.onload = resolve;
-                                                fontLink.onerror = reject;
+                                                const script =
+                                                  document.createElement(
+                                                    "script"
+                                                  );
+                                                script.src =
+                                                  "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+                                                script.onload = resolve;
+                                                script.onerror = reject;
+                                                document.head.appendChild(
+                                                  script
+                                                );
                                               }
                                             );
-                                            document.body.style.fontFamily =
-                                              "Vazirmatn, sans-serif";
-                                            const appElement =
-                                              document.querySelector(
-                                                "#app-box"
-                                              );
-                                            if (!appElement)
-                                              throw new Error(
-                                                'Element with ID "app-box" not found.'
-                                              );
-                                            if (
-                                              appElement.innerText.match(
-                                                /[\u0600-\u06FF]/
-                                              )
-                                            )
-                                              appElement.style.direction =
-                                                "rtl";
-                                            await new Promise(resolve =>
-                                              setTimeout(resolve, 500)
+                                          }
+
+                                          // Load Vazirmatn font
+                                          const fontLink =
+                                            document.createElement("link");
+                                          fontLink.href =
+                                            "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
+                                          fontLink.rel = "stylesheet";
+                                          document.head.appendChild(fontLink);
+                                          await new Promise(
+                                            (resolve, reject) => {
+                                              fontLink.onload = resolve;
+                                              fontLink.onerror = reject;
+                                            }
+                                          );
+
+                                          document.body.style.fontFamily =
+                                            "Vazirmatn, sans-serif";
+                                          const appElement =
+                                            document.querySelector("#app-box");
+                                          if (!appElement)
+                                            throw new Error(
+                                              'Element with ID "app-box" not found.'
                                             );
-                                            const canvas =
-                                              await window.html2canvas(
-                                                appElement,
-                                                {
-                                                  useCORS: true,
-                                                  logging: true
-                                                }
+                                          if (
+                                            appElement.innerText.match(
+                                              /[\u0600-\u06FF]/
+                                            )
+                                          )
+                                            appElement.style.direction = "rtl";
+
+                                          await new Promise(resolve =>
+                                            setTimeout(resolve, 500)
+                                          ); // Ensure font applies
+
+                                          const canvas =
+                                            await window.html2canvas(
+                                              appElement,
+                                              { useCORS: true, logging: true }
+                                            );
+                                          const base64Image =
+                                            canvas.toDataURL("image/png"); // Convert image to Base64
+
+                                          // Check if navigator.share is available
+                                          if (navigator.share) {
+                                            try {
+                                              await navigator.share({
+                                                text: "Check out this view!",
+                                                url: base64Image
+                                              });
+                                              console.log(
+                                                "Shared successfully using navigator.share."
                                               );
-                                            const base64Image =
-                                              canvas.toDataURL("image/png");
-                                            if (navigator.share) {
-                                              try {
-                                                await navigator.share({
-                                                  text: "Check out this view!",
-                                                  url: base64Image
-                                                });
+                                              document.getElementById(
+                                                "oknotif"
+                                              ).style.display = "flex";
+
+                                              // Send GA4 event
+                                              if (typeof gtag === "function") {
+                                                gtag(
+                                                  "event",
+                                                  "profile_clicked",
+                                                  {
+                                                    event_category: "share",
+                                                    event_label:
+                                                      "navigator_share"
+                                                  }
+                                                );
+                                              }
+
+                                              return; // Exit function if sharing succeeds
+                                            } catch (shareError) {
+                                              console.warn(
+                                                "navigator.share failed, falling back to openNativeShare.",
+                                                shareError
+                                              );
+                                            }
+                                          }
+
+                                          // Fallback to openNativeShare
+                                          try {
+                                            openNativeShare(
+                                              base64Image,
+                                              "png",
+                                              message => {
                                                 console.log(
-                                                  "Shared successfully using navigator.share."
+                                                  "Share success using openNativeShare:",
+                                                  message
                                                 );
                                                 document.getElementById(
                                                   "oknotif"
                                                 ).style.display = "flex";
-                                                return;
-                                              } catch (shareError) {
-                                                console.warn(
-                                                  "navigator.share failed, falling back to openNativeShare.",
-                                                  shareError
-                                                );
+
+                                                // Send GA4 event
+                                                if (
+                                                  typeof gtag === "function"
+                                                ) {
+                                                  gtag(
+                                                    "event",
+                                                    "profile_clicked",
+                                                    {
+                                                      event_category: "share",
+                                                      event_label:
+                                                        "native_share"
+                                                    }
+                                                  );
+                                                }
+                                              },
+                                              message => {
+                                                throw new Error(message); // Trigger clipboard fallback
                                               }
-                                            }
-                                            try {
-                                              openNativeShare(
-                                                base64Image,
-                                                "png",
-                                                message => {
-                                                  console.log(
-                                                    "Share success using openNativeShare:",
-                                                    message
-                                                  );
-                                                  document.getElementById(
-                                                    "oknotif"
-                                                  ).style.display = "flex";
-                                                },
-                                                message => {
-                                                  throw new Error(message);
-                                                }
-                                              );
-                                            } catch (nativeShareError) {
-                                              console.warn(
-                                                "openNativeShare failed, falling back to clipboard.",
-                                                nativeShareError
-                                              );
-                                              copyToClipboard(
-                                                base64Image,
-                                                message => {
-                                                  console.log(
-                                                    "Content copied to clipboard:",
-                                                    message
-                                                  );
-                                                  document.getElementById(
-                                                    "oknotif"
-                                                  ).style.display = "flex";
-                                                },
-                                                message => {
-                                                  console.error(
-                                                    "Clipboard fallback failed:",
-                                                    message
-                                                  );
-                                                  document.getElementById(
-                                                    "errornotif"
-                                                  ).style.display = "flex";
-                                                }
-                                              );
-                                            }
-                                          } catch (error) {
-                                            console.error(
-                                              "Error capturing or sharing the screenshot:",
-                                              error
                                             );
-                                            document.getElementById(
-                                              "errornotif"
-                                            ).style.display = "flex";
-                                          } finally {
-                                            document.getElementById(
-                                              "loadnotif"
-                                            ).style.display = "none";
-                                            console.log("done");
-                                          }
-                                        }
-                                        async function openNativeShare(
-                                          content,
-                                          extension,
-                                          onSuccess,
-                                          onFailure
-                                        ) {
-                                          try {
-                                            if (window.webkit) {
-                                              window.webkit.messageHandlers.openNativeShare.postMessage(
-                                                `${extension}|${content}`
-                                              );
-                                              onSuccess("Shared using webkit.");
-                                            } else if (
-                                              window.AndroidInterface
-                                            ) {
-                                              window.AndroidInterface.openNativeShare(
-                                                extension,
-                                                content
-                                              );
-                                              onSuccess(
-                                                "Shared using AndroidInterface."
-                                              );
-                                            } else {
-                                              onFailure(
-                                                "No native sharing interface available."
-                                              );
-                                            }
-                                          } catch (error) {
-                                            onFailure(
-                                              `Error in openNativeShare: ${error.message}`
+                                          } catch (nativeShareError) {
+                                            console.warn(
+                                              "openNativeShare failed, falling back to clipboard.",
+                                              nativeShareError
+                                            );
+
+                                            // Final fallback to clipboard
+                                            copyToClipboard(
+                                              base64Image,
+                                              message => {
+                                                console.log(
+                                                  "Content copied to clipboard:",
+                                                  message
+                                                );
+                                                document.getElementById(
+                                                  "oknotif"
+                                                ).style.display = "flex";
+
+                                                // Send GA4 event
+                                                if (
+                                                  typeof gtag === "function"
+                                                ) {
+                                                  gtag(
+                                                    "event",
+                                                    "profile_clicked",
+                                                    {
+                                                      event_category: "share",
+                                                      event_label: "clipboard"
+                                                    }
+                                                  );
+                                                }
+                                              },
+                                              message => {
+                                                console.error(
+                                                  "Clipboard fallback failed:",
+                                                  message
+                                                );
+                                                document.getElementById(
+                                                  "errornotif"
+                                                ).style.display = "flex";
+                                              }
                                             );
                                           }
+                                        } catch (error) {
+                                          console.error(
+                                            "Error capturing or sharing the screenshot:",
+                                            error
+                                          );
+                                          document.getElementById(
+                                            "errornotif"
+                                          ).style.display = "flex";
+                                        } finally {
+                                          document.getElementById(
+                                            "loadnotif"
+                                          ).style.display = "none";
+                                          console.log("done");
                                         }
-                                        function copyToClipboard(
-                                          content,
-                                          onSuccess,
-                                          onFailure
-                                        ) {
-                                          navigator.clipboard
-                                            .writeText(content)
-                                            .then(() => {
-                                              onSuccess(
-                                                "Content copied to clipboard!"
-                                              );
-                                            })
-                                            .catch(error => {
-                                              onFailure(
-                                                `Failed to copy content: ${error.message}`
-                                              );
-                                            });
-                                        }
-                                        return shareAppView();
-                                      })();
+                                      };
                                     }
                                   };
                                   return (({ customFunction }) => {
@@ -3787,6 +3794,7 @@ function PlasmicHomepage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "embedHtml",
     "profileHeader",
     "body",
     "httpRestApiFetcher",
@@ -3844,6 +3852,7 @@ const PlasmicDescendants = {
     "cityIcon5",
     "link"
   ],
+  embedHtml: ["embedHtml"],
   profileHeader: ["profileHeader"],
   body: [
     "body",
@@ -4017,6 +4026,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  embedHtml: typeof Embed;
   profileHeader: typeof ProfileHeader;
   body: "div";
   httpRestApiFetcher: typeof DataFetcher;
@@ -4135,6 +4145,7 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    embedHtml: makeNodeComponent("embedHtml"),
     profileHeader: makeNodeComponent("profileHeader"),
     body: makeNodeComponent("body"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
