@@ -3618,19 +3618,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                                 document.getElementById(
                                                   "oknotif"
                                                 ).style.display = "flex";
-                                                if (
-                                                  typeof gtag === "function"
-                                                ) {
-                                                  gtag(
-                                                    "event",
-                                                    "share_trip_stats",
-                                                    {
-                                                      event_category: "share",
-                                                      event_label:
-                                                        "navigator_share"
-                                                    }
-                                                  );
-                                                }
                                                 return;
                                               } catch (shareError) {
                                                 console.warn(
@@ -3651,19 +3638,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   document.getElementById(
                                                     "oknotif"
                                                   ).style.display = "flex";
-                                                  if (
-                                                    typeof gtag === "function"
-                                                  ) {
-                                                    gtag(
-                                                      "event",
-                                                      "share_trip_stats",
-                                                      {
-                                                        event_category: "share",
-                                                        event_label:
-                                                          "native_share"
-                                                      }
-                                                    );
-                                                  }
                                                 },
                                                 message => {
                                                   throw new Error(message);
@@ -3684,18 +3658,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   document.getElementById(
                                                     "oknotif"
                                                   ).style.display = "flex";
-                                                  if (
-                                                    typeof gtag === "function"
-                                                  ) {
-                                                    gtag(
-                                                      "event",
-                                                      "share_trip_stats",
-                                                      {
-                                                        event_category: "share",
-                                                        event_label: "clipboard"
-                                                      }
-                                                    );
-                                                  }
                                                 },
                                                 message => {
                                                   console.error(
@@ -3723,6 +3685,57 @@ function PlasmicHomepage__RenderFunc(props: {
                                             console.log("done");
                                           }
                                         }
+                                        async function openNativeShare(
+                                          content,
+                                          extension,
+                                          onSuccess,
+                                          onFailure
+                                        ) {
+                                          try {
+                                            if (window.webkit) {
+                                              window.webkit.messageHandlers.openNativeShare.postMessage(
+                                                `${extension}|${content}`
+                                              );
+                                              onSuccess("Shared using webkit.");
+                                            } else if (
+                                              window.AndroidInterface
+                                            ) {
+                                              window.AndroidInterface.openNativeShare(
+                                                extension,
+                                                content
+                                              );
+                                              onSuccess(
+                                                "Shared using AndroidInterface."
+                                              );
+                                            } else {
+                                              onFailure(
+                                                "No native sharing interface available."
+                                              );
+                                            }
+                                          } catch (error) {
+                                            onFailure(
+                                              `Error in openNativeShare: ${error.message}`
+                                            );
+                                          }
+                                        }
+                                        function copyToClipboard(
+                                          content,
+                                          onSuccess,
+                                          onFailure
+                                        ) {
+                                          navigator.clipboard
+                                            .writeText(content)
+                                            .then(() => {
+                                              onSuccess(
+                                                "Content copied to clipboard!"
+                                              );
+                                            })
+                                            .catch(error => {
+                                              onFailure(
+                                                `Failed to copy content: ${error.message}`
+                                              );
+                                            });
+                                        }
                                         return shareAppView();
                                       })();
                                     }
@@ -3738,6 +3751,45 @@ function PlasmicHomepage__RenderFunc(props: {
                               typeof $steps["runCode"].then === "function"
                             ) {
                               $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["tag"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        function sendGa4Event() {
+                                          if (window.gtag) {
+                                            window.gtag(
+                                              "event",
+                                              "share_flight_stats",
+                                              {
+                                                event_category: "Button",
+                                                event_label:
+                                                  "Share Flight Stats"
+                                              }
+                                            );
+                                          } else {
+                                            console.warn(
+                                              "Google Analytics is not initialized."
+                                            );
+                                          }
+                                        }
+                                        return sendGa4Event();
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["tag"] != null &&
+                              typeof $steps["tag"] === "object" &&
+                              typeof $steps["tag"].then === "function"
+                            ) {
+                              $steps["tag"] = await $steps["tag"];
                             }
                           }}
                           platform={"nextjs"}
