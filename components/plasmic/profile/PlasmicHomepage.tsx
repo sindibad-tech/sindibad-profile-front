@@ -1504,7 +1504,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             {(() => {
                               try {
                                 return $state.language === "en"
-                                  ? "Don't forget mention @sindibad.iq to your friends on instagram story."
+                                  ? "Don't forget mention @sindibadiq to your friends on instagram story."
                                   : "لا تنسى ذكر صفحة سندباد (sindibadiq) في الفيسبوك او الانستغرام.";
                               } catch (e) {
                                 if (

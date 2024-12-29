@@ -962,7 +962,7 @@
   position: fixed;
   width: auto;
   height: auto;
-  max-width: 50%;
+  max-width: auto;
   left: auto;
   top: 20px;
   z-index: 1000;
@@ -984,13 +984,14 @@
   height: auto;
   max-width: 100%;
   font-size: 2rem;
-  color: #d50b0b;
+  color: #000000;
   text-align: left;
   align-self: flex-start;
   left: auto;
   top: auto;
   position: relative;
   margin-right: 5px;
+  font-weight: 100;
 }
 .freeBox___6GLj1 {
   display: flex;
