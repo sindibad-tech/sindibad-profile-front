@@ -3505,7 +3505,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             ) {
                                               try {
                                                 await navigator.share({
-                                                  files: [file]
+                                                  text: "text"
                                                 });
                                                 console.log(
                                                   "Screenshot shared successfully!"
@@ -3566,14 +3566,14 @@ function PlasmicHomepage__RenderFunc(props: {
                                               console.log(
                                                 "Message sent to API with image URL."
                                               );
-                                              alert(
-                                                `Fallback Error: ${apiError.message}`
-                                              );
                                               alert($state.userId);
                                               document.getElementById(
                                                 "oknotif"
                                               ).style.display = "flex";
                                             } catch (apiError) {
+                                              alert(
+                                                `Fallback Error: ${apiError.message}`
+                                              );
                                               console.error(
                                                 "API fallback failed. Copying image URL to clipboard.",
                                                 apiError
