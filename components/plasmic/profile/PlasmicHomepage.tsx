@@ -3505,7 +3505,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             ) {
                                               try {
                                                 await navigator.share({
-                                                  text: "text"
+                                                  files: [file]
                                                 });
                                                 console.log(
                                                   "Screenshot shared successfully!"
@@ -3541,58 +3541,15 @@ function PlasmicHomepage__RenderFunc(props: {
                                             const result =
                                               await response.json();
                                             const imgUrl = result.data.url;
-                                            try {
-                                              const apiResponse = await fetch(
-                                                "https://assistant.sindibad.iq/api/admin/proactive-messages",
-                                                {
-                                                  method: "POST",
-                                                  headers: {
-                                                    "Content-Type":
-                                                      "application/json",
-                                                    Authorization:
-                                                      "5g5ODr57LAGVGNT/WDoXpfqmaA+WUULTPyQkgeiv7EI="
-                                                  },
-                                                  body: JSON.stringify({
-                                                    threadId: "",
-                                                    userId: $state.userId,
-                                                    message: `[Image Link](${imgUrl})`
-                                                  })
-                                                }
-                                              );
-                                              if (!apiResponse.ok)
-                                                throw new Error(
-                                                  "Failed to send message to API."
-                                                );
-                                              console.log(
-                                                "Message sent to API with image URL."
-                                              );
-                                              alert($state.userId);
-                                              document.getElementById(
-                                                "oknotif"
-                                              ).style.display = "flex";
-                                            } catch (apiError) {
-                                              alert(
-                                                `Fallback Error: ${apiError.message}`
-                                              );
-                                              alert($state.userId);
-                                              alert($state.userId);
-                                              console.error(
-                                                "API fallback failed. Copying image URL to clipboard.",
-                                                apiError
-                                              );
-                                              document.getElementById(
-                                                "errornotif"
-                                              ).style.display = "flex";
-                                              await navigator.clipboard.writeText(
-                                                imgUrl
-                                              );
-                                              alert(
-                                                `Image URL copied to clipboard.${imgUrl}`
-                                              );
-                                              document.getElementById(
-                                                "oknotif"
-                                              ).style.display = "flex";
-                                            }
+                                            await navigator.clipboard.writeText(
+                                              imgUrl
+                                            );
+                                            document.getElementById(
+                                              "oknotif"
+                                            ).style.display = "flex";
+                                            console.log(
+                                              "Image URL copied to clipboard."
+                                            );
                                           } catch (error) {
                                             console.error(
                                               "Error capturing or sharing the screenshot:",
