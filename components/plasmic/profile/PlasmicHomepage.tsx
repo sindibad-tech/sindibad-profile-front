@@ -3478,78 +3478,80 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   logging: true
                                                 }
                                               );
-                                            const blob = await new Promise(
-                                              resolve =>
-                                                canvas.toBlob(
-                                                  resolve,
-                                                  "image/png"
-                                                )
-                                            );
-                                            if (!blob)
-                                              throw new Error(
-                                                "Failed to create blob from canvas."
-                                              );
-                                            const file = new File(
-                                              [blob],
-                                              "app-screenshot.png",
-                                              { type: "image/png" }
-                                            );
-                                            const canShareFiles =
-                                              navigator.canShare &&
-                                              navigator.canShare({
-                                                files: [file]
-                                              });
-                                            if (
-                                              navigator.share &&
-                                              canShareFiles
-                                            ) {
+                                            const base64Image =
+                                              canvas.toDataURL("image/png");
+                                            if (navigator.share) {
                                               try {
                                                 await navigator.share({
-                                                  files: [file]
+                                                  title:
+                                                    "Check out this screenshot",
+                                                  text: "Here is a screenshot for you!",
+                                                  files: [
+                                                    new File(
+                                                      [base64Image],
+                                                      "screenshot.png",
+                                                      { type: "image/png" }
+                                                    )
+                                                  ]
                                                 });
                                                 console.log(
-                                                  "Screenshot shared successfully!"
+                                                  "Shared successfully using navigator.share."
                                                 );
                                                 document.getElementById(
-                                                  "loadnotif"
-                                                ).style.display = "none";
+                                                  "oknotif"
+                                                ).style.display = "flex";
                                                 return;
                                               } catch (shareError) {
                                                 console.warn(
-                                                  "Sharing via navigator.share failed, falling back to ImgBB upload.",
+                                                  "navigator.share failed, falling back to openNativeShare.",
                                                   shareError
                                                 );
                                               }
                                             }
-                                            const formData = new FormData();
-                                            formData.append(
-                                              "key",
-                                              "c4c4db147224f29c019f0c0dc3e6f9a0"
-                                            );
-                                            formData.append("image", file);
-                                            const response = await fetch(
-                                              "https://api.imgbb.com/1/upload",
-                                              {
-                                                method: "POST",
-                                                body: formData
-                                              }
-                                            );
-                                            if (!response.ok)
-                                              throw new Error(
-                                                "Failed to upload image to ImgBB."
+                                            try {
+                                              openNativeShare(
+                                                base64Image,
+                                                "png",
+                                                message => {
+                                                  console.log(
+                                                    "Share success using openNativeShare:",
+                                                    message
+                                                  );
+                                                  document.getElementById(
+                                                    "oknotif"
+                                                  ).style.display = "flex";
+                                                },
+                                                message => {
+                                                  throw new Error(message);
+                                                }
                                               );
-                                            const result =
-                                              await response.json();
-                                            const imgUrl = result.data.url;
-                                            await navigator.clipboard.writeText(
-                                              imgUrl
-                                            );
-                                            document.getElementById(
-                                              "oknotif"
-                                            ).style.display = "flex";
-                                            console.log(
-                                              "Image URL copied to clipboard."
-                                            );
+                                            } catch (nativeShareError) {
+                                              console.warn(
+                                                "openNativeShare failed, falling back to clipboard.",
+                                                nativeShareError
+                                              );
+                                              copyToClipboard(
+                                                base64Image,
+                                                message => {
+                                                  console.log(
+                                                    "Content copied to clipboard:",
+                                                    message
+                                                  );
+                                                  document.getElementById(
+                                                    "oknotif"
+                                                  ).style.display = "flex";
+                                                },
+                                                message => {
+                                                  console.error(
+                                                    "Clipboard fallback failed:",
+                                                    message
+                                                  );
+                                                  document.getElementById(
+                                                    "errornotif"
+                                                  ).style.display = "flex";
+                                                }
+                                              );
+                                            }
                                           } catch (error) {
                                             console.error(
                                               "Error capturing or sharing the screenshot:",
@@ -3564,6 +3566,57 @@ function PlasmicHomepage__RenderFunc(props: {
                                             ).style.display = "none";
                                             console.log("done");
                                           }
+                                        }
+                                        async function openNativeShare(
+                                          content,
+                                          extension,
+                                          onSuccess,
+                                          onFailure
+                                        ) {
+                                          try {
+                                            if (window.webkit) {
+                                              window.webkit?.messageHandlers?.openNativeShare?.postMessage?.(
+                                                `${extension}|${content}`
+                                              );
+                                              onSuccess("Shared using webkit.");
+                                            } else if (
+                                              window.AndroidInterface
+                                            ) {
+                                              window.AndroidInterface?.openNativeShare?.(
+                                                extension,
+                                                content
+                                              );
+                                              onSuccess(
+                                                "Shared using AndroidInterface."
+                                              );
+                                            } else {
+                                              onFailure(
+                                                "No native sharing interface available."
+                                              );
+                                            }
+                                          } catch (error) {
+                                            onFailure(
+                                              `Error in openNativeShare: ${error.message}`
+                                            );
+                                          }
+                                        }
+                                        function copyToClipboard(
+                                          content,
+                                          onSuccess,
+                                          onFailure
+                                        ) {
+                                          navigator.clipboard
+                                            .writeText(content)
+                                            .then(() => {
+                                              onSuccess(
+                                                "Content copied to clipboard!"
+                                              );
+                                            })
+                                            .catch(error => {
+                                              onFailure(
+                                                `Failed to copy content: ${error.message}`
+                                              );
+                                            });
                                         }
                                         return shareAppView();
                                       })();
