@@ -140,6 +140,7 @@ export type PlasmicHomepage__OverridesType = {
   travelMaster?: Flex__<"section">;
   _5Star?: Flex__<"div">;
   starImage?: Flex__<"section">;
+  logo?: Flex__<"div">;
   time?: Flex__<"div">;
   flightIcon8?: Flex__<"svg">;
   flights?: Flex__<"div">;
@@ -2935,10 +2936,9 @@ function PlasmicHomepage__RenderFunc(props: {
                           </section>
                         ) : null}
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__tC3Q4
-                          )}
+                          data-plasmic-name={"logo"}
+                          data-plasmic-override={overrides.logo}
+                          className={classNames(projectcss.all, sty.logo)}
                         >
                           <div
                             className={classNames(
@@ -3833,6 +3833,7 @@ const PlasmicDescendants = {
     "travelMaster",
     "_5Star",
     "starImage",
+    "logo",
     "time",
     "flightIcon8",
     "flights",
@@ -3890,6 +3891,7 @@ const PlasmicDescendants = {
     "travelMaster",
     "_5Star",
     "starImage",
+    "logo",
     "time",
     "flightIcon8",
     "flights",
@@ -3945,6 +3947,7 @@ const PlasmicDescendants = {
     "travelMaster",
     "_5Star",
     "starImage",
+    "logo",
     "time",
     "flightIcon8",
     "flights",
@@ -3998,6 +4001,7 @@ const PlasmicDescendants = {
   travelMaster: ["travelMaster", "_5Star", "starImage"],
   _5Star: ["_5Star", "starImage"],
   starImage: ["starImage"],
+  logo: ["logo"],
   time: ["time", "flightIcon8"],
   flightIcon8: ["flightIcon8"],
   flights: ["flights", "flightIcon2"],
@@ -4059,6 +4063,7 @@ type NodeDefaultElementType = {
   travelMaster: "section";
   _5Star: "div";
   starImage: "section";
+  logo: "div";
   time: "div";
   flightIcon8: "svg";
   flights: "div";
@@ -4176,6 +4181,7 @@ export const PlasmicHomepage = Object.assign(
     travelMaster: makeNodeComponent("travelMaster"),
     _5Star: makeNodeComponent("_5Star"),
     starImage: makeNodeComponent("starImage"),
+    logo: makeNodeComponent("logo"),
     time: makeNodeComponent("time"),
     flightIcon8: makeNodeComponent("flightIcon8"),
     flights: makeNodeComponent("flights"),
