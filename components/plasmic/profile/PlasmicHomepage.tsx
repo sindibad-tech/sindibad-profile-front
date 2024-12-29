@@ -2071,7 +2071,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayMaxWidth={"100%"}
                                     displayMinHeight={"0"}
                                     displayMinWidth={"0"}
-                                    displayWidth={"auto"}
+                                    displayWidth={"100%"}
                                     loading={"lazy"}
                                     src={{
                                       src: "/plasmic/profile/images/_15128Jpg14.jpg",
@@ -2226,7 +2226,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayMaxWidth={"100%"}
                                     displayMinHeight={"0"}
                                     displayMinWidth={"0"}
-                                    displayWidth={"auto"}
+                                    displayWidth={"100%"}
                                     loading={"lazy"}
                                     src={{
                                       src: "/plasmic/profile/images/_15128Jpg13.jpg",
@@ -2391,7 +2391,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayMaxWidth={"100%"}
                                     displayMinHeight={"0"}
                                     displayMinWidth={"0"}
-                                    displayWidth={"auto"}
+                                    displayWidth={"100%"}
                                     loading={"lazy"}
                                     src={{
                                       src: "/plasmic/profile/images/_15128Jpg12.jpg",
@@ -2719,7 +2719,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayMaxWidth={"100%"}
                                     displayMinHeight={"0"}
                                     displayMinWidth={"0"}
-                                    displayWidth={"auto"}
+                                    displayWidth={"100%"}
                                     loading={"lazy"}
                                     src={{
                                       src: "/plasmic/profile/images/_15128Jpg9.jpg",
@@ -2882,7 +2882,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayMaxWidth={"100%"}
                                     displayMinHeight={"0"}
                                     displayMinWidth={"0"}
-                                    displayWidth={"auto"}
+                                    displayWidth={"100%"}
                                     loading={"lazy"}
                                     src={{
                                       src: "/plasmic/profile/images/_15128Jpg10.jpg",
@@ -2945,6 +2945,19 @@ function PlasmicHomepage__RenderFunc(props: {
                               projectcss.all,
                               sty.freeBox__iaqXc
                             )}
+                            dir={(() => {
+                              try {
+                                return $state.language === "ar" ? "ltr" : "ltr";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
                           >
                             <div
                               className={classNames(
@@ -3516,8 +3529,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                     customFunction: async () => {
                                       return (async () => {
                                         async function shareAppView() {
-                                          let isSuccess = false;
-                                          let errorMessage = "";
                                           try {
                                             document.getElementById(
                                               "loadnotif"
@@ -3587,13 +3598,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                             if (navigator.share) {
                                               try {
                                                 await navigator.share({
-                                                  files: [
-                                                    new File(
-                                                      [base64Image],
-                                                      "screenshot.png",
-                                                      { type: "image/png" }
-                                                    )
-                                                  ]
+                                                  text: "Check out this view!",
+                                                  url: base64Image
                                                 });
                                                 console.log(
                                                   "Shared successfully using navigator.share."
@@ -3601,7 +3607,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                                 document.getElementById(
                                                   "oknotif"
                                                 ).style.display = "flex";
-                                                isSuccess = true;
                                                 return;
                                               } catch (shareError) {
                                                 console.warn(
@@ -3622,7 +3627,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   document.getElementById(
                                                     "oknotif"
                                                   ).style.display = "flex";
-                                                  isSuccess = true;
                                                 },
                                                 message => {
                                                   throw new Error(message);
@@ -3643,7 +3647,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   document.getElementById(
                                                     "oknotif"
                                                   ).style.display = "flex";
-                                                  isSuccess = true;
                                                 },
                                                 message => {
                                                   console.error(
@@ -3653,7 +3656,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   document.getElementById(
                                                     "errornotif"
                                                   ).style.display = "flex";
-                                                  errorMessage = message;
                                                 }
                                               );
                                             }
@@ -3665,25 +3667,63 @@ function PlasmicHomepage__RenderFunc(props: {
                                             document.getElementById(
                                               "errornotif"
                                             ).style.display = "flex";
-                                            errorMessage = error.message;
                                           } finally {
                                             document.getElementById(
                                               "loadnotif"
                                             ).style.display = "none";
-                                            if (isSuccess) {
-                                              gtag("event", "share_app", {
-                                                event_category: "share",
-                                                event_label: "success"
-                                              });
-                                            } else {
-                                              gtag("event", "share_app", {
-                                                event_category: "share",
-                                                event_label: "error",
-                                                error_message: errorMessage
-                                              });
-                                            }
                                             console.log("done");
                                           }
+                                        }
+                                        async function openNativeShare(
+                                          content,
+                                          extension,
+                                          onSuccess,
+                                          onFailure
+                                        ) {
+                                          try {
+                                            if (window.webkit) {
+                                              window.webkit.messageHandlers.openNativeShare.postMessage(
+                                                `${extension}|${content}`
+                                              );
+                                              onSuccess("Shared using webkit.");
+                                            } else if (
+                                              window.AndroidInterface
+                                            ) {
+                                              window.AndroidInterface.openNativeShare(
+                                                extension,
+                                                content
+                                              );
+                                              onSuccess(
+                                                "Shared using AndroidInterface."
+                                              );
+                                            } else {
+                                              onFailure(
+                                                "No native sharing interface available."
+                                              );
+                                            }
+                                          } catch (error) {
+                                            onFailure(
+                                              `Error in openNativeShare: ${error.message}`
+                                            );
+                                          }
+                                        }
+                                        function copyToClipboard(
+                                          content,
+                                          onSuccess,
+                                          onFailure
+                                        ) {
+                                          navigator.clipboard
+                                            .writeText(content)
+                                            .then(() => {
+                                              onSuccess(
+                                                "Content copied to clipboard!"
+                                              );
+                                            })
+                                            .catch(error => {
+                                              onFailure(
+                                                `Failed to copy content: ${error.message}`
+                                              );
+                                            });
                                         }
                                         return shareAppView();
                                       })();
