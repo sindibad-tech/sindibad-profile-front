@@ -1475,16 +1475,21 @@ function PlasmicHomepage__RenderFunc(props: {
                           )}
                         >
                           <React.Fragment>
-                            <span
-                              className={
-                                "plasmic_default__all plasmic_default__span"
+                            {(() => {
+                              try {
+                                return $state.language === "en"
+                                  ? "Image Ready to Share"
+                                  : "الصورة جاهزة للمشاركة!";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
                               }
-                              style={{ fontWeight: 700 }}
-                            >
-                              {
-                                "\u062a\u0645 \u0646\u0633\u062e \u0627\u0644\u0635\u0648\u0631\u0629 \u0628\u0646\u062c\u0627\u062d \u0625\u0644\u0649 \u0627\u0644\u062d\u0627\u0641\u0638\u0629."
-                              }
-                            </span>
+                            })()}
                           </React.Fragment>
                         </div>
                         <div
@@ -1494,9 +1499,23 @@ function PlasmicHomepage__RenderFunc(props: {
                             sty.text__hbWw6
                           )}
                         >
-                          {
-                            "\u064a\u0645\u0643\u0646\u0643 \u0644\u0635\u0642\u0647\u0627 \u0641\u064a \u0627\u0644\u0648\u0627\u062a\u0633 \u0627\u0628 \u0623\u0648 \u0627\u0644\u062a\u0644\u064a\u062c\u0631\u0627\u0645 \u0644\u0645\u0634\u0627\u0631\u0643\u062a\u0647\u0627 \u0623\u0648 \u0644\u0635\u0642\u0647\u0627 \u0641\u064a \u0627\u0644\u0645\u062a\u0635\u0641\u062d \u0644\u0645\u0634\u0627\u0647\u062f\u062a\u0647\u0627 \u0623\u0648 \u062d\u0641\u0638\u0647\u0627"
-                          }
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.language === "en"
+                                  ? "Don't forget mention @sindibad.iq to your friends on instagram story."
+                                  : "لا تنسى ذكر صفحة سندباد (sindibadiq) في الفيسبوك او الانستغرام.";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0644\u0627 \u062a\u0646\u0633\u0649 \u0630\u0643\u0631 \u0635\u0641\u062d\u0629 \u0633\u0646\u062f\u0628\u0627\u062f (sindibadiq) \u0641\u064a \u0627\u0644\u0641\u064a\u0633\u0628\u0648\u0643 \u0627\u0648 \u0627\u0644\u0627\u0646\u0633\u062a\u063a\u0631\u0627\u0645.";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
                         </div>
                       </div>
                     </div>
@@ -1555,14 +1574,21 @@ function PlasmicHomepage__RenderFunc(props: {
                           )}
                         >
                           <React.Fragment>
-                            <span
-                              className={
-                                "plasmic_default__all plasmic_default__span"
+                            {(() => {
+                              try {
+                                return $state.language === "en"
+                                  ? "Error"
+                                  : "حدث خطأ";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
                               }
-                              style={{ fontWeight: 700 }}
-                            >
-                              {"\u062d\u062f\u062b \u062e\u0637\u0623"}
-                            </span>
+                            })()}
                           </React.Fragment>
                         </div>
                       </div>
@@ -1585,9 +1611,23 @@ function PlasmicHomepage__RenderFunc(props: {
                             sty.text__mm6LI
                           )}
                         >
-                          {
-                            "\u0627\u0644\u0639\u0645\u0644 \u0639\u0644\u0649 \u0627\u0644\u0635\u0648\u0631\u0629..."
-                          }
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.language === "en"
+                                  ? "Building Image..."
+                                  : "يتم تحضير الصورة...";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u064a\u062a\u0645 \u062a\u062d\u0636\u064a\u0631 \u0627\u0644\u0635\u0648\u0631\u0629..";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
                         </div>
                       </div>
                     </div>
@@ -2034,9 +2074,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayWidth={"auto"}
                                     loading={"lazy"}
                                     src={{
-                                      src: "/plasmic/profile/images/_15128Jpg5.jpg",
-                                      fullWidth: 1230,
-                                      fullHeight: 148,
+                                      src: "/plasmic/profile/images/_15128Jpg14.jpg",
+                                      fullWidth: 1180,
+                                      fullHeight: 106,
                                       aspectRatio: undefined
                                     }}
                                   />
@@ -2189,9 +2229,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayWidth={"auto"}
                                     loading={"lazy"}
                                     src={{
-                                      src: "/plasmic/profile/images/_15128Jpg6.jpg",
-                                      fullWidth: 1230,
-                                      fullHeight: 148,
+                                      src: "/plasmic/profile/images/_15128Jpg13.jpg",
+                                      fullWidth: 1179,
+                                      fullHeight: 114,
                                       aspectRatio: undefined
                                     }}
                                   />
@@ -2354,9 +2394,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayWidth={"auto"}
                                     loading={"lazy"}
                                     src={{
-                                      src: "/plasmic/profile/images/_15128Jpg4.jpg",
-                                      fullWidth: 1229,
-                                      fullHeight: 148,
+                                      src: "/plasmic/profile/images/_15128Jpg12.jpg",
+                                      fullWidth: 1172,
+                                      fullHeight: 111,
                                       aspectRatio: undefined
                                     }}
                                   />
@@ -2517,9 +2557,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayWidth={"100%"}
                                     loading={"lazy"}
                                     src={{
-                                      src: "/plasmic/profile/images/_15128Jpg3.jpg",
-                                      fullWidth: 1230,
-                                      fullHeight: 148,
+                                      src: "/plasmic/profile/images/_15128Jpg11.jpg",
+                                      fullWidth: 1179,
+                                      fullHeight: 112,
                                       aspectRatio: undefined
                                     }}
                                   />
@@ -2682,9 +2722,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayWidth={"auto"}
                                     loading={"lazy"}
                                     src={{
-                                      src: "/plasmic/profile/images/_15128Jpg2.jpg",
-                                      fullWidth: 1230,
-                                      fullHeight: 148,
+                                      src: "/plasmic/profile/images/_15128Jpg9.jpg",
+                                      fullWidth: 1180,
+                                      fullHeight: 110,
                                       aspectRatio: undefined
                                     }}
                                   />
@@ -2845,9 +2885,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                     displayWidth={"auto"}
                                     loading={"lazy"}
                                     src={{
-                                      src: "/plasmic/profile/images/_15128Jpg.jpg",
-                                      fullWidth: 1230,
-                                      fullHeight: 148,
+                                      src: "/plasmic/profile/images/_15128Jpg10.jpg",
+                                      fullWidth: 1184,
+                                      fullHeight: 111,
                                       aspectRatio: undefined
                                     }}
                                   />
@@ -3476,6 +3516,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                     customFunction: async () => {
                                       return (async () => {
                                         async function shareAppView() {
+                                          let isSuccess = false;
+                                          let errorMessage = "";
                                           try {
                                             document.getElementById(
                                               "loadnotif"
@@ -3559,11 +3601,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                                 document.getElementById(
                                                   "oknotif"
                                                 ).style.display = "flex";
-                                                gtag("event", "share_app", {
-                                                  event_category: "share",
-                                                  event_label: "success",
-                                                  method: "navigator.share"
-                                                });
+                                                isSuccess = true;
                                                 return;
                                               } catch (shareError) {
                                                 console.warn(
@@ -3584,11 +3622,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   document.getElementById(
                                                     "oknotif"
                                                   ).style.display = "flex";
-                                                  gtag("event", "share_app", {
-                                                    event_category: "share",
-                                                    event_label: "success",
-                                                    method: "openNativeShare"
-                                                  });
+                                                  isSuccess = true;
                                                 },
                                                 message => {
                                                   throw new Error(message);
@@ -3609,11 +3643,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   document.getElementById(
                                                     "oknotif"
                                                   ).style.display = "flex";
-                                                  gtag("event", "share_app", {
-                                                    event_category: "share",
-                                                    event_label: "success",
-                                                    method: "clipboard"
-                                                  });
+                                                  isSuccess = true;
                                                 },
                                                 message => {
                                                   console.error(
@@ -3623,11 +3653,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   document.getElementById(
                                                     "errornotif"
                                                   ).style.display = "flex";
-                                                  gtag("event", "share_app", {
-                                                    event_category: "share",
-                                                    event_label: "error",
-                                                    error_message: message
-                                                  });
+                                                  errorMessage = message;
                                                 }
                                               );
                                             }
@@ -3639,15 +3665,23 @@ function PlasmicHomepage__RenderFunc(props: {
                                             document.getElementById(
                                               "errornotif"
                                             ).style.display = "flex";
-                                            gtag("event", "share_app", {
-                                              event_category: "share",
-                                              event_label: "error",
-                                              error_message: error.message
-                                            });
+                                            errorMessage = error.message;
                                           } finally {
                                             document.getElementById(
                                               "loadnotif"
                                             ).style.display = "none";
+                                            if (isSuccess) {
+                                              gtag("event", "share_app", {
+                                                event_category: "share",
+                                                event_label: "success"
+                                              });
+                                            } else {
+                                              gtag("event", "share_app", {
+                                                event_category: "share",
+                                                event_label: "error",
+                                                error_message: errorMessage
+                                              });
+                                            }
                                             console.log("done");
                                           }
                                         }
