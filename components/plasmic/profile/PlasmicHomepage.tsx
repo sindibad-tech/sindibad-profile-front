@@ -3561,7 +3561,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                               },
                                               body: JSON.stringify({
                                                 threadId: "",
-                                                userId: userId, // Ensure userId is defined
+                                                userId: $state.userId, // Ensure userId is defined
                                                 message: `[Image Link](${imgUrl})`
                                               })
                                             }
@@ -3585,6 +3585,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                           console.log(
                                             "Image URL copied to clipboard."
                                           );
+                                          document.getElementById(
+                                            "oknotif"
+                                          ).style.display = "flex";
                                         } catch (error) {
                                           console.error(
                                             "Error capturing or sharing the screenshot:",
