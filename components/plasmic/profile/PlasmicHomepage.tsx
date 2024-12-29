@@ -63,6 +63,7 @@ import ProfileHeader from "../../ProfileHeader"; // plasmic-import: T35z79qnz4CS
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import Button from "../../Button"; // plasmic-import: 1hegvDmx6W9E/component
 import NewLogin from "../../NewLogin"; // plasmic-import: kAqzy6eR7N60/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsj8Mi7ZgQDQt } from "../library/PlasmicGlobalVariant__Screen"; // plasmic-import: J8mi7ZG-qDQt/globalVariant
 
@@ -248,6 +249,12 @@ function PlasmicHomepage__RenderFunc(props: {
       },
       {
         path: "year",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "variable",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
