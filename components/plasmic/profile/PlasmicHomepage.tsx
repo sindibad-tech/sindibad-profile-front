@@ -3412,197 +3412,188 @@ function PlasmicHomepage__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return async function shareAppView() {
-                                        try {
-                                          document.getElementById(
-                                            "loadnotif"
-                                          ).style.display = "flex";
-
-                                          // Load html2canvas if not already loaded
-                                          if (
-                                            typeof window.html2canvas ===
-                                            "undefined"
-                                          ) {
+                                      return (async () => {
+                                        async function shareAppView() {
+                                          try {
+                                            document.getElementById(
+                                              "loadnotif"
+                                            ).style.display = "flex";
+                                            if (
+                                              typeof window.html2canvas ===
+                                              "undefined"
+                                            ) {
+                                              await new Promise(
+                                                (resolve, reject) => {
+                                                  const script =
+                                                    document.createElement(
+                                                      "script"
+                                                    );
+                                                  script.src =
+                                                    "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+                                                  script.onload = resolve;
+                                                  script.onerror = reject;
+                                                  document.head.appendChild(
+                                                    script
+                                                  );
+                                                }
+                                              );
+                                            }
+                                            const fontLink =
+                                              document.createElement("link");
+                                            fontLink.href =
+                                              "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
+                                            fontLink.rel = "stylesheet";
+                                            document.head.appendChild(fontLink);
                                             await new Promise(
                                               (resolve, reject) => {
-                                                const script =
-                                                  document.createElement(
-                                                    "script"
-                                                  );
-                                                script.src =
-                                                  "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
-                                                script.onload = resolve;
-                                                script.onerror = reject;
-                                                document.head.appendChild(
-                                                  script
-                                                );
+                                                fontLink.onload = resolve;
+                                                fontLink.onerror = reject;
                                               }
                                             );
-                                          }
-
-                                          // Load Vazirmatn font
-                                          const fontLink =
-                                            document.createElement("link");
-                                          fontLink.href =
-                                            "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap";
-                                          fontLink.rel = "stylesheet";
-                                          document.head.appendChild(fontLink);
-                                          await new Promise(
-                                            (resolve, reject) => {
-                                              fontLink.onload = resolve;
-                                              fontLink.onerror = reject;
-                                            }
-                                          );
-
-                                          document.body.style.fontFamily =
-                                            "Vazirmatn, sans-serif";
-                                          const appElement =
-                                            document.querySelector("#app-box");
-                                          if (!appElement)
-                                            throw new Error(
-                                              'Element with ID "app-box" not found.'
-                                            );
-                                          if (
-                                            appElement.innerText.match(
-                                              /[\u0600-\u06FF]/
-                                            )
-                                          )
-                                            appElement.style.direction = "rtl";
-
-                                          await new Promise(resolve =>
-                                            setTimeout(resolve, 500)
-                                          ); // Ensure font applies
-
-                                          const canvas =
-                                            await window.html2canvas(
-                                              appElement,
-                                              { useCORS: true, logging: true }
-                                            );
-                                          const blob = await new Promise(
-                                            resolve =>
-                                              canvas.toBlob(
-                                                resolve,
-                                                "image/png"
+                                            document.body.style.fontFamily =
+                                              "Vazirmatn, sans-serif";
+                                            const appElement =
+                                              document.querySelector(
+                                                "#app-box"
+                                              );
+                                            if (!appElement)
+                                              throw new Error(
+                                                'Element with ID "app-box" not found.'
+                                              );
+                                            if (
+                                              appElement.innerText.match(
+                                                /[\u0600-\u06FF]/
                                               )
-                                          );
-                                          if (!blob)
-                                            throw new Error(
-                                              "Failed to create blob from canvas."
+                                            )
+                                              appElement.style.direction =
+                                                "rtl";
+                                            await new Promise(resolve =>
+                                              setTimeout(resolve, 500)
                                             );
-
-                                          const file = new File(
-                                            [blob],
-                                            "app-screenshot.png",
-                                            { type: "image/png" }
-                                          );
-                                          const canShareFiles =
-                                            navigator.canShare &&
-                                            navigator.canShare({
-                                              files: [file]
-                                            });
-
-                                          // Try sharing with navigator.share
-                                          if (
-                                            navigator.share &&
-                                            canShareFiles
-                                          ) {
-                                            try {
-                                              await navigator.share({
+                                            const canvas =
+                                              await window.html2canvas(
+                                                appElement,
+                                                {
+                                                  useCORS: true,
+                                                  logging: true
+                                                }
+                                              );
+                                            const blob = await new Promise(
+                                              resolve =>
+                                                canvas.toBlob(
+                                                  resolve,
+                                                  "image/png"
+                                                )
+                                            );
+                                            if (!blob)
+                                              throw new Error(
+                                                "Failed to create blob from canvas."
+                                              );
+                                            const file = new File(
+                                              [blob],
+                                              "app-screenshot.png",
+                                              { type: "image/png" }
+                                            );
+                                            const canShareFiles =
+                                              navigator.canShare &&
+                                              navigator.canShare({
                                                 files: [file]
                                               });
-                                              console.log(
-                                                "Screenshot shared successfully!"
-                                              );
-                                              document.getElementById(
-                                                "loadnotif"
-                                              ).style.display = "none";
-                                              return;
-                                            } catch (shareError) {
-                                              console.warn(
-                                                "Sharing via navigator.share failed, falling back to ImgBB upload.",
-                                                shareError
-                                              );
+                                            if (
+                                              navigator.share &&
+                                              canShareFiles
+                                            ) {
+                                              try {
+                                                await navigator.share({
+                                                  files: [file]
+                                                });
+                                                console.log(
+                                                  "Screenshot shared successfully!"
+                                                );
+                                                document.getElementById(
+                                                  "loadnotif"
+                                                ).style.display = "none";
+                                                return;
+                                              } catch (shareError) {
+                                                console.warn(
+                                                  "Sharing via navigator.share failed, falling back to ImgBB upload.",
+                                                  shareError
+                                                );
+                                              }
                                             }
+                                            const formData = new FormData();
+                                            formData.append(
+                                              "key",
+                                              "c4c4db147224f29c019f0c0dc3e6f9a0"
+                                            );
+                                            formData.append("image", file);
+                                            const response = await fetch(
+                                              "https://api.imgbb.com/1/upload",
+                                              {
+                                                method: "POST",
+                                                body: formData
+                                              }
+                                            );
+                                            if (!response.ok)
+                                              throw new Error(
+                                                "Failed to upload image to ImgBB."
+                                              );
+                                            const result =
+                                              await response.json();
+                                            const imgUrl = result.data.url;
+                                            const apiResponse = await fetch(
+                                              "https://assistant.sindibad.iq/api/admin/proactive-messages",
+                                              {
+                                                method: "POST",
+                                                headers: {
+                                                  "Content-Type":
+                                                    "application/json",
+                                                  Authorization:
+                                                    "5g5ODr57LAGVGNT/WDoXpfqmaA+WUULTPyQkgeiv7EI="
+                                                },
+                                                body: JSON.stringify({
+                                                  threadId: "",
+                                                  userId: $state.userId,
+                                                  message: `[Image Link](${imgUrl})`
+                                                })
+                                              }
+                                            );
+                                            if (!apiResponse.ok)
+                                              throw new Error(
+                                                "Failed to send message to API."
+                                              );
+                                            console.log(
+                                              "Message sent to API with image URL."
+                                            );
+                                            document.getElementById(
+                                              "oknotif"
+                                            ).style.display = "flex";
+                                            await navigator.clipboard.writeText(
+                                              imgUrl
+                                            );
+                                            console.log(
+                                              "Image URL copied to clipboard."
+                                            );
+                                            document.getElementById(
+                                              "oknotif"
+                                            ).style.display = "flex";
+                                          } catch (error) {
+                                            console.error(
+                                              "Error capturing or sharing the screenshot:",
+                                              error
+                                            );
+                                            document.getElementById(
+                                              "errornotif"
+                                            ).style.display = "flex";
+                                          } finally {
+                                            document.getElementById(
+                                              "loadnotif"
+                                            ).style.display = "none";
+                                            console.log("done");
                                           }
-
-                                          // Fall back to uploading to ImgBB
-                                          const formData = new FormData();
-                                          formData.append(
-                                            "key",
-                                            "c4c4db147224f29c019f0c0dc3e6f9a0"
-                                          ); // Your ImgBB API key
-                                          formData.append("image", file);
-
-                                          const response = await fetch(
-                                            "https://api.imgbb.com/1/upload",
-                                            {
-                                              method: "POST",
-                                              body: formData
-                                            }
-                                          );
-
-                                          if (!response.ok)
-                                            throw new Error(
-                                              "Failed to upload image to ImgBB."
-                                            );
-                                          const result = await response.json();
-                                          const imgUrl = result.data.url;
-
-                                          // POST fallback to API
-                                          const apiResponse = await fetch(
-                                            "https://assistant.sindibad.iq/api/admin/proactive-messages",
-                                            {
-                                              method: "POST",
-                                              headers: {
-                                                "Content-Type":
-                                                  "application/json",
-                                                Authorization:
-                                                  "5g5ODr57LAGVGNT/WDoXpfqmaA+WUULTPyQkgeiv7EI="
-                                              },
-                                              body: JSON.stringify({
-                                                threadId: "",
-                                                userId: $state.userId, // Ensure userId is defined
-                                                message: `[Image Link](${imgUrl})`
-                                              })
-                                            }
-                                          );
-
-                                          if (!apiResponse.ok)
-                                            throw new Error(
-                                              "Failed to send message to API."
-                                            );
-                                          console.log(
-                                            "Message sent to API with image URL."
-                                          );
-                                          document.getElementById(
-                                            "oknotif"
-                                          ).style.display = "flex";
-
-                                          // Copy the uploaded image URL to the clipboard
-                                          await navigator.clipboard.writeText(
-                                            imgUrl
-                                          );
-                                          console.log(
-                                            "Image URL copied to clipboard."
-                                          );
-                                          document.getElementById(
-                                            "oknotif"
-                                          ).style.display = "flex";
-                                        } catch (error) {
-                                          console.error(
-                                            "Error capturing or sharing the screenshot:",
-                                            error
-                                          );
-                                          document.getElementById(
-                                            "errornotif"
-                                          ).style.display = "flex";
-                                        } finally {
-                                          document.getElementById(
-                                            "loadnotif"
-                                          ).style.display = "none";
-                                          console.log("done");
                                         }
-                                      };
+                                        return shareAppView();
+                                      })();
                                     }
                                   };
                                   return (({ customFunction }) => {
