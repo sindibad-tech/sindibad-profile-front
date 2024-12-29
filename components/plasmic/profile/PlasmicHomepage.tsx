@@ -3609,8 +3609,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             if (navigator.share) {
                                               try {
                                                 await navigator.share({
-                                                  text: "Check out this view!",
-                                                  url: base64Image
+                                                  files: [base64Image]
                                                 });
                                                 console.log(
                                                   "Shared successfully using navigator.share."
