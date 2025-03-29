@@ -100,7 +100,7 @@ export type PlasmicHomepage__OverridesType = {
   body?: Flex__<"div">;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
   all2?: Flex__<typeof Button>;
-  _2025?: Flex__<typeof Button>;
+  _20252?: Flex__<typeof Button>;
   _20242?: Flex__<typeof Button>;
   _20234?: Flex__<"div">;
   _20232?: Flex__<typeof Button>;
@@ -124,7 +124,7 @@ export type PlasmicHomepage__OverridesType = {
   airportIcon4?: Flex__<"svg">;
   year2?: Flex__<"div">;
   all?: Flex__<typeof Button>;
-  _20252?: Flex__<typeof Button>;
+  _2025?: Flex__<typeof Button>;
   _2024?: Flex__<typeof Button>;
   _2023?: Flex__<typeof Button>;
   _20233?: Flex__<"div">;
@@ -820,12 +820,12 @@ function PlasmicHomepage__RenderFunc(props: {
                             </div>
                           </Button>
                           <Button
-                            data-plasmic-name={"_2025"}
-                            data-plasmic-override={overrides._2025}
-                            className={classNames("__wab_instance", sty._2025)}
+                            data-plasmic-name={"_20252"}
+                            data-plasmic-override={overrides._20252}
+                            className={classNames("__wab_instance", sty._20252)}
                             color={(() => {
                               try {
-                                return $state.year === "year=2025"
+                                return $state.year === "year=2024"
                                   ? "blue"
                                   : "softBlue";
                               } catch (e) {
@@ -1736,9 +1736,9 @@ function PlasmicHomepage__RenderFunc(props: {
                           </div>
                         </Button>
                         <Button
-                          data-plasmic-name={"_20252"}
-                          data-plasmic-override={overrides._20252}
-                          className={classNames("__wab_instance", sty._20252)}
+                          data-plasmic-name={"_2025"}
+                          data-plasmic-override={overrides._2025}
+                          className={classNames("__wab_instance", sty._2025)}
                           color={(() => {
                             try {
                               return $state.year === "year=2025"
@@ -3842,7 +3842,7 @@ const PlasmicDescendants = {
     "body",
     "httpRestApiFetcher",
     "all2",
-    "_2025",
+    "_20252",
     "_20242",
     "_20234",
     "_20232",
@@ -3866,7 +3866,7 @@ const PlasmicDescendants = {
     "airportIcon4",
     "year2",
     "all",
-    "_20252",
+    "_2025",
     "_2024",
     "_2023",
     "_20233",
@@ -3901,7 +3901,7 @@ const PlasmicDescendants = {
     "body",
     "httpRestApiFetcher",
     "all2",
-    "_2025",
+    "_20252",
     "_20242",
     "_20234",
     "_20232",
@@ -3925,7 +3925,7 @@ const PlasmicDescendants = {
     "airportIcon4",
     "year2",
     "all",
-    "_20252",
+    "_2025",
     "_2024",
     "_2023",
     "_20233",
@@ -3957,7 +3957,7 @@ const PlasmicDescendants = {
   httpRestApiFetcher: [
     "httpRestApiFetcher",
     "all2",
-    "_2025",
+    "_20252",
     "_20242",
     "_20234",
     "_20232",
@@ -3981,7 +3981,7 @@ const PlasmicDescendants = {
     "airportIcon4",
     "year2",
     "all",
-    "_20252",
+    "_2025",
     "_2024",
     "_2023",
     "_20233",
@@ -4011,7 +4011,7 @@ const PlasmicDescendants = {
     "link"
   ],
   all2: ["all2"],
-  _2025: ["_2025"],
+  _20252: ["_20252"],
   _20242: ["_20242", "_20234"],
   _20234: ["_20234"],
   _20232: ["_20232"],
@@ -4033,9 +4033,9 @@ const PlasmicDescendants = {
   cityIcon3: ["cityIcon3"],
   airports2: ["airports2", "airportIcon4"],
   airportIcon4: ["airportIcon4"],
-  year2: ["year2", "all", "_20252", "_2024", "_2023", "_20233"],
+  year2: ["year2", "all", "_2025", "_2024", "_2023", "_20233"],
   all: ["all"],
-  _20252: ["_20252"],
+  _2025: ["_2025"],
   _2024: ["_2024"],
   _2023: ["_2023", "_20233"],
   _20233: ["_20233"],
@@ -4074,7 +4074,7 @@ type NodeDefaultElementType = {
   body: "div";
   httpRestApiFetcher: typeof DataFetcher;
   all2: typeof Button;
-  _2025: typeof Button;
+  _20252: typeof Button;
   _20242: typeof Button;
   _20234: "div";
   _20232: typeof Button;
@@ -4098,7 +4098,7 @@ type NodeDefaultElementType = {
   airportIcon4: "svg";
   year2: "div";
   all: typeof Button;
-  _20252: typeof Button;
+  _2025: typeof Button;
   _2024: typeof Button;
   _2023: typeof Button;
   _20233: "div";
@@ -4193,7 +4193,7 @@ export const PlasmicHomepage = Object.assign(
     body: makeNodeComponent("body"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
     all2: makeNodeComponent("all2"),
-    _2025: makeNodeComponent("_2025"),
+    _20252: makeNodeComponent("_20252"),
     _20242: makeNodeComponent("_20242"),
     _20234: makeNodeComponent("_20234"),
     _20232: makeNodeComponent("_20232"),
@@ -4217,7 +4217,7 @@ export const PlasmicHomepage = Object.assign(
     airportIcon4: makeNodeComponent("airportIcon4"),
     year2: makeNodeComponent("year2"),
     all: makeNodeComponent("all"),
-    _20252: makeNodeComponent("_20252"),
+    _2025: makeNodeComponent("_2025"),
     _2024: makeNodeComponent("_2024"),
     _2023: makeNodeComponent("_2023"),
     _20233: makeNodeComponent("_20233"),
