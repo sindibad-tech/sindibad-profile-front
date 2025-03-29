@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -101,9 +101,9 @@ export type PlasmicHomepage__OverridesType = {
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
   all2?: Flex__<typeof Button>;
   _2025?: Flex__<typeof Button>;
-  _2026?: Flex__<typeof Button>;
+  _20242?: Flex__<typeof Button>;
   _20234?: Flex__<"div">;
-  _2027?: Flex__<typeof Button>;
+  _20232?: Flex__<typeof Button>;
   loadimg?: Flex__<"section">;
   time3?: Flex__<"div">;
   timeIcon?: Flex__<"svg">;
@@ -825,7 +825,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             className={classNames("__wab_instance", sty._2025)}
                             color={(() => {
                               try {
-                                return $state.year === "year=2024"
+                                return $state.year === "year=2025"
                                   ? "blue"
                                   : "softBlue";
                               } catch (e) {
@@ -889,7 +889,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return 2024;
+                                    return 2025;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -905,12 +905,12 @@ function PlasmicHomepage__RenderFunc(props: {
                             </div>
                           </Button>
                           <Button
-                            data-plasmic-name={"_2026"}
-                            data-plasmic-override={overrides._2026}
-                            className={classNames("__wab_instance", sty._2026)}
+                            data-plasmic-name={"_20242"}
+                            data-plasmic-override={overrides._20242}
+                            className={classNames("__wab_instance", sty._20242)}
                             color={(() => {
                               try {
-                                return $state.year === "year=2023"
+                                return $state.year === "year=2024"
                                   ? "blue"
                                   : "softBlue";
                               } catch (e) {
@@ -976,7 +976,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return 2023;
+                                    return 2024;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -992,12 +992,12 @@ function PlasmicHomepage__RenderFunc(props: {
                             </div>
                           </Button>
                           <Button
-                            data-plasmic-name={"_2027"}
-                            data-plasmic-override={overrides._2027}
-                            className={classNames("__wab_instance", sty._2027)}
+                            data-plasmic-name={"_20232"}
+                            data-plasmic-override={overrides._20232}
+                            className={classNames("__wab_instance", sty._20232)}
                             color={(() => {
                               try {
-                                return $state.year === "year=2022"
+                                return $state.year === "year=2023"
                                   ? "blue"
                                   : "softBlue";
                               } catch (e) {
@@ -1061,7 +1061,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return 2022;
+                                    return 2023;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -3843,9 +3843,9 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "all2",
     "_2025",
-    "_2026",
+    "_20242",
     "_20234",
-    "_2027",
+    "_20232",
     "loadimg",
     "time3",
     "timeIcon",
@@ -3902,9 +3902,9 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "all2",
     "_2025",
-    "_2026",
+    "_20242",
     "_20234",
-    "_2027",
+    "_20232",
     "loadimg",
     "time3",
     "timeIcon",
@@ -3958,9 +3958,9 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "all2",
     "_2025",
-    "_2026",
+    "_20242",
     "_20234",
-    "_2027",
+    "_20232",
     "loadimg",
     "time3",
     "timeIcon",
@@ -4012,9 +4012,9 @@ const PlasmicDescendants = {
   ],
   all2: ["all2"],
   _2025: ["_2025"],
-  _2026: ["_2026", "_20234"],
+  _20242: ["_20242", "_20234"],
   _20234: ["_20234"],
-  _2027: ["_2027"],
+  _20232: ["_20232"],
   loadimg: ["loadimg"],
   time3: ["time3", "timeIcon"],
   timeIcon: ["timeIcon"],
@@ -4075,9 +4075,9 @@ type NodeDefaultElementType = {
   httpRestApiFetcher: typeof DataFetcher;
   all2: typeof Button;
   _2025: typeof Button;
-  _2026: typeof Button;
+  _20242: typeof Button;
   _20234: "div";
-  _2027: typeof Button;
+  _20232: typeof Button;
   loadimg: "section";
   time3: "div";
   timeIcon: "svg";
@@ -4140,15 +4140,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicHomepage__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicHomepage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicHomepage__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicHomepage__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -4194,9 +4194,9 @@ export const PlasmicHomepage = Object.assign(
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
     all2: makeNodeComponent("all2"),
     _2025: makeNodeComponent("_2025"),
-    _2026: makeNodeComponent("_2026"),
+    _20242: makeNodeComponent("_20242"),
     _20234: makeNodeComponent("_20234"),
-    _2027: makeNodeComponent("_2027"),
+    _20232: makeNodeComponent("_20232"),
     loadimg: makeNodeComponent("loadimg"),
     time3: makeNodeComponent("time3"),
     timeIcon: makeNodeComponent("timeIcon"),

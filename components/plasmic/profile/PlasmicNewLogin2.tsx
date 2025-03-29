@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -73,9 +73,7 @@ export type PlasmicNewLogin2__VariantsArgs = {};
 type VariantPropType = keyof PlasmicNewLogin2__VariantsArgs;
 export const PlasmicNewLogin2__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicNewLogin2__ArgsType = {
-  language?: string;
-};
+export type PlasmicNewLogin2__ArgsType = { language?: string };
 type ArgPropType = keyof PlasmicNewLogin2__ArgsType;
 export const PlasmicNewLogin2__ArgProps = new Array<ArgPropType>("language");
 
@@ -597,15 +595,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicNewLogin2__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicNewLogin2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicNewLogin2__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicNewLogin2__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
