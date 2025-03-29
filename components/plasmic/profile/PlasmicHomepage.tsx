@@ -762,7 +762,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                         variablePath: ["year"]
                                       },
                                       operation: 0,
-                                      value: ""
+                                      value: "2024"
                                     };
                                     return (({
                                       variable,
@@ -849,7 +849,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                         variablePath: ["year"]
                                       },
                                       operation: 0,
-                                      value: "year=2025"
+                                      value: "year=2024"
                                     };
                                     return (({
                                       variable,
@@ -1681,7 +1681,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       variablePath: ["year"]
                                     },
                                     operation: 0,
-                                    value: ""
+                                    value: "2024"
                                   };
                                   return (({
                                     variable,
@@ -1765,7 +1765,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       variablePath: ["year"]
                                     },
                                     operation: 0,
-                                    value: "year=2025"
+                                    value: "year=2022"
                                   };
                                   return (({
                                     variable,
